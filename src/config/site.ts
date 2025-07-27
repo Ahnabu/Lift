@@ -18,92 +18,140 @@ export const siteConfig = {
 export const navigation = {
   main: [
     {
-      title: "Home",
+      title: "HOME",
       href: "/",
     },
     {
-      title: "About Us",
+      title: "ABOUT US",
       href: "/about-us",
     },
     {
-      title: "Products",
+      title: "PRODUCTS",
       href: "#",
-      items: [
+      children: [
         {
-          title: "Generator",
+          title: "LIFT",
+          href: "#",
+          children: [
+            {
+              title: "PROPERTY LIFTS",
+              href: "#",
+              children: [
+                {
+                  title: "PASSENGER LIFT",
+                  href: "/products/lift/property-lifts/passenger-lift",
+                },
+                {
+                  title: "CAPSULE LIFT",
+                  href: "/products/lift/property-lifts/capsule-lift",
+                },
+                {
+                  title: "HOSPITAL LIFT",
+                  href: "/products/lift/property-lifts/hospital-lift",
+                },
+                {
+                  title: "CARGO LIFT",
+                  href: "/products/lift/property-lifts/cargo-lift",
+                },
+                {
+                  title: "ESCALATOR",
+                  href: "/products/lift/property-lifts/escalator",
+                }
+              ]
+            },
+            {
+              title: "IMPORTED LIFT",
+              href: "#",
+              children: [
+                {
+                  title: "KONE",
+                  href: "/products/lift/imported-lift/kone",
+                },
+                {
+                  title: "SRH",
+                  href: "/products/lift/imported-lift/srh",
+                },
+                {
+                  title: "MP",
+                  href: "/products/lift/imported-lift/mp",
+                },
+                {
+                  title: "SHANGHAI MITSUBISHI",
+                  href: "/products/lift/imported-lift/shanghai-mitsubishi",
+                }
+              ]
+            }
+          ]
+        },
+        {
+          title: "FORKLIFT",
+          href: "/products/forklift",
+        },
+        {
+          title: "GENERATOR",
           href: "/products/generator",
-          description: "High-quality generators for uninterrupted power supply"
         },
         {
           title: "HVAC",
           href: "/products/hvac",
-          description: "Heating, ventilation, and air conditioning systems"
         },
         {
-          title: "Solar",
+          title: "STREET LIGHT",
+          href: "/products/street-light",
+        },
+        {
+          title: "SOLAR",
           href: "/products/solar",
-          description: "Solar energy solutions for sustainable power"
-        },
-        {
-          title: "Lift",
-          href: "/products/lift/property-lifts",
-          description: "Premium lifts and elevators for all properties"
-        },
-        {
-          title: "Forklift",
-          href: "/products/forklift",
-          description: "Industrial forklifts for material handling"
         }
       ]
     },
     {
-      title: "Spare Parts",
-      href: "/spare-parts",
-    },
-    {
-      title: "Projects",
+      title: "PROJECTS",
       href: "#",
-      items: [
+      children: [
         {
-          title: "Completed Projects",
-          href: "/projects/completed",
-          description: "View our successfully completed projects"
+          title: "LIFT",
+          href: "/projects/lift",
         },
         {
-          title: "Ongoing Projects",
-          href: "/projects/ongoing",
-          description: "Current projects in progress"
+          title: "FORKLIFT",
+          href: "/projects/forklift",
+        },
+        {
+          title: "GENERATOR",
+          href: "/projects/generator",
+        },
+        {
+          title: "HVAC",
+          href: "/projects/hvac",
         }
       ]
     },
     {
-      title: "Media",
+      title: "MEDIA",
       href: "#",
-      items: [
+      children: [
         {
-          title: "Picture Gallery",
+          title: "PICTURE GALLERY",
           href: "/media/picture-gallery",
-          description: "Photo gallery of our work and projects"
         },
         {
-          title: "Video Gallery",
+          title: "VIDEO GALLERY",
           href: "/media/video-gallery",
-          description: "Video showcase of our services"
         },
         {
-          title: "Catalogue",
+          title: "CATALOGUE",
           href: "/media/catalogue",
-          description: "Download our product catalogues"
         }
       ]
     },
     {
-      title: "Certificate",
+      title: "CERTIFICATE",
       href: "/certificate",
     },
     {
-      title: "Contact Us",
-      href: "/contactus",
-    },
-  ],
+      title: "CONTACT US",
+      href: "/contact-us",
+    }
+  ]
 }
