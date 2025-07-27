@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export default function AboutUsPage() {
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen mx-auto">
             {/* Hero Section with Moving Background */}
             <section className="relative h-96 flex items-center justify-center moving-background bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
                 {/* Background Image */}
@@ -61,67 +61,63 @@ export default function AboutUsPage() {
             {/* Our Management Team Section */}
             <section className="py-16 px-4 bg-secondary">
                 <div className="container mx-auto max-w-6xl">
-                    <div className="flex items-start gap-12">
-                        {/* Left side with title and decorative line */}
-                        <div className="flex-shrink-0 w-1/3">
-                            <h2 className="text-3xl font-bold text-white mb-4">OUR MANAGEMENT TEAM</h2>
-                            <div className="w-px h-32 bg-gradient-to-b from-white via-white/50 to-transparent"></div>
+                    {/* Title and horizontal line */}
+                    <div className="flex items-center mb-12">
+                        <div className="w-32 h-px bg-gradient-to-r from-white via-white/70 to-transparent"></div>
+                        <h2 className="text-2xl font-bold text-white whitespace-nowrap tracking-wide ml-6">OUR MANAGEMENT TEAM</h2>
+                    </div>
+
+                    {/* Team members cards below */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {/* Chairman and CEO */}
+                        <div className="bg-gray-600 p-3 rounded-lg text-center border-r-6 border-b-6 border-gray-500">
+                            <h3 className="text-primary font-bold text-sm mb-4 uppercase tracking-wide">CHAIRMAN AND CEO</h3>
+                            <div className="w-32 h-32 mx-auto mb-4 rounded-lg overflow-hidden bg-white border-2 border-gray-300">
+                                <Image
+                                    src="/dummy_user.png"
+                                    alt="Chairman and CEO"
+                                    width={128}
+                                    height={128}
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                            <p className="text-white text-sm leading-relaxed">
+                                Ahsan Khan Chowdhury is the Chairman and CEO of PRAN- RFL Group
+                            </p>
                         </div>
 
-                        {/* Right side with team members */}
-                        <div className="flex-1">
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                {/* Chairman and CEO */}
-                                <div className="bg-gray-600 p-4 rounded-lg text-center">
-                                    <h3 className="text-primary font-bold text-sm mb-3 uppercase">CHAIRMAN AND CEO</h3>
-                                    <div className="w-24 h-24 mx-auto mb-3 rounded-lg overflow-hidden bg-white">
-                                        <Image
-                                            src="/dummy_user.png"
-                                            alt="Chairman and CEO"
-                                            width={96}
-                                            height={96}
-                                            className="w-full h-full object-cover"
-                                        />
-                                    </div>
-                                    <p className="text-white text-xs leading-relaxed">
-                                        Ahsan Khan Chowdhury is the Chairman and CEO of PRAN-RFL Group
-                                    </p>
-                                </div>
-
-                                {/* Managing Director */}
-                                <div className="bg-gray-600 p-4 rounded-lg text-center">
-                                    <h3 className="text-primary font-bold text-sm mb-3 uppercase">MANAGING DIRECTOR</h3>
-                                    <div className="w-24 h-24 mx-auto mb-3 rounded-lg overflow-hidden bg-white">
-                                        <Image
-                                            src="/dummy_user.png"
-                                            alt="Managing Director"
-                                            width={96}
-                                            height={96}
-                                            className="w-full h-full object-cover"
-                                        />
-                                    </div>
-                                    <p className="text-white text-xs leading-relaxed">
-                                        R. N Paul is the Managing Director of RFL Group
-                                    </p>
-                                </div>
-
-                                {/* Chief Operating Officer */}
-                                <div className="bg-gray-600 p-4 rounded-lg text-center">
-                                    <h3 className="text-primary font-bold text-sm mb-3 uppercase">CHIEF OPERATING OFFICER</h3>
-                                    <div className="w-24 h-24 mx-auto mb-3 rounded-lg overflow-hidden bg-white">
-                                        <Image
-                                            src="/dummy_user.png"
-                                            alt="Chief Operating Officer"
-                                            width={96}
-                                            height={96}
-                                            className="w-full h-full object-cover"
-                                        />
-                                    </div>
-                                    <p className="text-white text-xs leading-relaxed">
-                                        Md. Moynul Islam is the Chief Operating Officer of PDL.
-                                    </p>
-                                </div>
+                        {/* Managing Director */}
+                        <div className="bg-gray-600 p-3 rounded-lg text-center border-r-6 border-b-6 border-gray-500/50">
+                            <h3 className="text-primary font-bold text-sm mb-4 uppercase tracking-wide">MANAGING DIRECTOR</h3>
+                            <div className="w-32 h-32 mx-auto mb-4 rounded-lg overflow-hidden bg-white border-2 border-gray-300">
+                                <Image
+                                    src="/dummy_user.png"
+                                    alt="Managing Director"
+                                    width={128}
+                                    height={128}
+                                    className="w-full h-full object-cover"
+                                />
                             </div>
+                            <p className="text-white text-sm leading-relaxed">
+                                R. N Paul is the Managing Director of RFL Group
+                            </p>
+                        </div>
+
+                        {/* Chief Operating Officer */}
+                        <div className="bg-gray-600 p-3 rounded-lg text-center border-r-6 border-b-6 border-gray-500/50">
+                            <h3 className="text-primary font-bold text-sm mb-4 uppercase tracking-wide">CHIEF OPERATING OFFICER</h3>
+                            <div className="w-32 h-32 mx-auto mb-4 rounded-lg overflow-hidden bg-white border-2 border-gray-300">
+                                <Image
+                                    src="/dummy_user.png"
+                                    alt="Chief Operating Officer"
+                                    width={128}
+                                    height={128}
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                            <p className="text-white text-sm leading-relaxed">
+                                Md. Moynul Islam is the Chief Operating Officer of PDL.
+                            </p>
                         </div>
                     </div>
                 </div>
