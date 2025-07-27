@@ -34,7 +34,7 @@ const NestedMenu: React.FC<NestedMenuProps> = ({ items, level, onItemClick }) =>
                 level > 0 && "ml-1"
             )}
             style={{
-                borderBottom: "4px solid #f97316" // orange-500
+                borderBottom: "4px solid rgb(var(--primary))"
             }}
         >
             {items.map((item, index) => {
@@ -53,8 +53,8 @@ const NestedMenu: React.FC<NestedMenuProps> = ({ items, level, onItemClick }) =>
                                 <div className={cn(
                                     "px-5 py-4 cursor-pointer flex items-center justify-between font-bold transition-colors duration-200 ",
                                     isActive
-                                        ? "bg-orange-50 text-orange-600"
-                                        : "hover:bg-orange-50 text-gray-800 hover:text-orange-400",
+                                        ? "bg-primary/10 text-primary"
+                                        : "hover:bg-primary/10 text-gray-800 hover:text-primary",
                                     index !== items.length - 1 && "border-b border-gray-100"
                                 )}>
                                     <span className="text-sm uppercase tracking-wide font-bold">{item.title}</span>
@@ -74,8 +74,8 @@ const NestedMenu: React.FC<NestedMenuProps> = ({ items, level, onItemClick }) =>
                                 className={cn(
                                     "block px-5 py-4 text-sm uppercase tracking-wide font-bold transition-colors duration-200",
                                     isActive
-                                        ? "bg-orange-50 text-orange-600"
-                                        : "hover:bg-orange-50 text-gray-800 hover:text-orange-600",
+                                        ? "bg-primary/10 text-primary"
+                                        : "hover:bg-primary/10 text-gray-800 hover:text-primary",
                                     index !== items.length - 1 && "border-b border-gray-100"
                                 )}
                                 onClick={onItemClick}
@@ -149,8 +149,8 @@ const NavigationMenuItem: React.FC<NavigationMenuItemProps> = ({ item, onItemCli
                     <div className={cn(
                         "px-2 py-2 cursor-pointer flex items-center space-x-1 text-sm font-bold uppercase tracking-wide transition-colors duration-200",
                         isActiveRoute || isHovered
-                            ? "text-orange-400"
-                            : "text-white hover:text-orange-400"
+                            ? "text-primary"
+                            : "text-white hover:text-primary"
                     )}>
                         <span>{item.title}</span>
                     </div>
@@ -168,8 +168,8 @@ const NavigationMenuItem: React.FC<NavigationMenuItemProps> = ({ item, onItemCli
                     className={cn(
                         "block px-2 py-2 text-sm font-bold uppercase tracking-wide transition-colors duration-200",
                         isActiveRoute || isHovered
-                            ? "text-orange-400"
-                            : "text-white hover:text-orange-400"
+                            ? "text-primary"
+                            : "text-white hover:text-primary"
                     )}
                     onClick={onItemClick}
                 >
@@ -194,7 +194,7 @@ export function Navbar() {
                         <div className="lg:hidden flex items-center space-x-3">
                             <Sheet open={isNavOpen} onOpenChange={setIsNavOpen}>
                                 <SheetTrigger asChild>
-                                    <Button variant="ghost" size="sm" className="text-white hover:text-orange-400 hover:bg-gray-700 p-2">
+                                    <Button variant="ghost" size="sm" className="text-white hover:text-primary hover:bg-gray-700 p-2">
                                         <Menu className="h-6 w-6" />
                                     </Button>
                                 </SheetTrigger>
@@ -209,12 +209,12 @@ export function Navbar() {
                                             className="flex items-center space-x-3 mb-6"
                                             onClick={() => setIsNavOpen(false)}
                                         >
-                                            <div className="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center">
+                                            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
                                                 <span className="text-white font-bold">PL</span>
                                             </div>
                                             <div>
                                                 <div className="font-bold text-white">PROPERTY LIFTS</div>
-                                                <div className="text-orange-400 text-xs">Since 1998</div>
+                                                <div className="text-primary text-xs">Since 1998</div>
                                             </div>
                                         </Link>
 
@@ -232,24 +232,24 @@ export function Navbar() {
 
                             {/* Logo for Mobile */}
                             <Link href="/" className="flex items-center space-x-3">
-                                <div className="w-8 h-8 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center shadow-lg">
+                                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center shadow-lg">
                                     <span className="text-white font-bold text-sm">PL</span>
                                 </div>
                                 <div>
                                     <div className="font-bold text-sm text-white tracking-wide">PROPERTY LIFTS</div>
-                                    <div className="text-orange-400 text-xs font-medium">Since 1998</div>
+                                    <div className="text-primary text-xs font-medium">Since 1998</div>
                                 </div>
                             </Link>
                         </div>
 
                         {/* Desktop Logo (Center/Left) */}
                         <Link href="/" className="hidden lg:flex items-center space-x-3">
-                            <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center shadow-lg">
+                            <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center shadow-lg">
                                 <span className="text-white font-bold text-lg">PL</span>
                             </div>
                             <div>
                                 <div className="font-bold text-xl text-white tracking-wide">PROPERTY LIFTS</div>
-                                <div className="text-orange-400 text-sm font-medium">Since 1998</div>
+                                <div className="text-primary text-sm font-medium">Since 1998</div>
                             </div>
                         </Link>
 
@@ -264,7 +264,7 @@ export function Navbar() {
                         <div className="flex items-center space-x-4">
                             {/* Contact Info - Desktop */}
                             <div className="hidden lg:flex flex-col items-end text-right">
-                                <div className="text-orange-400 font-bold text-lg">
+                                <div className="text-primary font-bold text-lg">
                                     {siteConfig.contact.phone}
                                 </div>
                                 <div className="text-gray-300 text-sm">
@@ -276,7 +276,7 @@ export function Navbar() {
                             <div className="lg:hidden">
                                 <Sheet open={isContactOpen} onOpenChange={setIsContactOpen}>
                                     <SheetTrigger asChild>
-                                        <Button variant="ghost" size="sm" className="text-white hover:text-orange-400 hover:bg-gray-700 p-3">
+                                        <Button variant="ghost" size="sm" className="text-white hover:text-primary hover:bg-gray-700 p-3">
                                             <MoreVertical className="h-6 w-6" />
                                         </Button>
                                     </SheetTrigger>
@@ -287,18 +287,18 @@ export function Navbar() {
                                         {/* Mobile Contact Header */}
                                         <div className="flex flex-col space-y-6 mt-6 px-4">
                                             <div className="flex items-center space-x-3 mb-6">
-                                                <div className="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center">
+                                                <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
                                                     <span className="text-white font-bold">PL</span>
                                                 </div>
                                                 <div>
                                                     <div className="font-bold text-white">PROPERTY LIFTS</div>
-                                                    <div className="text-orange-400 text-xs">Since 1998</div>
+                                                    <div className="text-primary text-xs">Since 1998</div>
                                                 </div>
                                             </div>
 
                                             {/* Mobile Contact Info */}
                                             <div className="bg-gray-700 rounded-lg p-6 text-center">
-                                                <div className="text-orange-400 font-bold text-2xl mb-3">
+                                                <div className="text-primary font-bold text-2xl mb-3">
                                                     {siteConfig.contact.phone}
                                                 </div>
                                                 <div className="text-gray-300 text-base mb-4">
@@ -311,7 +311,7 @@ export function Navbar() {
 
                                             {/* Additional Contact Information */}
                                             <div className="bg-gray-700 rounded-lg p-4">
-                                                <h3 className="text-orange-400 font-bold text-lg mb-3">Get In Touch</h3>
+                                                <h3 className="text-primary font-bold text-lg mb-3">Get In Touch</h3>
                                                 <div className="space-y-2 text-sm">
                                                     <p className="text-gray-300">
                                                         📍 {siteConfig.contact.address}
@@ -374,14 +374,14 @@ const MobileNavigationItem: React.FC<MobileNavigationItemProps> = ({
                         className={cn(
                             "flex items-center justify-between w-full py-3 text-left font-bold text-sm uppercase tracking-wide transition-colors duration-200",
                             isActiveRoute
-                                ? "text-orange-400"
-                                : "text-white hover:text-orange-400",
+                                ? "text-primary"
+                                : "text-white hover:text-primary",
                             level > 0 && "text-gray-300 hover:text-white"
                         )}
                     >
                         <span>{item.title}</span>
                         <ChevronDown className={cn(
-                            "h-4 w-4 transition-transform text-orange-400",
+                            "h-4 w-4 transition-transform text-primary",
                             isExpanded && "rotate-180"
                         )} />
                     </button>
@@ -404,8 +404,8 @@ const MobileNavigationItem: React.FC<MobileNavigationItemProps> = ({
                     className={cn(
                         "block py-3 font-bold text-sm uppercase tracking-wide transition-colors duration-200",
                         isActiveRoute
-                            ? "text-orange-400"
-                            : "text-white hover:text-orange-400",
+                            ? "text-primary"
+                            : "text-white hover:text-primary",
                         level > 0 && "text-gray-300 hover:text-white py-2"
                     )}
                     onClick={onItemClick}

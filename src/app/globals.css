@@ -10,10 +10,10 @@
   --card-foreground: 15 23 42;
   --popover: 255 255 255;
   --popover-foreground: 15 23 42;
-  --primary: 0 122 255;
+  --primary: 251 146 60; /* orange-400 */
   --primary-foreground: 255 255 255;
-  --secondary: 241 245 249;
-  --secondary-foreground: 15 23 42;
+  --secondary: 55 65 81; /* gray-700 for dark sections */
+  --secondary-foreground: 255 255 255;
   --muted: 241 245 249;
   --muted-foreground: 100 116 139;
   --accent: 241 245 249;
@@ -24,11 +24,58 @@
   --ring: 59 130 246;
   
   /* PropertyLifts Brand Colors */
-  --brand-blue: 0 122 255;
-  --brand-dark-blue: 12 74 110;
-  --brand-light-blue: 219 234 254;
+  --brand-orange: 251 146 60; /* orange-400 */
+  --brand-orange-light: 254 215 170; /* orange-200 */
+  --brand-gray-dark: 55 65 81; /* gray-700 */
   --brand-gray: 107 114 128;
-  --brand-dark-gray: 55 65 81;
+  --brand-gray-light: 229 231 235; /* gray-200 */
+}
+
+/* Moving background animation for hero sections */
+@keyframes moveBackground {
+  0% { 
+    background-position: 0% 0%;
+  }
+  50% { 
+    background-position: 100% 100%;
+  }
+  100% { 
+    background-position: 0% 0%;
+  }
+}
+
+.moving-background {
+  background-size: 150% 150%;
+}
+
+.moving-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(0,0,0,0.8), rgba(0,0,0,0.4), rgba(0,0,0,0.8));
+  background-size: 300% 300%;
+  animation: moveBackground 15s ease-in-out infinite;
+  z-index: 1;
+}
+
+.glass-line {
+  position: relative;
+}
+
+.glass-line::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 0 10px rgba(255,255,255,0.3);
 }
 
 .dark {
@@ -63,6 +110,22 @@ body {
 }
 
 /* PropertyLifts specific styles */
+.bg-primary {
+  background-color: rgb(var(--primary));
+}
+
+.text-primary {
+  color: rgb(var(--primary));
+}
+
+.bg-secondary {
+  background-color: rgb(var(--secondary));
+}
+
+.text-secondary {
+  color: rgb(var(--secondary));
+}
+
 .hero-gradient {
   background: linear-gradient(135deg, rgb(var(--brand-blue)) 0%, rgb(var(--brand-dark-blue)) 100%);
 }
