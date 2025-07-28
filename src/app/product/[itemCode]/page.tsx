@@ -74,7 +74,6 @@ export default function ProductDetailPage() {
 
         fetchProduct();
     }, [itemCode]);
-
     const renderSpecifications = () => {
         if (!product) return null;
 
@@ -97,25 +96,20 @@ export default function ProductDetailPage() {
 
             return (
                 <div className="space-y-4">
-                    <h3 className="text-xl font-semibold text-gray-800">Specifications</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                            <p><span className="font-medium">Rated Capacity:</span> {passengerProduct.ratedCapacity || 'N/A'}</p>
-                            <p><span className="font-medium">Floors:</span> {passengerProduct.floors || 'N/A'}</p>
-                            <p><span className="font-medium">Speed:</span> {passengerProduct.speed || 'N/A'}</p>
-                            <p><span className="font-medium">Control:</span> {passengerProduct.control || 'N/A'}</p>
-                            <p><span className="font-medium">Drive System:</span> {passengerProduct.driveSystem || 'N/A'}</p>
-                            <p><span className="font-medium">Traction Machine:</span> {passengerProduct.tractionMachine || 'N/A'}</p>
-                            <p><span className="font-medium">Machine Room Size:</span> {passengerProduct.machineRoomSize || 'N/A'}</p>
-                        </div>
-                        <div className="space-y-2">
-                            <p><span className="font-medium">Car Entrances:</span> {passengerProduct.carEntrances || 'N/A'}</p>
-                            <p><span className="font-medium">Door Opening Type:</span> {passengerProduct.doorOpeningType || 'N/A'}</p>
-                            <p><span className="font-medium">Main Power Supply:</span> {passengerProduct.mainPowerSupply || 'N/A'}</p>
-                            <p><span className="font-medium">Car Dimensions:</span> {passengerProduct.carDimensions || 'N/A'}</p>
-                            <p><span className="font-medium">Pit Depth:</span> {passengerProduct.pitDepth || 'N/A'}</p>
-                            <p><span className="font-medium">Overhead:</span> {passengerProduct.overhead || 'N/A'}</p>
-                        </div>
+                    <div className="space-y-3">
+                        <p className="text-base"><span className="font-medium">Rated Capacity:</span> {passengerProduct.ratedCapacity || 'N/A'}</p>
+                        <p className="text-base"><span className="font-medium">Floors:</span> {passengerProduct.floors || 'N/A'}</p>
+                        <p className="text-base"><span className="font-medium">Speed:</span> {passengerProduct.speed || 'N/A'}</p>
+                        <p className="text-base"><span className="font-medium">Control:</span> {passengerProduct.control || 'N/A'}</p>
+                        <p className="text-base"><span className="font-medium">Drive System:</span> {passengerProduct.driveSystem || 'N/A'}</p>
+                        <p className="text-base"><span className="font-medium">Traction Machine:</span> {passengerProduct.tractionMachine || 'N/A'}</p>
+                        <p className="text-base"><span className="font-medium">Machine Room Size:</span> {passengerProduct.machineRoomSize || 'N/A'}</p>
+                        <p className="text-base"><span className="font-medium">Car Entrances:</span> {passengerProduct.carEntrances || 'N/A'}</p>
+                        <p className="text-base"><span className="font-medium">Door Opening Type:</span> {passengerProduct.doorOpeningType || 'N/A'}</p>
+                        <p className="text-base"><span className="font-medium">Main Power Supply:</span> {passengerProduct.mainPowerSupply || 'N/A'}</p>
+                        <p className="text-base"><span className="font-medium">Car Dimensions:</span> {passengerProduct.carDimensions || 'N/A'}</p>
+                        <p className="text-base"><span className="font-medium">Pit Depth:</span> {passengerProduct.pitDepth || 'N/A'}</p>
+                        <p className="text-base"><span className="font-medium">Overhead:</span> {passengerProduct.overhead || 'N/A'}</p>
                     </div>
                 </div>
             );
@@ -136,20 +130,19 @@ export default function ProductDetailPage() {
 
             return (
                 <div className="space-y-4">
-                    <h3 className="text-xl font-semibold text-gray-800">Specifications</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                            <p><span className="font-medium">Observation Plane:</span> {capsuleProduct.observationPlane || 'N/A'}</p>
-                            <p><span className="font-medium">External Decoration Plate:</span> {capsuleProduct.externalDecorationPlate || 'N/A'}</p>
-                            <p><span className="font-medium">External Decoration Lighting:</span> {capsuleProduct.externalDecorationLighting || 'N/A'}</p>
-                            <p><span className="font-medium">Car Wall:</span> {capsuleProduct.carWall || 'N/A'}</p>
-                            <p><span className="font-medium">Car Door Type:</span> {capsuleProduct.carDoorType || 'N/A'}</p>
-                        </div>
-                        <div className="space-y-2">
-                            <p><span className="font-medium">Car Door Material:</span> {capsuleProduct.carDoorMaterial || 'N/A'}</p>
-                            <p><span className="font-medium">Car Ceiling:</span> {capsuleProduct.carCeiling || 'N/A'}</p>
-                            <p><span className="font-medium">Handrail:</span> {capsuleProduct.handrail || 'N/A'}</p>
-                            <p><span className="font-medium">Floor:</span> {capsuleProduct.floor || 'N/A'}</p>
+
+                    <div className="">
+                        <div className="space-y-3">
+                            <p className="text-base"><span className="font-medium">Observation Plane:</span> {capsuleProduct.observationPlane || 'N/A'}</p>
+                            <p className="text-base"><span className="font-medium">External Decoration Plate:</span> {capsuleProduct.externalDecorationPlate || 'N/A'}</p>
+                            <p className="text-base"><span className="font-medium">External Decoration Lighting:</span> {capsuleProduct.externalDecorationLighting || 'N/A'}</p>
+                            <p className="text-base"><span className="font-medium">Car Wall:</span> {capsuleProduct.carWall || 'N/A'}</p>
+                            <p className="text-base"><span className="font-medium">Car Door Type:</span> {capsuleProduct.carDoorType || 'N/A'}</p>
+
+                            <p className="text-base"><span className="font-medium">Car Door Material:</span> {capsuleProduct.carDoorMaterial || 'N/A'}</p>
+                            <p className="text-base"><span className="font-medium">Car Ceiling:</span> {capsuleProduct.carCeiling || 'N/A'}</p>
+                            <p className="text-base"><span className="font-medium">Handrail:</span> {capsuleProduct.handrail || 'N/A'}</p>
+                            <p className="text-base"><span className="font-medium">Floor:</span> {capsuleProduct.floor || 'N/A'}</p>
                         </div>
                     </div>
                 </div>
@@ -159,30 +152,18 @@ export default function ProductDetailPage() {
         if (isHospitalLift(product)) {
             return (
                 <div className="space-y-4">
-                    <h3 className="text-xl font-semibold text-gray-800">Medical Specifications</h3>
-                    <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-                        <table className="w-full">
-                            <tbody className="divide-y divide-gray-200">
-                                {[
-                                    ['Item Name', product.name],
-                                    ['Rated capacity', product.capacity],
-                                    ['Persons', product.hospitalStandards],
-                                    ['Floors/Stops/Doors', product.emergencyFeatures],
-                                    ['Speed', product.hygieneFeatures],
-                                    ['Control system', product.accessibilityFeatures],
-                                    ['Drive system', product.powerBackup],
-                                    ['Traction machine', product.dimensions],
-                                    ['Machine room size (mm)', product.certifications],
-                                    ['Car entrances', 'Single'],
-                                    ['Door opening type', 'Center opening/ Side opening'],
-                                ].map(([label, value]) => (
-                                    <tr key={label} className="hover:bg-gray-50">
-                                        <td className="px-6 py-4 text-sm font-medium text-gray-900 w-1/3">{label}</td>
-                                        <td className="px-6 py-4 text-sm text-gray-600">{value}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                    <div className="space-y-3">
+                        <p className="text-base"><span className="font-medium">Item Name:</span> {product.name}</p>
+                        <p className="text-base"><span className="font-medium">Rated capacity:</span> {product.capacity}</p>
+                        <p className="text-base"><span className="font-medium">Persons:</span> {product.hospitalStandards}</p>
+                        <p className="text-base"><span className="font-medium">Floors/Stops/Doors:</span> {product.emergencyFeatures}</p>
+                        <p className="text-base"><span className="font-medium">Speed:</span> {product.hygieneFeatures}</p>
+                        <p className="text-base"><span className="font-medium">Control system:</span> {product.accessibilityFeatures}</p>
+                        <p className="text-base"><span className="font-medium">Drive system:</span> {product.powerBackup}</p>
+                        <p className="text-base"><span className="font-medium">Traction machine:</span> {product.dimensions}</p>
+                        <p className="text-base"><span className="font-medium">Machine room size (mm):</span> {product.certifications}</p>
+                        <p className="text-base"><span className="font-medium">Car entrances:</span> Single</p>
+                        <p className="text-base"><span className="font-medium">Door opening type:</span> Center opening/ Side opening</p>
                     </div>
                 </div>
             );
@@ -191,25 +172,13 @@ export default function ProductDetailPage() {
         if (isCargoLift(product)) {
             return (
                 <div className="space-y-4">
-                    <h3 className="text-xl font-semibold text-gray-800">Cargo Specifications</h3>
-                    <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-                        <table className="w-full">
-                            <tbody className="divide-y divide-gray-200">
-                                {[
-                                    ['Item', product.loadCapacity],
-                                    ['Car Ceiling', product.platformSize],
-                                    ['Car Wall & Car Door', product.liftingHeight],
-                                    ['Operational Panel', product.powerRequirement],
-                                    ['Car Floor', product.safetyFeatures],
-                                    ['Sill', product.operationType],
-                                ].map(([label, value]) => (
-                                    <tr key={label} className="hover:bg-gray-50">
-                                        <td className="px-6 py-4 text-sm font-medium text-gray-900 w-1/3">{label}</td>
-                                        <td className="px-6 py-4 text-sm text-gray-600">{value}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                    <div className="space-y-3">
+                        <p className="text-base"><span className="font-medium">Item:</span> {product.loadCapacity}</p>
+                        <p className="text-base"><span className="font-medium">Car Ceiling:</span> {product.platformSize}</p>
+                        <p className="text-base"><span className="font-medium">Car Wall & Car Door:</span> {product.liftingHeight}</p>
+                        <p className="text-base"><span className="font-medium">Operational Panel:</span> {product.powerRequirement}</p>
+                        <p className="text-base"><span className="font-medium">Car Floor:</span> {product.safetyFeatures}</p>
+                        <p className="text-base"><span className="font-medium">Sill:</span> {product.operationType}</p>
                     </div>
                 </div>
             );
@@ -218,30 +187,18 @@ export default function ProductDetailPage() {
         if (isEscalator(product)) {
             return (
                 <div className="space-y-4">
-                    <h3 className="text-xl font-semibold text-gray-800">Specification</h3>
-                    <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-                        <table className="w-full">
-                            <tbody className="divide-y divide-gray-200">
-                                {[
-                                    ['Maximum Rise', 'Up to 20 meters'],
-                                    ['Application', 'Indoor, Outdoor, 16-hr operation daily'],
-                                    ['Rise H', product.riseHeight],
-                                    ['Step Width', product.stepWidth],
-                                    ['Speed', product.inclination],
-                                    ['Main Power', product.speed],
-                                    ['Balustrade', product.capacity],
-                                    ['Handrail', product.safetyFeatures],
-                                    ['Handrail Bracket', product.construction],
-                                    ['Inner & Outer Decking', product.finishing],
-                                    ['Step', 'Stainless Steel'],
-                                ].map(([label, value]) => (
-                                    <tr key={label} className="hover:bg-gray-50">
-                                        <td className="px-6 py-4 text-sm font-medium text-gray-900 w-1/3">{label}</td>
-                                        <td className="px-6 py-4 text-sm text-gray-600">{value}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                    <div className="space-y-3">
+                        <p className="text-base"><span className="font-medium">Maximum Rise:</span> Up to 20 meters</p>
+                        <p className="text-base"><span className="font-medium">Application:</span> Indoor, Outdoor, 16-hr operation daily</p>
+                        <p className="text-base"><span className="font-medium">Rise H:</span> {product.riseHeight}</p>
+                        <p className="text-base"><span className="font-medium">Step Width:</span> {product.stepWidth}</p>
+                        <p className="text-base"><span className="font-medium">Speed:</span> {product.inclination}</p>
+                        <p className="text-base"><span className="font-medium">Main Power:</span> {product.speed}</p>
+                        <p className="text-base"><span className="font-medium">Balustrade:</span> {product.capacity}</p>
+                        <p className="text-base"><span className="font-medium">Handrail:</span> {product.safetyFeatures}</p>
+                        <p className="text-base"><span className="font-medium">Handrail Bracket:</span> {product.construction}</p>
+                        <p className="text-base"><span className="font-medium">Inner & Outer Decking:</span> {product.finishing}</p>
+                        <p className="text-base"><span className="font-medium">Step:</span> Stainless Steel</p>
                     </div>
                 </div>
             );
@@ -250,27 +207,15 @@ export default function ProductDetailPage() {
         if (isImportedLift(product)) {
             return (
                 <div className="space-y-4">
-                    <h3 className="text-xl font-semibold text-gray-800">Import Specifications</h3>
-                    <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-                        <table className="w-full">
-                            <tbody className="divide-y divide-gray-200">
-                                {[
-                                    ['Manufacturer', product.manufacturer],
-                                    ['Model', product.model],
-                                    ['Specifications', product.specifications],
-                                    ['Features', product.features],
-                                    ['Warranty', product.warranty],
-                                    ['Installation', product.installation],
-                                    ['Maintenance', product.maintenance],
-                                    ['Country of Origin', product.countryOfOrigin],
-                                ].map(([label, value]) => (
-                                    <tr key={label} className="hover:bg-gray-50">
-                                        <td className="px-6 py-4 text-sm font-medium text-gray-900 w-1/3">{label}</td>
-                                        <td className="px-6 py-4 text-sm text-gray-600">{value}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                    <div className="space-y-3">
+                        <p className="text-base"><span className="font-medium">Manufacturer:</span> {product.manufacturer}</p>
+                        <p className="text-base"><span className="font-medium">Model:</span> {product.model}</p>
+                        <p className="text-base"><span className="font-medium">Specifications:</span> {product.specifications}</p>
+                        <p className="text-base"><span className="font-medium">Features:</span> {product.features}</p>
+                        <p className="text-base"><span className="font-medium">Warranty:</span> {product.warranty}</p>
+                        <p className="text-base"><span className="font-medium">Installation:</span> {product.installation}</p>
+                        <p className="text-base"><span className="font-medium">Maintenance:</span> {product.maintenance}</p>
+                        <p className="text-base"><span className="font-medium">Country of Origin:</span> {product.countryOfOrigin}</p>
                     </div>
                 </div>
             );
@@ -309,15 +254,25 @@ export default function ProductDetailPage() {
 
     return (
         <div className="min-h-screen bg-gray-50">
+            <div className="relative h-96 bg-gradient-to-r from-orange-400 to-orange-600 overflow-hidden">
+                <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+                <div className="absolute inset-0 bg-[url('/dummy_background.jpg')] bg-cover bg-center moving-bg"></div>
+                <div className="relative max-w-[1320px] mx-auto px-4 h-full flex items-center justify-center">
+                    <div className="text-center text-white">
+                        <h1 className="text-5xl font-extrabold mb-4">{product.name}</h1>
+                    </div>
+                </div>
+            </div>
             <div className="max-w-[1320px] mx-auto px-4 py-8">
+
                 <div className="max-w-6xl mx-auto">
                     {/* Breadcrumb */}
                     <nav className="mb-8">
                         <ol className="flex items-center space-x-2 text-sm text-gray-600">
                             <li><Link href="/" className="hover:text-orange-400">Home</Link></li>
-                            <li className="text-gray-400">/</li>
+                            <li className="text-gray-400">&gt;</li>
                             <li><Link href="/products" className="hover:text-orange-400">Products</Link></li>
-                            <li className="text-gray-400">/</li>
+                            <li className="text-gray-400">&gt;</li>
                             <li className="text-gray-800 font-medium">{product.name}</li>
                         </ol>
                     </nav>
@@ -344,31 +299,25 @@ export default function ProductDetailPage() {
                             {/* Product Info */}
                             <div className="space-y-6">
                                 <div>
-                                    <h1 className="text-3xl font-bold text-gray-800 mb-2">{product.name}</h1>
-                                    <p className="text-lg text-orange-400 font-medium">{product.itemCode}</p>
-                                    <p className="text-gray-600 mt-2">{product.category}</p>
-                                    <div className="flex items-center mt-2">
-                                        <p className="text-sm text-gray-500">Brand: {product.brand}</p>
-                                        {isImportedLift(product) && (
-                                            <span className="ml-4 bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
-                                                {product.countryOfOrigin}
-                                            </span>
+                                    <h1 className="text-3xl font-extrabold text-gray-800 mb-2">{product.name}</h1>
+                                    <div className="flex items-center mt-4">
+                                        {product.description && (
+                                            <div>
+                                                <h3 className="text-lg font-semibold text-gray-800 mb-2">Description</h3>
+                                                <p className="text-gray-600 text-base">{product.description}</p>
+                                            </div>
                                         )}
                                     </div>
+                                    {renderSpecifications()}
+
                                 </div>
 
-                                {product.description && (
-                                    <div>
-                                        <h3 className="text-lg font-semibold text-gray-800 mb-2">Description</h3>
-                                        <p className="text-gray-600">{product.description}</p>
-                                    </div>
-                                )}
+
                             </div>
                         </div>
                     </div>
 
                     {/* Specifications */}
-                    {renderSpecifications()}
 
                     {/* Related Products */}
                     {relatedProducts.length > 0 && (

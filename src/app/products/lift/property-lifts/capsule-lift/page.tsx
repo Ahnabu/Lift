@@ -49,20 +49,16 @@ export default function CapsuleLiftPage() {
             </div>
         );
     }
-
+    console.log(capsuleLifts);
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Hero Section with Moving Background */}
             <div className="relative h-96 bg-gradient-to-r from-orange-400 to-orange-600 overflow-hidden">
                 <div className="absolute inset-0 bg-black bg-opacity-40"></div>
                 <div className="absolute inset-0 bg-[url('/dummy_background.jpg')] bg-cover bg-center moving-bg"></div>
-                <div className="relative max-w-[1320px] mx-auto px-4 h-full flex items-center">
-                    <div className="max-w-6xl mx-auto text-white">
-                        <h1 className="text-5xl font-bold mb-4">Capsule Lifts</h1>
-                        <p className="text-xl text-orange-100 max-w-2xl">
-                            Premium observation elevators with panoramic views, designed for luxury hotels,
-                            shopping centers, and modern architectural spaces.
-                        </p>
+                <div className="relative max-w-[1320px] mx-auto px-4 h-full flex items-center justify-center">
+                    <div className="text-center text-white">
+                        <h1 className="text-5xl font-extrabold mb-4">Capsule Lifts</h1>
                     </div>
                 </div>
             </div>
@@ -73,13 +69,13 @@ export default function CapsuleLiftPage() {
                     <nav className="mb-8">
                         <ol className="flex items-center space-x-2 text-sm text-gray-600">
                             <li><Link href="/" className="hover:text-orange-400">Home</Link></li>
-                            <li className="text-gray-400">/</li>
+                            <li className="text-gray-400">&gt;</li>
                             <li><Link href="/products" className="hover:text-orange-400">Products</Link></li>
-                            <li className="text-gray-400">/</li>
+                            <li className="text-gray-400">&gt;</li>
                             <li><Link href="/products/lift" className="hover:text-orange-400">Lifts</Link></li>
-                            <li className="text-gray-400">/</li>
+                            <li className="text-gray-400">&gt;</li>
                             <li><Link href="/products/lift/property-lifts" className="hover:text-orange-400">Property Lifts</Link></li>
-                            <li className="text-gray-400">/</li>
+                            <li className="text-gray-400">&gt;</li>
                             <li className="text-gray-800 font-medium">Capsule Lifts</li>
                         </ol>
                     </nav>

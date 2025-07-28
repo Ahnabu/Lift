@@ -1,40 +1,39 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
-import { Lift } from '@/data/lifts';
-import { LiftService } from '@/services/liftService';
+import Image from 'next/image';
+import { LiftService } from '@/services/enhancedLiftService';
+import { Product } from '@/types/products';
 
 export default function PassengerLiftPage() {
-    const [lifts, setLifts] = useState<Lift[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [lifts, setLifts] = useState<Product[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchLifts = async () => {
             try {
-                setLoading(true);
-                const data = await LiftService.getPassengerLifts();
-                setLifts(data);
+                setIsLoading(true);
+                const passengerLifts = await LiftService.getPassengerLifts();
+                setLifts(passengerLifts);
             } catch (err) {
-                setError('Failed to load lifts');
-                console.error('Error fetching lifts:', err);
+                console.error('Error fetching passenger lifts:', err);
+                setError('Failed to load passenger lifts');
             } finally {
-                setLoading(false);
+                setIsLoading(false);
             }
         };
 
         fetchLifts();
     }, []);
 
-    if (loading) {
+    if (isLoading) {
         return (
-            <div className="min-h-screen flex items-center justify-center">
+            <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                 <div className="text-center">
-                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-                    <p className="text-gray-600">Loading lifts...</p>
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-400 mx-auto"></div>
+                    <p className="mt-4 text-gray-600">Loading passenger lifts...</p>
                 </div>
             </div>
         );
@@ -42,191 +41,77 @@ export default function PassengerLiftPage() {
 
     if (error) {
         return (
-            <div className="min-h-screen flex items-center justify-center">
+            <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                 <div className="text-center">
-                    <p className="text-red-600 text-lg">{error}</p>
+                    <h1 className="text-2xl font-bold text-gray-800 mb-4">Error Loading Passenger Lifts</h1>
+                    <p className="text-gray-600">{error}</p>
                 </div>
             </div>
         );
     }
 
     return (
-        <div className="max-w-[1320px] mx-auto">
+        <div className="min-h-screen bg-gray-50">
             {/* Hero Section with Moving Background */}
-            <section className="relative min-h-[400px] bg-gradient-to-r from-gray-900/90 to-gray-800/90 overflow-hidden">
-                {/* Moving Background */}
+            <div className="relative h-96 bg-gradient-to-r from-orange-400 to-orange-600 overflow-hidden">
+                <div className="absolute inset-0 bg-black bg-opacity-40"></div>
                 <div className="absolute inset-0 bg-[url('/dummy_background.jpg')] bg-cover bg-center moving-bg"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-gray-800/60"></div>
-
-                {/* Content */}
-                <div className="relative z-10 flex items-center justify-center min-h-[400px]">
+                <div className="relative max-w-[1320px] mx-auto px-4 h-full flex items-center justify-center">
                     <div className="text-center text-white">
-                        <h1 className="text-5xl md:text-6xl font-bold tracking-wider">
-                            PRODUCTS
-                        </h1>
+                        <h1 className="text-5xl font-extrabold mb-4">Passenger Lifts</h1>
                     </div>
                 </div>
-            </section>
+            </div>
 
-            {/* Breadcrumb */}
-            <section className="bg-gray-100 py-4">
-                <div className="max-w-6xl mx-auto px-4">
-                    <nav className="text-sm text-gray-600">
-                        <Link href="/" className="hover:text-primary">HOME</Link>
-                        <span className="mx-2">&gt;</span>
-                        <Link href="/products" className="hover:text-primary">PRODUCTS</Link>
-                        <span className="mx-2">&gt;</span>
-                        <Link href="/products/lift" className="hover:text-primary">LIFT</Link>
-                        <span className="mx-2">&gt;</span>
-                        <Link href="/products/lift/property-lifts" className="hover:text-primary">PROPERTY-LIFTS</Link>
-                        <span className="mx-2">&gt;</span>
-                        <span className="text-gray-800 font-medium">PASSENGER-LIFT</span>
+            <div className="max-w-[1320px] mx-auto px-4 py-12">
+                <div className="max-w-6xl mx-auto">
+                    {/* Breadcrumb */}
+                    <nav className="mb-8">
+                        <ol className="flex items-center space-x-2 text-sm text-gray-600">
+                            <li><Link href="/" className="hover:text-orange-400">Home</Link></li>
+                            <li className="text-gray-400">&gt;</li>
+                            <li><Link href="/products" className="hover:text-orange-400">Products</Link></li>
+                            <li className="text-gray-400">&gt;</li>
+                            <li><Link href="/products/lift" className="hover:text-orange-400">Lifts</Link></li>
+                            <li className="text-gray-400">&gt;</li>
+                            <li><Link href="/products/lift/property-lifts" className="hover:text-orange-400">Property Lifts</Link></li>
+                            <li className="text-gray-400">&gt;</li>
+                            <li className="text-gray-800 font-medium">Passenger Lifts</li>
+                        </ol>
                     </nav>
-                </div>
-            </section>
 
-            {/* Lifts Grid */}
-            <section className="py-16 bg-white">
-                <div className="max-w-6xl mx-auto px-4">
-                    <div className="space-y-12">
-                        {lifts.map((lift) => (
+                    {/* Lifts Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {lifts.map((lift, index) => (
                             <Link
                                 key={lift.itemCode}
                                 href={`/product/${lift.itemCode}`}
-                                className="block bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow group"
+                                className="group cursor-pointer"
                             >
-                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
-                                    {/* Left side - Image */}
-                                    <div className="aspect-square bg-gray-100 overflow-hidden rounded-lg">
+                                <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                                    <div className="aspect-square bg-gray-100 overflow-hidden">
                                         <Image
-                                            src="/placeholder-lift.jpg"
+                                            src="/dummy_rectangular.jfif"
                                             alt={lift.name}
                                             width={400}
                                             height={400}
                                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                         />
                                     </div>
-
-                                    {/* Right side - Details */}
-                                    <div className="flex flex-col justify-center space-y-4">
-                                        <div>
-                                            <h3 className="text-3xl font-bold text-gray-800 mb-2 group-hover:text-orange-400 transition-colors">
-                                                {lift.name}
-                                            </h3>
-                                            <p className="text-orange-400 font-medium text-lg mb-4">Category: {(lift as any).category || 'Passenger Lifts'}</p>
+                                    <div className="p-4 text-center">
+                                        <div className="text-gray-400 text-4xl font-light mb-2">
+                                            {String(index + 1).padStart(2, '0')}
                                         </div>
-
-                                        <div className="space-y-3">
-                                            <h4 className="text-xl font-semibold text-gray-800">Specification:</h4>
-                                            <div className="space-y-2 text-gray-700">
-                                                <p><strong>Load Capacity:</strong> {(lift as any).loadCapacity || 'N/A'}</p>
-                                                <p><strong>Speed:</strong> {(lift as any).speed || 'N/A'}</p>
-                                                <p><strong>Car Size:</strong> {(lift as any).carSize || 'N/A'}</p>
-                                                <p><strong>Shaft Size:</strong> {(lift as any).shaftSize || 'N/A'}</p>
-                                                <p><strong>Travel Height:</strong> {(lift as any).travelHeight || 'N/A'}</p>
-                                                <p><strong>Machine Room:</strong> {(lift as any).machineRoom || 'N/A'}</p>
-                                                <p><strong>Drive System:</strong> {(lift as any).driveSystem || 'N/A'}</p>
-                                            </div>
-                                        </div>
+                                        <h3 className="text-lg font-semibold text-gray-800">
+                                            {lift.name}
+                                        </h3>
                                     </div>
                                 </div>
                             </Link>
                         ))}
                     </div>
                 </div>
-            </section>
-
-            {/* Passenger Lift Information Section */}
-            <section className="py-16 bg-gray-50">
-                <div className="max-w-6xl mx-auto px-4">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-gray-800 mb-4">
-                            PASSENGER LIFT: CAPACITY, SERVICE & PRICE
-                        </h2>
-                        <div className="w-24 h-1 bg-primary mx-auto"></div>
-                    </div>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div className="space-y-6">
-                            <p className="text-gray-700 leading-relaxed">
-                                We are the best Elevator Lift Supplier in Bangladesh. Our experts we are keeping track of the
-                                specifications and business and best market leading elevator technology to aid manufacturing. Here
-                                we are the best Company in Bangladesh that help us lift the business of commercial business that aid in
-                                our company with our best services and best quality.
-                            </p>
-
-                            <p className="text-gray-700 leading-relaxed">
-                                Our Passenger lift is very famous in the market and gives the best performance to our customers by
-                                which they can drive their businesses successfully. The expert professionals of the company have been
-                                certified with all the required installation.
-                            </p>
-
-                            <p className="text-gray-700 leading-relaxed">
-                                We are providing various designed lifts in the market for enhancing the building beauty and comfort.
-                                All our lifts are tested with certified quality standard before delivery to our clients. The various
-                                dimensions and features are also are available.
-                            </p>
-                        </div>
-
-                        <div className="relative">
-                            <Image
-                                src="/dummy_rectangular.jfif"
-                                alt="Passenger Lift Features"
-                                width={500}
-                                height={600}
-                                className="rounded-lg shadow-lg"
-                            />
-                        </div>
-                    </div>
-
-                    {/* Features List */}
-                    <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div>
-                            <h3 className="text-xl font-semibold text-gray-800 mb-4">Key Features:</h3>
-                            <ul className="space-y-2">
-                                <li className="flex items-start">
-                                    <span className="text-primary mr-2">•</span>
-                                    <span className="text-gray-700">Passenger car Interior: 8 Specification: 8 Stainless steel, S.S interior with Decorative mirror S.S Hand rail</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <span className="text-primary mr-2">•</span>
-                                    <span className="text-gray-700">The car roof is equipped with LED Lighting with fan or Air Conditioner</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <span className="text-primary mr-2">•</span>
-                                    <span className="text-gray-700">With music sound system which has the amplification using good in the best quality and sound clarity</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <span className="text-primary mr-2">•</span>
-                                    <span className="text-gray-700">Electronic safety monitoring automatic rescue device & automatic rescue operation (optional)</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h3 className="text-xl font-semibold text-gray-800 mb-4">Safety Features:</h3>
-                            <ul className="space-y-2">
-                                <li className="flex items-start">
-                                    <span className="text-primary mr-2">•</span>
-                                    <span className="text-gray-700">Emergency phone/ Intercom facility</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <span className="text-primary mr-2">•</span>
-                                    <span className="text-gray-700">Overload device indication & Voice</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <span className="text-primary mr-2">•</span>
-                                    <span className="text-gray-700">Fire service switches in the car & Hall call button</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <span className="text-primary mr-2">•</span>
-                                    <span className="text-gray-700">Standby Power Generator connection system</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            </div>
         </div>
     );
 }

@@ -98,7 +98,7 @@ export const passengerLifts: PassengerLift[] = [
 export const capsuleLifts: CapsuleLift[] = [
   {
     id: '1',
-    itemCode: 'Capsule Lift-001',
+    itemCode: 'capsule-lift-001',
     name: 'Capsule Lift-001',
     category: 'Capsule Lifts',
     type: 'capsule',
@@ -116,7 +116,7 @@ export const capsuleLifts: CapsuleLift[] = [
   },
   {
     id: '2',
-    itemCode: 'Capsule Lift-002',
+    itemCode: 'capsule-lift-002',
     name: 'Capsule Lift-002',
     category: 'Capsule Lifts',
     type: 'capsule',
@@ -134,7 +134,7 @@ export const capsuleLifts: CapsuleLift[] = [
   },
   {
     id: '3',
-    itemCode: 'Capsule Lift-003',
+    itemCode: 'capsule-lift-003',
     name: 'Capsule Lift-003',
     category: 'Capsule Lifts',
     type: 'capsule',
@@ -152,7 +152,7 @@ export const capsuleLifts: CapsuleLift[] = [
   },
   {
     id: '4',
-    itemCode: 'Capsule Lift-004',
+    itemCode: 'capsule-lift-004',
     name: 'Capsule Lift-004',
     category: 'Capsule Lifts',
     type: 'capsule',

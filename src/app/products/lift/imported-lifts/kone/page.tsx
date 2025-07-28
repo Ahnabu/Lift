@@ -15,7 +15,7 @@ export default function KoneLiftPage() {
         const fetchLifts = async () => {
             try {
                 setIsLoading(true);
-                const koneLifts = await LiftService.getImportedLiftsByBrand('KONE');
+                const koneLifts = await LiftService.getImportedLifts();
                 setLifts(koneLifts);
             } catch (err) {
                 console.error('Error fetching KONE lifts:', err);
@@ -56,18 +56,14 @@ export default function KoneLiftPage() {
             <div className="relative h-96 bg-gradient-to-r from-blue-600 to-blue-800 overflow-hidden">
                 <div className="absolute inset-0 bg-black bg-opacity-40"></div>
                 <div className="moving-bg"></div>
-                <div className="relative max-w-[1320px] mx-auto px-4 h-full flex items-center">
-                    <div className="max-w-6xl mx-auto text-white">
-                        <div className="flex items-center mb-4">
-                            <div className="bg-white rounded-lg p-4 mr-6">
+                <div className="relative max-w-[1320px] mx-auto px-4 h-full flex items-center justify-center">
+                    <div className="text-center text-white">
+                        <div className="flex items-center justify-center mb-4">
+                            <div className="bg-white rounded-lg p-4 mr-4">
                                 <span className="text-2xl font-bold text-blue-600">KONE</span>
                             </div>
-                            <h1 className="text-5xl font-bold">KONE Elevators</h1>
+                            <h1 className="text-5xl font-extrabold">KONE Elevators</h1>
                         </div>
-                        <p className="text-xl text-blue-100 max-w-2xl">
-                            World-class Finnish engineering with innovative People Flow® solutions,
-                            eco-efficient technology, and advanced digital connectivity.
-                        </p>
                     </div>
                 </div>
             </div>
@@ -78,13 +74,13 @@ export default function KoneLiftPage() {
                     <nav className="mb-8">
                         <ol className="flex items-center space-x-2 text-sm text-gray-600">
                             <li><Link href="/" className="hover:text-orange-400">Home</Link></li>
-                            <li className="text-gray-400">/</li>
+                            <li className="text-gray-400">&gt;</li>
                             <li><Link href="/products" className="hover:text-orange-400">Products</Link></li>
-                            <li className="text-gray-400">/</li>
+                            <li className="text-gray-400">&gt;</li>
                             <li><Link href="/products/lift" className="hover:text-orange-400">Lifts</Link></li>
-                            <li className="text-gray-400">/</li>
+                            <li className="text-gray-400">&gt;</li>
                             <li><Link href="/products/lift/imported-lifts" className="hover:text-orange-400">Imported Lifts</Link></li>
-                            <li className="text-gray-400">/</li>
+                            <li className="text-gray-400">&gt;</li>
                             <li className="text-gray-800 font-medium">KONE</li>
                         </ol>
                     </nav>

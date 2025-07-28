@@ -19,7 +19,7 @@ export interface CapsuleLift {
 export const capsuleLiftData: CapsuleLift[] = [
   {
     id: '1',
-    itemCode: 'Capsule Lift-001',
+    itemCode: 'capsule-lift-001',
     name: 'Capsule Lift-001',
     category: 'Property Lifts',
     image: '/dummy_rectangular.jfif',
@@ -35,7 +35,7 @@ export const capsuleLiftData: CapsuleLift[] = [
   },
   {
     id: '2',
-    itemCode: 'Capsule Lift-002',
+    itemCode: 'capsule-lift-002',
     name: 'Capsule Lift-002',
     category: 'Property Lifts',
     image: '/dummy_rectangular.jfif',
@@ -51,7 +51,7 @@ export const capsuleLiftData: CapsuleLift[] = [
   },
   {
     id: '3',
-    itemCode: 'Capsule Lift-003',
+    itemCode: 'capsule-lift-003',
     name: 'Capsule Lift-003',
     category: 'Property Lifts',
     image: '/dummy_rectangular.jfif',
@@ -67,7 +67,7 @@ export const capsuleLiftData: CapsuleLift[] = [
   },
   {
     id: '4',
-    itemCode: 'Capsule Lift-004',
+    itemCode: 'capsule-lift-004',
     name: 'Capsule Lift-004',
     category: 'Property Lifts',
     image: '/dummy_rectangular.jfif',
@@ -83,7 +83,7 @@ export const capsuleLiftData: CapsuleLift[] = [
   },
   {
     id: '5',
-    itemCode: 'Capsule Lift-005',
+    itemCode: 'capsule-lift-005',
     name: 'Capsule Lift-005',
     category: 'Property Lifts',
     image: '/dummy_rectangular.jfif',
@@ -99,7 +99,7 @@ export const capsuleLiftData: CapsuleLift[] = [
   },
   {
     id: '6',
-    itemCode: 'Capsule Lift-006',
+    itemCode: 'capsule-lift-006',
     name: 'Capsule Lift-006',
     category: 'Property Lifts',
     image: '/dummy_rectangular.jfif',
@@ -115,7 +115,7 @@ export const capsuleLiftData: CapsuleLift[] = [
   },
   {
     id: '7',
-    itemCode: 'Capsule Lift-007',
+    itemCode: 'capsule-lift-007',
     name: 'Capsule Lift-007',
     category: 'Property Lifts',
     image: '/dummy_rectangular.jfif',
@@ -131,7 +131,7 @@ export const capsuleLiftData: CapsuleLift[] = [
   },
   {
     id: '8',
-    itemCode: 'Capsule Lift-008',
+    itemCode: 'capsule-lift-008',
     name: 'Capsule Lift-008',
     category: 'Property Lifts',
     image: '/dummy_rectangular.jfif',
@@ -147,7 +147,7 @@ export const capsuleLiftData: CapsuleLift[] = [
   },
   {
     id: '9',
-    itemCode: 'Capsule Lift-009',
+    itemCode: 'capsule-lift-009',
     name: 'Capsule Lift-009',
     category: 'Property Lifts',
     image: '/dummy_rectangular.jfif',
@@ -163,7 +163,7 @@ export const capsuleLiftData: CapsuleLift[] = [
   },
   {
     id: '10',
-    itemCode: 'Capsule Lift-010',
+    itemCode: 'capsule-lift-010',
     name: 'Capsule Lift-010',
     category: 'Property Lifts',
     image: '/dummy_rectangular.jfif',
@@ -179,7 +179,7 @@ export const capsuleLiftData: CapsuleLift[] = [
   },
   {
     id: '11',
-    itemCode: 'Capsule Lift-011',
+    itemCode: 'capsule-lift-011',
     name: 'Capsule Lift-011',
     category: 'Property Lifts',
     image: '/dummy_rectangular.jfif',
@@ -195,7 +195,7 @@ export const capsuleLiftData: CapsuleLift[] = [
   },
   {
     id: '12',
-    itemCode: 'Capsule Lift-012',
+    itemCode: 'capsule-lift-012',
     name: 'Capsule Lift-012',
     category: 'Property Lifts',
     image: '/dummy_rectangular.jfif',
