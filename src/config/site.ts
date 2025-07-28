@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "Property Lifts",
   description: "Best Lift Company in Bangladesh - Quality lifts for all properties, from personal family houses to high-rise apartments.",
-  url: "https://propertylifts.com",
-  ogImage: "https://propertylifts.com/og.jpg",
+  url: process.env.NODE_ENV === 'production' ? "https://propertylifts.com" : "http://localhost:3000",
+  ogImage: process.env.NODE_ENV === 'production' ? "https://propertylifts.com/og.jpg" : "http://localhost:3000/dummy_background.jpg",
   links: {
     facebook: "https://www.facebook.com/Propertyliftsbd",
     linkedin: "https://www.linkedin.com/company/property-lifts",

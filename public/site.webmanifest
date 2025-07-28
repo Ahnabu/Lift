@@ -1,0 +1,16 @@
+{
+  "name": "Property Lifts",
+  "short_name": "PropertyLifts",
+  "description": "Best Lift Company in Bangladesh - Quality lifts for all properties",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#fb9260",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}

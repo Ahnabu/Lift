@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -87,33 +88,49 @@ export default function PassengerLiftPage() {
             {/* Lifts Grid */}
             <section className="py-16 bg-white">
                 <div className="max-w-6xl mx-auto px-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="space-y-12">
                         {lifts.map((lift) => (
-                            <div key={lift.id} className="group cursor-pointer">
-                                <Link href={`/product/${lift.itemCode}`}>
-                                    <div className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                                        {/* Lift Image */}
-                                        <div className="relative aspect-[4/5] overflow-hidden rounded-t-lg">
-                                            <Image
-                                                src={lift.image}
-                                                alt={lift.name}
-                                                fill
-                                                className="object-cover group-hover:scale-110 transition-transform duration-300"
-                                            />
+                            <Link
+                                key={lift.itemCode}
+                                href={`/product/${lift.itemCode}`}
+                                className="block bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow group"
+                            >
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
+                                    {/* Left side - Image */}
+                                    <div className="aspect-square bg-gray-100 overflow-hidden rounded-lg">
+                                        <Image
+                                            src="/placeholder-lift.jpg"
+                                            alt={lift.name}
+                                            width={400}
+                                            height={400}
+                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                        />
+                                    </div>
+
+                                    {/* Right side - Details */}
+                                    <div className="flex flex-col justify-center space-y-4">
+                                        <div>
+                                            <h3 className="text-3xl font-bold text-gray-800 mb-2 group-hover:text-orange-400 transition-colors">
+                                                {lift.name}
+                                            </h3>
+                                            <p className="text-orange-400 font-medium text-lg mb-4">Category: {(lift as any).category || 'Passenger Lifts'}</p>
                                         </div>
 
-                                        {/* Lift Info */}
-                                        <div className="p-6 text-center">
-                                            <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                                                {lift.itemCode}
-                                            </h3>
-                                            <p className="text-gray-600 text-sm">
-                                                {lift.category}
-                                            </p>
+                                        <div className="space-y-3">
+                                            <h4 className="text-xl font-semibold text-gray-800">Specification:</h4>
+                                            <div className="space-y-2 text-gray-700">
+                                                <p><strong>Load Capacity:</strong> {(lift as any).loadCapacity || 'N/A'}</p>
+                                                <p><strong>Speed:</strong> {(lift as any).speed || 'N/A'}</p>
+                                                <p><strong>Car Size:</strong> {(lift as any).carSize || 'N/A'}</p>
+                                                <p><strong>Shaft Size:</strong> {(lift as any).shaftSize || 'N/A'}</p>
+                                                <p><strong>Travel Height:</strong> {(lift as any).travelHeight || 'N/A'}</p>
+                                                <p><strong>Machine Room:</strong> {(lift as any).machineRoom || 'N/A'}</p>
+                                                <p><strong>Drive System:</strong> {(lift as any).driveSystem || 'N/A'}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </Link>
-                            </div>
+                                </div>
+                            </Link>
                         ))}
                     </div>
                 </div>

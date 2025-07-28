@@ -1,5 +1,6 @@
 import axiosInstance from '@/lib/axios';
 import { Lift, liftData } from '@/data/lifts';
+import { CapsuleLift, capsuleLiftData } from '@/data/capsuleLifts';
 
 // API service for lifts
 export class LiftService {
@@ -56,6 +57,43 @@ export class LiftService {
       });
     } catch (error) {
       console.error('Error fetching passenger lifts:', error);
+      throw error;
+    }
+  }
+
+  // Get all capsule lifts
+  static async getCapsuleLifts(): Promise<CapsuleLift[]> {
+    try {
+      // TODO: Replace with actual API call when backend is ready
+      // const response = await axiosInstance.get('/capsule-lifts');
+      // return response.data;
+      
+      // For now, return mock data
+      return new Promise((resolve) => {
+        setTimeout(() => resolve(capsuleLiftData), 500); // Simulate API delay
+      });
+    } catch (error) {
+      console.error('Error fetching capsule lifts:', error);
+      throw error;
+    }
+  }
+
+  // Get capsule lift by item code
+  static async getCapsuleLiftByItemCode(itemCode: string): Promise<CapsuleLift | null> {
+    try {
+      // TODO: Replace with actual API call when backend is ready
+      // const response = await axiosInstance.get(`/capsule-lifts/${itemCode}`);
+      // return response.data;
+      
+      // For now, return mock data
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          const capsuleLift = capsuleLiftData.find(lift => lift.itemCode === itemCode);
+          resolve(capsuleLift || null);
+        }, 300);
+      });
+    } catch (error) {
+      console.error('Error fetching capsule lift details:', error);
       throw error;
     }
   }
