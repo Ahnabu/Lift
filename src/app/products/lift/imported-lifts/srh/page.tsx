@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { LiftService } from '@/services/enhancedLiftService';
 import { ImportedLift } from '@/types/products';
 
-export default function KoneLiftPage() {
+export default function SrhLiftPage() {
     const [lifts, setLifts] = useState<ImportedLift[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -16,11 +16,11 @@ export default function KoneLiftPage() {
             try {
                 setIsLoading(true);
                 const allImportedLifts = await LiftService.getImportedLifts();
-                const koneLifts = allImportedLifts.filter(lift => lift.brand === 'KONE') as ImportedLift[];
-                setLifts(koneLifts);
+                const srhLifts = allImportedLifts.filter(lift => lift.brand === 'SRH') as ImportedLift[];
+                setLifts(srhLifts);
             } catch (err) {
-                console.error('Error fetching KONE lifts:', err);
-                setError('Failed to load KONE lifts');
+                console.error('Error fetching SRH lifts:', err);
+                setError('Failed to load SRH lifts');
             } finally {
                 setIsLoading(false);
             }
@@ -34,7 +34,7 @@ export default function KoneLiftPage() {
             <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                 <div className="text-center">
                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-400 mx-auto"></div>
-                    <p className="mt-4 text-gray-600">Loading KONE lifts...</p>
+                    <p className="mt-4 text-gray-600">Loading SRH lifts...</p>
                 </div>
             </div>
         );
@@ -44,7 +44,7 @@ export default function KoneLiftPage() {
         return (
             <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                 <div className="text-center">
-                    <h1 className="text-2xl font-bold text-gray-800 mb-4">Error Loading KONE Lifts</h1>
+                    <h1 className="text-2xl font-bold text-gray-800 mb-4">Error Loading SRH Lifts</h1>
                     <p className="text-gray-600">{error}</p>
                 </div>
             </div>
@@ -54,12 +54,12 @@ export default function KoneLiftPage() {
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Hero Section with Moving Background */}
-            <div className="relative h-96 bg-gradient-to-r from-blue-600 to-blue-800 overflow-hidden">
+            <div className="relative h-96 bg-gradient-to-r from-orange-400 to-orange-600 overflow-hidden">
                 <div className="absolute inset-0 bg-black bg-opacity-40"></div>
                 <div className="absolute inset-0 bg-[url('/dummy_background.jpg')] bg-cover bg-center moving-bg"></div>
                 <div className="relative max-w-[1320px] mx-auto px-4 h-full flex items-center justify-center">
                     <div className="text-center text-white">
-                        <h1 className="text-5xl font-extrabold mb-4">KONE Elevators</h1>
+                        <h1 className="text-5xl font-extrabold mb-4">SRH Elevators</h1>
                     </div>
                 </div>
             </div>
@@ -70,19 +70,18 @@ export default function KoneLiftPage() {
                     <nav className="mb-8">
                         <ol className="flex items-center space-x-2 text-sm text-gray-600">
                             <li><Link href="/" className="hover:text-orange-400">Home</Link></li>
-                            <li className="text-gray-400">&gt;</li>
+                            <li className="text-gray-400">-&gt;</li>
                             <li><Link href="/products" className="hover:text-orange-400">Products</Link></li>
-                            <li className="text-gray-400">&gt;</li>
+                            <li className="text-gray-400">-&gt;</li>
                             <li><Link href="/products/lift" className="hover:text-orange-400">Lifts</Link></li>
-                            <li className="text-gray-400">&gt;</li>
+                            <li className="text-gray-400">-&gt;</li>
                             <li><Link href="/products/lift/imported-lifts" className="hover:text-orange-400">Imported Lifts</Link></li>
-                            <li className="text-gray-400">&gt;</li>
-                            <li className="text-gray-800 font-medium">KONE</li>
+                            <li className="text-gray-400">-&gt;</li>
+                            <li className="text-gray-800 font-medium">SRH</li>
                         </ol>
                     </nav>
 
-
-                    {/* KONE Lifts Grid */}
+                    {/* SRH Lifts Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {lifts.map((lift, index) => (
                             <Link
@@ -118,11 +117,10 @@ export default function KoneLiftPage() {
                     {/* If no lifts found, show message */}
                     {lifts.length === 0 && (
                         <div className="text-center py-12">
-                            <h2 className="text-2xl font-semibold text-gray-800 mb-4">No KONE Lifts Available</h2>
-                            <p className="text-gray-600">KONE lifts will be available soon. Please check back later.</p>
+                            <h2 className="text-2xl font-semibold text-gray-800 mb-4">No SRH Lifts Available</h2>
+                            <p className="text-gray-600">SRH lifts will be available soon. Please check back later.</p>
                         </div>
                     )}
-
                 </div>
             </div>
         </div>

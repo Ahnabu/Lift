@@ -60,24 +60,24 @@ export const navigation = {
               ]
             },
             {
-              title: "IMPORTED LIFT",
+              title: "IMPORTED LIFTS",
               href: "#",
               children: [
                 {
                   title: "KONE",
-                  href: "/products/lift/imported-lift/kone",
+                  href: "/products/lift/imported-lifts/kone",
                 },
                 {
                   title: "SRH",
-                  href: "/products/lift/imported-lift/srh",
+                  href: "/products/lift/imported-lifts/srh",
                 },
                 {
                   title: "MP",
-                  href: "/products/lift/imported-lift/mp",
+                  href: "/products/lift/imported-lifts/mp",
                 },
                 {
                   title: "SHANGHAI MITSUBISHI",
-                  href: "/products/lift/imported-lift/shanghai-mitsubishi",
+                  href: "/products/lift/imported-lifts/shanghai-mitsubishi",
                 }
               ]
             }
