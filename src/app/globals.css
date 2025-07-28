@@ -44,6 +44,11 @@
   }
 }
 
+.moving-bg {
+  background-size: 120% 120%;
+  animation: moveBackground 20s ease-in-out infinite;
+}
+
 .moving-background {
   background-size: 150% 150%;
 }
