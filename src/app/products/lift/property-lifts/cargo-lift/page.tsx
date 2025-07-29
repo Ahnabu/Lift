@@ -59,7 +59,7 @@ export default function CargoLiftPage() {
                 <div className="absolute inset-0 bg-[url('/dummy_background.jpg')] bg-cover bg-center moving-bg"></div>
                 <div className="relative max-w-[1320px] mx-auto px-4 h-full flex items-center justify-center">
                     <div className="text-center text-white">
-                        <h1 className="text-5xl font-extrabold mb-4">Cargo Lifts</h1>
+                        <h1 className="text-5xl font-bold mb-4">Cargo Lifts</h1>
                     </div>
                 </div>
             </div>

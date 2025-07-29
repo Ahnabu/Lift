@@ -57,18 +57,17 @@ export function Header() {
                         <NavigationMenuList>
                             {navigation.main.map((item) => (
                                 <NavigationMenuItem key={item.title}>
-                                    {item.items ? (
+                                    {item.children ? (
                                         <>
                                             <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
                                             <NavigationMenuContent>
                                                 <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                                                    {item.items.map((subItem) => (
+                                                    {item.children.map((subItem) => (
                                                         <ListItem
                                                             key={subItem.title}
                                                             title={subItem.title}
                                                             href={subItem.href}
                                                         >
-                                                            {subItem.description}
                                                         </ListItem>
                                                     ))}
                                                 </ul>
@@ -114,13 +113,13 @@ export function Header() {
 
                                 {navigation.main.map((item) => (
                                     <div key={item.title} className="space-y-2">
-                                        {item.items ? (
+                                        {item.children ? (
                                             <div>
                                                 <div className="font-medium text-sm text-muted-foreground uppercase tracking-wider">
                                                     {item.title}
                                                 </div>
                                                 <div className="ml-4 space-y-2">
-                                                    {item.items.map((subItem) => (
+                                                    {item.children.map((subItem) => (
                                                         <Link
                                                             key={subItem.title}
                                                             href={subItem.href}

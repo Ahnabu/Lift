@@ -46,7 +46,7 @@ export default function ImportedLiftsPage() {
                 <div className="absolute inset-0 bg-[url('/dummy_background.jpg')] bg-cover bg-center moving-bg"></div>
                 <div className="relative max-w-[1320px] mx-auto px-4 h-full flex items-center justify-center">
                     <div className="text-center text-white">
-                        <h1 className="text-5xl font-extrabold mb-4">Imported Lifts</h1>
+                        <h1 className="text-5xl font-bold mb-4">Imported Lifts</h1>
                     </div>
                 </div>
             </div>
@@ -57,11 +57,11 @@ export default function ImportedLiftsPage() {
                     <nav className="mb-8">
                         <ol className="flex items-center space-x-2 text-sm text-gray-600">
                             <li><Link href="/" className="hover:text-orange-400">Home</Link></li>
-                            <li className="text-gray-400">-&gt;</li>
+                            <li className="text-gray-400">&gt;</li>
                             <li><Link href="/products" className="hover:text-orange-400">Products</Link></li>
-                            <li className="text-gray-400">-&gt;</li>
+                            <li className="text-gray-400">&gt;</li>
                             <li><Link href="/products/lift" className="hover:text-orange-400">Lifts</Link></li>
-                            <li className="text-gray-400">-&gt;</li>
+                            <li className="text-gray-400">&gt;</li>
                             <li className="text-gray-800 font-medium">Imported Lifts</li>
                         </ol>
                     </nav>

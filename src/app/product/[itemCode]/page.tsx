@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -5,39 +6,25 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { LiftService } from '@/services/enhancedLiftService';
+import { ForkliftService } from '@/services/forkliftService';
 import { Product } from '@/types/products';
+import { ForkliftProduct } from '@/types/forklift';
+import ForkliftDetails from '@/components/product-details/ForkliftDetails';
+import PassengerLiftDetails from '@/components/product-details/PassengerLiftDetails';
+import CapsuleLiftDetails from '@/components/product-details/CapsuleLiftDetails';
+import HospitalLiftDetails from '@/components/product-details/HospitalLiftDetails';
+import CargoLiftDetails from '@/components/product-details/CargoLiftDetails';
+import EscalatorDetails from '@/components/product-details/EscalatorDetails';
+import ImportedLiftDetails from '@/components/product-details/ImportedLiftDetails';
 
-// Type guards for different product types
-const isPassengerLift = (product: Product): product is Product & { type: 'passenger' } => {
-    return product.type === 'passenger';
-};
-
-const isCapsuleLift = (product: Product): product is Product & { type: 'capsule' } => {
-    return product.type === 'capsule';
-};
-
-const isHospitalLift = (product: Product): product is Product & { type: 'hospital' } => {
-    return product.type === 'hospital';
-};
-
-const isCargoLift = (product: Product): product is Product & { type: 'cargo' } => {
-    return product.type === 'cargo';
-};
-
-const isEscalator = (product: Product): product is Product & { type: 'escalator' } => {
-    return product.type === 'escalator';
-};
-
-const isImportedLift = (product: Product): product is Product & { type: 'imported' } => {
-    return product.type === 'imported';
-};
+type AllProductTypes = Product | ForkliftProduct;
 
 export default function ProductDetailPage() {
     const params = useParams();
     const itemCode = params?.itemCode as string;
 
-    const [product, setProduct] = useState<Product | null>(null);
-    const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
+    const [product, setProduct] = useState<AllProductTypes | null>(null);
+    const [relatedProducts, setRelatedProducts] = useState<AllProductTypes[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -49,20 +36,31 @@ export default function ProductDetailPage() {
                 setIsLoading(true);
                 setError(null);
 
-                // Use enhanced service to search all product types
-                const foundProduct = await LiftService.getProductByItemCode(itemCode);
+                // First try to find in lift products
+                const foundLiftProduct = await LiftService.getProductByItemCode(itemCode);
 
-                if (foundProduct) {
-                    setProduct(foundProduct);
+                if (foundLiftProduct) {
+                    setProduct(foundLiftProduct);
 
-                    // Fetch related products of the same type
-                    const allProducts = await LiftService.getAllProducts();
-                    const related = allProducts
-                        .filter(p => p.type === foundProduct.type && p.itemCode !== itemCode)
+                    // Fetch related lift products
+                    const allLiftProducts = await LiftService.getAllProducts();
+                    const related = allLiftProducts
+                        .filter((p: Product) => p.type === foundLiftProduct.type && p.itemCode !== itemCode)
                         .slice(0, 3);
                     setRelatedProducts(related);
                 } else {
-                    setError('Product not found');
+                    // Try to find in forklift products
+                    const foundForkliftProduct = await ForkliftService.getForkliftByItemCode(itemCode);
+
+                    if (foundForkliftProduct) {
+                        setProduct(foundForkliftProduct);
+
+                        // Fetch related forklift products
+                        const relatedForklifts = await ForkliftService.getRelatedForklifts(itemCode, 3);
+                        setRelatedProducts(relatedForklifts);
+                    } else {
+                        setError('Product not found');
+                    }
                 }
             } catch (err) {
                 console.error('Error fetching product:', err);
@@ -74,154 +72,68 @@ export default function ProductDetailPage() {
 
         fetchProduct();
     }, [itemCode]);
+
     const renderSpecifications = () => {
         if (!product) return null;
 
-        if (isPassengerLift(product)) {
-            const passengerProduct = product as Product & {
-                ratedCapacity?: string;
-                floors?: string;
-                speed?: string;
-                control?: string;
-                driveSystem?: string;
-                tractionMachine?: string;
-                machineRoomSize?: string;
-                carEntrances?: string;
-                doorOpeningType?: string;
-                mainPowerSupply?: string;
-                carDimensions?: string;
-                pitDepth?: string;
-                overhead?: string;
-            };
-
-            return (
-                <div className="space-y-4">
-                    <div className="space-y-3">
-                        <p className="text-base"><span className="font-medium">Rated Capacity:</span> {passengerProduct.ratedCapacity || 'N/A'}</p>
-                        <p className="text-base"><span className="font-medium">Floors:</span> {passengerProduct.floors || 'N/A'}</p>
-                        <p className="text-base"><span className="font-medium">Speed:</span> {passengerProduct.speed || 'N/A'}</p>
-                        <p className="text-base"><span className="font-medium">Control:</span> {passengerProduct.control || 'N/A'}</p>
-                        <p className="text-base"><span className="font-medium">Drive System:</span> {passengerProduct.driveSystem || 'N/A'}</p>
-                        <p className="text-base"><span className="font-medium">Traction Machine:</span> {passengerProduct.tractionMachine || 'N/A'}</p>
-                        <p className="text-base"><span className="font-medium">Machine Room Size:</span> {passengerProduct.machineRoomSize || 'N/A'}</p>
-                        <p className="text-base"><span className="font-medium">Car Entrances:</span> {passengerProduct.carEntrances || 'N/A'}</p>
-                        <p className="text-base"><span className="font-medium">Door Opening Type:</span> {passengerProduct.doorOpeningType || 'N/A'}</p>
-                        <p className="text-base"><span className="font-medium">Main Power Supply:</span> {passengerProduct.mainPowerSupply || 'N/A'}</p>
-                        <p className="text-base"><span className="font-medium">Car Dimensions:</span> {passengerProduct.carDimensions || 'N/A'}</p>
-                        <p className="text-base"><span className="font-medium">Pit Depth:</span> {passengerProduct.pitDepth || 'N/A'}</p>
-                        <p className="text-base"><span className="font-medium">Overhead:</span> {passengerProduct.overhead || 'N/A'}</p>
-                    </div>
-                </div>
-            );
+        // Handle forklift products
+        if ('forkliftType' in product) {
+            return <ForkliftDetails product={product} />;
         }
 
-        if (isCapsuleLift(product)) {
-            const capsuleProduct = product as Product & {
-                observationPlane?: string;
-                externalDecorationPlate?: string;
-                externalDecorationLighting?: string;
-                carWall?: string;
-                carDoorType?: string;
-                carDoorMaterial?: string;
-                carCeiling?: string;
-                handrail?: string;
-                floor?: string;
-            };
+        // Handle lift products with specific detail components
+        const liftProduct = product as Product;
 
-            return (
-                <div className="space-y-4">
+        switch (liftProduct.type) {
+            case 'passenger':
+                return <PassengerLiftDetails product={liftProduct as Product & { type: 'passenger' }} />;
 
-                    <div className="">
+            case 'capsule':
+                return <CapsuleLiftDetails product={liftProduct as Product & { type: 'capsule' }} />;
+
+            case 'hospital':
+                return <HospitalLiftDetails product={liftProduct as Product & { type: 'hospital' }} />;
+
+            case 'cargo':
+                return <CargoLiftDetails product={liftProduct as Product & { type: 'cargo' }} />;
+
+            case 'escalator':
+                return <EscalatorDetails product={liftProduct as Product & { type: 'escalator' }} />;
+
+            case 'imported':
+                return <ImportedLiftDetails product={liftProduct as Product & { type: 'imported' }} />;
+
+            default:
+                // Fallback for any other types
+                return (
+                    <div className="space-y-4">
+
                         <div className="space-y-3">
-                            <p className="text-base"><span className="font-medium">Observation Plane:</span> {capsuleProduct.observationPlane || 'N/A'}</p>
-                            <p className="text-base"><span className="font-medium">External Decoration Plate:</span> {capsuleProduct.externalDecorationPlate || 'N/A'}</p>
-                            <p className="text-base"><span className="font-medium">External Decoration Lighting:</span> {capsuleProduct.externalDecorationLighting || 'N/A'}</p>
-                            <p className="text-base"><span className="font-medium">Car Wall:</span> {capsuleProduct.carWall || 'N/A'}</p>
-                            <p className="text-base"><span className="font-medium">Car Door Type:</span> {capsuleProduct.carDoorType || 'N/A'}</p>
-
-                            <p className="text-base"><span className="font-medium">Car Door Material:</span> {capsuleProduct.carDoorMaterial || 'N/A'}</p>
-                            <p className="text-base"><span className="font-medium">Car Ceiling:</span> {capsuleProduct.carCeiling || 'N/A'}</p>
-                            <p className="text-base"><span className="font-medium">Handrail:</span> {capsuleProduct.handrail || 'N/A'}</p>
-                            <p className="text-base"><span className="font-medium">Floor:</span> {capsuleProduct.floor || 'N/A'}</p>
+                            <p className="text-base"><span className="font-bold">Product Type:</span> {(liftProduct as any).type || 'Unknown'}</p>
+                            <p className="text-base"><span className="font-bold">Description:</span> {(liftProduct as any).description || 'N/A'}</p>
+                            <p className="text-base"><span className="font-bold">Capacity:</span> {(liftProduct as any).capacity || 'N/A'}</p>
                         </div>
                     </div>
-                </div>
-            );
+                );
         }
+    };
 
-        if (isHospitalLift(product)) {
-            return (
-                <div className="space-y-4">
-                    <div className="space-y-3">
-                        <p className="text-base"><span className="font-medium">Item Name:</span> {product.name}</p>
-                        <p className="text-base"><span className="font-medium">Rated capacity:</span> {product.capacity}</p>
-                        <p className="text-base"><span className="font-medium">Persons:</span> {product.hospitalStandards}</p>
-                        <p className="text-base"><span className="font-medium">Floors/Stops/Doors:</span> {product.emergencyFeatures}</p>
-                        <p className="text-base"><span className="font-medium">Speed:</span> {product.hygieneFeatures}</p>
-                        <p className="text-base"><span className="font-medium">Control system:</span> {product.accessibilityFeatures}</p>
-                        <p className="text-base"><span className="font-medium">Drive system:</span> {product.powerBackup}</p>
-                        <p className="text-base"><span className="font-medium">Traction machine:</span> {product.dimensions}</p>
-                        <p className="text-base"><span className="font-medium">Machine room size (mm):</span> {product.certifications}</p>
-                        <p className="text-base"><span className="font-medium">Car entrances:</span> Single</p>
-                        <p className="text-base"><span className="font-medium">Door opening type:</span> Center opening/ Side opening</p>
-                    </div>
-                </div>
-            );
+    const getProductName = () => {
+        if ('forkliftType' in product!) {
+            return product.model || product.name;
         }
+        return product!.name;
+    };
 
-        if (isCargoLift(product)) {
-            return (
-                <div className="space-y-4">
-                    <div className="space-y-3">
-                        <p className="text-base"><span className="font-medium">Item:</span> {product.loadCapacity}</p>
-                        <p className="text-base"><span className="font-medium">Car Ceiling:</span> {product.platformSize}</p>
-                        <p className="text-base"><span className="font-medium">Car Wall & Car Door:</span> {product.liftingHeight}</p>
-                        <p className="text-base"><span className="font-medium">Operational Panel:</span> {product.powerRequirement}</p>
-                        <p className="text-base"><span className="font-medium">Car Floor:</span> {product.safetyFeatures}</p>
-                        <p className="text-base"><span className="font-medium">Sill:</span> {product.operationType}</p>
-                    </div>
-                </div>
-            );
+    const getProductImage = () => {
+        return product!.image;
+    };
+
+    const getProductDescription = () => {
+        if ('forkliftType' in product!) {
+            return `${product.brand} ${product.model} - ${product.forkliftType} forklift with ${product.loadCapacity} capacity`;
         }
-
-        if (isEscalator(product)) {
-            return (
-                <div className="space-y-4">
-                    <div className="space-y-3">
-                        <p className="text-base"><span className="font-medium">Maximum Rise:</span> Up to 20 meters</p>
-                        <p className="text-base"><span className="font-medium">Application:</span> Indoor, Outdoor, 16-hr operation daily</p>
-                        <p className="text-base"><span className="font-medium">Rise H:</span> {product.riseHeight}</p>
-                        <p className="text-base"><span className="font-medium">Step Width:</span> {product.stepWidth}</p>
-                        <p className="text-base"><span className="font-medium">Speed:</span> {product.inclination}</p>
-                        <p className="text-base"><span className="font-medium">Main Power:</span> {product.speed}</p>
-                        <p className="text-base"><span className="font-medium">Balustrade:</span> {product.capacity}</p>
-                        <p className="text-base"><span className="font-medium">Handrail:</span> {product.safetyFeatures}</p>
-                        <p className="text-base"><span className="font-medium">Handrail Bracket:</span> {product.construction}</p>
-                        <p className="text-base"><span className="font-medium">Inner & Outer Decking:</span> {product.finishing}</p>
-                        <p className="text-base"><span className="font-medium">Step:</span> Stainless Steel</p>
-                    </div>
-                </div>
-            );
-        }
-
-        if (isImportedLift(product)) {
-            return (
-                <div className="space-y-4">
-                    <div className="space-y-3">
-                        <p className="text-base"><span className="font-medium">Manufacturer:</span> {product.manufacturer}</p>
-                        <p className="text-base"><span className="font-medium">Model:</span> {product.model}</p>
-                        <p className="text-base"><span className="font-medium">Specifications:</span> {product.specifications}</p>
-                        <p className="text-base"><span className="font-medium">Features:</span> {product.features}</p>
-                        <p className="text-base"><span className="font-medium">Warranty:</span> {product.warranty}</p>
-                        <p className="text-base"><span className="font-medium">Installation:</span> {product.installation}</p>
-                        <p className="text-base"><span className="font-medium">Maintenance:</span> {product.maintenance}</p>
-                        <p className="text-base"><span className="font-medium">Country of Origin:</span> {product.countryOfOrigin}</p>
-                    </div>
-                </div>
-            );
-        }
-
-        return null;
+        return product!.description;
     };
 
     if (isLoading) {
@@ -259,12 +171,11 @@ export default function ProductDetailPage() {
                 <div className="absolute inset-0 bg-[url('/dummy_background.jpg')] bg-cover bg-center moving-bg"></div>
                 <div className="relative max-w-[1320px] mx-auto px-4 h-full flex items-center justify-center">
                     <div className="text-center text-white">
-                        <h1 className="text-5xl font-extrabold mb-4">{product.name}</h1>
+                        <h1 className="text-5xl font-bold mb-4">{getProductName()}</h1>
                     </div>
                 </div>
             </div>
             <div className="max-w-[1320px] mx-auto px-4 py-8">
-
                 <div className="max-w-6xl mx-auto">
                     {/* Breadcrumb */}
                     <nav className="mb-8">
@@ -273,7 +184,13 @@ export default function ProductDetailPage() {
                             <li className="text-gray-400">&gt;</li>
                             <li><Link href="/products" className="hover:text-orange-400">Products</Link></li>
                             <li className="text-gray-400">&gt;</li>
-                            <li className="text-gray-800 font-medium">{product.name}</li>
+                            {'forkliftType' in product ? (
+                                <li><Link href="/products/forklift" className="hover:text-orange-400">Forklifts</Link></li>
+                            ) : (
+                                <li><Link href="/products/lift" className="hover:text-orange-400">Lifts</Link></li>
+                            )}
+                            <li className="text-gray-400">&gt;</li>
+                            <li className="text-gray-800 font-medium">{getProductName()}</li>
                         </ol>
                     </nav>
 
@@ -284,8 +201,8 @@ export default function ProductDetailPage() {
                             <div className="space-y-4">
                                 <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
                                     <Image
-                                        src={product.image}
-                                        alt={product.name}
+                                        src={getProductImage()}
+                                        alt={getProductName()}
                                         width={500}
                                         height={500}
                                         className="w-full h-full object-cover"
@@ -299,53 +216,52 @@ export default function ProductDetailPage() {
                             {/* Product Info */}
                             <div className="space-y-6">
                                 <div>
-                                    <h1 className="text-3xl font-extrabold text-gray-800 mb-2">{product.name}</h1>
+                                    <h1 className="text-3xl font-bold text-gray-800 mb-2">{getProductName()}</h1>
+                                    <p><span className="font-bold">Category :</span> {(product.type).split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</p>
+                                    <hr className='my-4 border-gray-300 border-[1px]' />
                                     <div className="flex items-center mt-4">
-                                        {product.description && (
-                                            <div>
-                                                <h3 className="text-lg font-semibold text-gray-800 mb-2">Description</h3>
-                                                <p className="text-gray-600 text-base">{product.description}</p>
-                                            </div>
-                                        )}
+                                        {getProductDescription() && <div>
+                                            <h3 className="text-lg font-semibold text-gray-800 mb-2">Description</h3>
+                                            <p className="text-gray-600 text-base">{getProductDescription()}</p>
+                                        </div>}
                                     </div>
-                                    {renderSpecifications()}
-
                                 </div>
 
+                                {/* Specifications */}
+                                {renderSpecifications() && <div>
 
+                                    {renderSpecifications()}
+                                </div>}
                             </div>
                         </div>
                     </div>
 
-                    {/* Specifications */}
-
                     {/* Related Products */}
                     {relatedProducts.length > 0 && (
-                        <div className="mt-12">
-                            <h3 className="text-2xl font-semibold text-gray-800 mb-6">Related Products</h3>
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                {relatedProducts.map((relatedProduct) => (
+                        <div className="bg-white rounded-lg shadow-lg p-8">
+                            <h2 className="text-2xl font-bold text-gray-800 mb-6">Related Products</h2>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {relatedProducts.map((relatedProduct, index) => (
                                     <Link
-                                        key={relatedProduct.itemCode}
+                                        key={index}
                                         href={`/product/${relatedProduct.itemCode}`}
-                                        className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                                        className="bg-gray-50 rounded-lg p-4 hover:shadow-md transition-shadow"
                                     >
-                                        <div className="aspect-square bg-gray-100">
+                                        <div className="aspect-square bg-gray-200 rounded-lg mb-3 overflow-hidden">
                                             <Image
                                                 src={relatedProduct.image}
-                                                alt={relatedProduct.name}
-                                                width={300}
-                                                height={300}
+                                                alt={'forkliftType' in relatedProduct ? relatedProduct.model : relatedProduct.name}
+                                                width={200}
+                                                height={200}
                                                 className="w-full h-full object-cover"
                                                 onError={(e) => {
                                                     e.currentTarget.src = '/images/placeholder-lift.jpg';
                                                 }}
                                             />
                                         </div>
-                                        <div className="p-4">
-                                            <h4 className="font-semibold text-gray-800 mb-2">{relatedProduct.name}</h4>
-                                            <p className="text-sm text-orange-400">{relatedProduct.itemCode}</p>
-                                        </div>
+                                        <h3 className="font-semibold text-gray-800 text-sm">
+                                            {'forkliftType' in relatedProduct ? relatedProduct.model : relatedProduct.name}
+                                        </h3>
                                     </Link>
                                 ))}
                             </div>
