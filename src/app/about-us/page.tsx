@@ -4,10 +4,10 @@ export default function AboutUsPage() {
     return (
         <div className="min-h-screen mx-auto">
             {/* Hero Section with Moving Background */}
-            <section className="relative h-96 flex items-center justify-center moving-background bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
+            <section className="relative h-96 flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
                 {/* Background Image */}
                 <div
-                    className="absolute inset-0 bg-cover bg-center opacity-40"
+                    className="absolute inset-0 bg-cover bg-center moving-bg opacity-40"
                     style={{
                         backgroundImage: "url('/dummy_background.jpg')",
                     }}

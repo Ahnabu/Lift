@@ -54,9 +54,11 @@ export default function MpLiftPage() {
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Hero Section with Moving Background */}
-            <div className="relative h-96 bg-gradient-to-r from-orange-400 to-orange-600 overflow-hidden">
-                <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-                <div className="absolute inset-0 bg-[url('/dummy_background.jpg')] bg-cover bg-center moving-bg"></div>
+            <div className="relative h-96 flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
+                <div className="absolute inset-0 bg-cover bg-center moving-bg opacity-40"
+                    style={{
+                        backgroundImage: "url('/dummy_background.jpg')",
+                    }}></div>
                 <div className="relative max-w-[1320px] mx-auto px-4 h-full flex items-center justify-center">
                     <div className="text-center text-white">
                         <h1 className="text-5xl font-bold mb-4">MP Elevators</h1>
