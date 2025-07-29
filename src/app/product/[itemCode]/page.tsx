@@ -7,9 +7,18 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { LiftService } from '@/services/enhancedLiftService';
 import { ForkliftService } from '@/services/forkliftService';
+import { GeneratorService } from '@/services/generatorService';
+import { HVACService } from '@/services/hvacService';
+import { StreetLightService } from '@/services/streetLightService';
+import { SolarService } from '@/services/solarService';
 import { Product } from '@/types/products';
 import { ForkliftProduct } from '@/types/forklift';
+import { GeneratorProduct, HVACProduct, StreetLightProduct, SolarProduct } from '@/types/otherProducts';
 import ForkliftDetails from '@/components/product-details/ForkliftDetails';
+import GeneratorDetails from '@/components/product-details/GeneratorDetails';
+import HVACDetails, { HVACAdditionalInfo } from '@/components/product-details/HVACDetails';
+import StreetLightDetails from '@/components/product-details/StreetLightDetails';
+import SolarDetails from '@/components/product-details/SolarDetails';
 import PassengerLiftDetails from '@/components/product-details/PassengerLiftDetails';
 import CapsuleLiftDetails from '@/components/product-details/CapsuleLiftDetails';
 import HospitalLiftDetails from '@/components/product-details/HospitalLiftDetails';
@@ -17,7 +26,7 @@ import CargoLiftDetails from '@/components/product-details/CargoLiftDetails';
 import EscalatorDetails from '@/components/product-details/EscalatorDetails';
 import ImportedLiftDetails from '@/components/product-details/ImportedLiftDetails';
 
-type AllProductTypes = Product | ForkliftProduct;
+type AllProductTypes = Product | ForkliftProduct | GeneratorProduct | HVACProduct | StreetLightProduct | SolarProduct;
 
 export default function ProductDetailPage() {
     const params = useParams();
@@ -59,7 +68,51 @@ export default function ProductDetailPage() {
                         const relatedForklifts = await ForkliftService.getRelatedForklifts(itemCode, 3);
                         setRelatedProducts(relatedForklifts);
                     } else {
-                        setError('Product not found');
+                        // Try to find in generator products
+                        const foundGeneratorProduct = await GeneratorService.getGeneratorByItemCode(itemCode);
+
+                        if (foundGeneratorProduct) {
+                            setProduct(foundGeneratorProduct);
+
+                            // Fetch related generator products
+                            const relatedGenerators = await GeneratorService.getRelatedGenerators(itemCode, 3);
+                            setRelatedProducts(relatedGenerators);
+                        } else {
+                            // Try to find in HVAC products
+                            const foundHVACProduct = await HVACService.getHVACByItemCode(itemCode);
+
+                            if (foundHVACProduct) {
+                                setProduct(foundHVACProduct);
+
+                                // Fetch related HVAC products
+                                const relatedHVAC = await HVACService.getRelatedHVAC(itemCode, 3);
+                                setRelatedProducts(relatedHVAC);
+                            } else {
+                                // Try to find in street light products
+                                const foundStreetLightProduct = await StreetLightService.getStreetLightByItemCode(itemCode);
+
+                                if (foundStreetLightProduct) {
+                                    setProduct(foundStreetLightProduct);
+
+                                    // Fetch related street light products
+                                    const relatedStreetLights = await StreetLightService.getRelatedStreetLights(itemCode, 3);
+                                    setRelatedProducts(relatedStreetLights);
+                                } else {
+                                    // Try to find in solar products
+                                    const foundSolarProduct = await SolarService.getSolarByItemCode(itemCode);
+
+                                    if (foundSolarProduct) {
+                                        setProduct(foundSolarProduct);
+
+                                        // Fetch related solar products
+                                        const relatedSolar = await SolarService.getRelatedSolar(itemCode, 3);
+                                        setRelatedProducts(relatedSolar);
+                                    } else {
+                                        setError('Product not found');
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             } catch (err) {
@@ -79,6 +132,26 @@ export default function ProductDetailPage() {
         // Handle forklift products
         if ('forkliftType' in product) {
             return <ForkliftDetails product={product} />;
+        }
+
+        // Handle generator products
+        if ('origin' in product) {
+            return <GeneratorDetails product={product} />;
+        }
+
+        // Handle HVAC products
+        if ('coolingCapacity' in product || 'efficiency' in product) {
+            return <HVACDetails product={product} showAdditionalInfo={false} />;
+        }
+
+        // Handle street light products
+        if ('energySaving' in product || 'mainFeatures' in product) {
+            return <StreetLightDetails product={product} />;
+        }
+
+        // Handle solar products
+        if ('benefits' in product || 'services' in product) {
+            return <SolarDetails product={product} />;
         }
 
         // Handle lift products with specific detail components
@@ -107,7 +180,7 @@ export default function ProductDetailPage() {
                 // Fallback for any other types
                 return (
                     <div className="space-y-4">
-
+                        <h3 className="text-lg font-bold text-gray-800 mb-4">Product Specifications</h3>
                         <div className="space-y-3">
                             <p className="text-base"><span className="font-bold">Product Type:</span> {(liftProduct as any).type || 'Unknown'}</p>
                             <p className="text-base"><span className="font-bold">Description:</span> {(liftProduct as any).description || 'N/A'}</p>
@@ -116,6 +189,17 @@ export default function ProductDetailPage() {
                     </div>
                 );
         }
+    };
+
+    const renderAdditionalInfo = () => {
+        if (!product) return null;
+
+        // Handle HVAC products additional info
+        if ('coolingCapacity' in product || 'efficiency' in product) {
+            return <HVACAdditionalInfo product={product} />;
+        }
+
+        return null;
     };
 
     const getProductName = () => {
@@ -235,6 +319,13 @@ export default function ProductDetailPage() {
                             </div>
                         </div>
                     </div>
+
+                    {/* Additional Information Section */}
+                    {renderAdditionalInfo() && (
+                        <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
+                            {renderAdditionalInfo()}
+                        </div>
+                    )}
 
                     {/* Related Products */}
                     {relatedProducts.length > 0 && (
