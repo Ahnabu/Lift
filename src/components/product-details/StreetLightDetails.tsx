@@ -2,10 +2,11 @@ import { StreetLightProduct } from '@/types/otherProducts';
 
 interface StreetLightDetailsProps {
     product: StreetLightProduct;
+    showAdditionalInfo?: boolean;
 }
 
-export default function StreetLightDetails({ product }: StreetLightDetailsProps) {
-    return (
+export default function StreetLightDetails({ product, showAdditionalInfo = true }: StreetLightDetailsProps) {
+    const renderBasicSpecs = () => (
         <div className="space-y-6">
             <h3 className="text-lg font-bold text-gray-800 mb-4">Product Specifications</h3>
 
@@ -46,7 +47,7 @@ export default function StreetLightDetails({ product }: StreetLightDetailsProps)
             )}
 
             {/* Technical Details */}
-            <div className="space-y-3 border-t pt-4">
+            <div className="space-y-3">
                 <h4 className="text-base font-bold text-gray-800">Technical Specifications:</h4>
                 {product.qualityComponents && (
                     <p className="text-base"><span className="font-bold">Quality Components:</span> {product.qualityComponents}</p>
@@ -58,38 +59,92 @@ export default function StreetLightDetails({ product }: StreetLightDetailsProps)
                     <p className="text-base"><span className="font-bold">Maintenance:</span> {product.toolFreeOpening}</p>
                 )}
             </div>
+        </div>
+    );
 
+    const renderAdditionalInfo = () => (
+        <div className="space-y-6">
             {/* Installation Information */}
             {product.additionalInfo?.installationInfo && (
-                <div className="space-y-3 border-t pt-4">
-                    <h4 className="text-base font-bold text-gray-800">Installation Information</h4>
+                <div className="space-y-3">
+                    <h4 className="text-xl font-bold text-gray-800">Installation Information</h4>
                     <p className="text-base text-gray-700 leading-relaxed">{product.additionalInfo.installationInfo}</p>
                 </div>
             )}
 
             {/* LED Street Light Information */}
             {product.additionalInfo?.ledStreetLightInfo && (
-                <div className="space-y-3 border-t pt-4">
-                    <h4 className="text-base font-bold text-gray-800">LED Street Light Technology</h4>
+                <div className="space-y-3">
+                    <h4 className="text-xl font-bold text-gray-800">LED Street Light Technology</h4>
                     <p className="text-base text-gray-700 leading-relaxed">{product.additionalInfo.ledStreetLightInfo}</p>
                 </div>
             )}
 
             {/* Best LED Light */}
             {product.additionalInfo?.bestLedLight && (
-                <div className="space-y-3 border-t pt-4">
-                    <h4 className="text-base font-bold text-gray-800">Best LED Street Light</h4>
+                <div className="space-y-3">
+                    <h4 className="text-xl font-bold text-gray-800">Best LED Street Light</h4>
                     <p className="text-base text-gray-700 leading-relaxed">{product.additionalInfo.bestLedLight}</p>
                 </div>
             )}
 
             {/* Upgrade Information */}
             {product.additionalInfo?.upgradeInfo && (
-                <div className="space-y-3 border-t pt-4">
-                    <h4 className="text-base font-bold text-gray-800">LED Street Light Upgrade</h4>
+                <div className="space-y-3">
+                    <h4 className="text-xl font-bold text-gray-800">LED Street Light Upgrade</h4>
                     <p className="text-base text-gray-700 leading-relaxed">{product.additionalInfo.upgradeInfo}</p>
                 </div>
             )}
         </div>
     );
+
+    if (!showAdditionalInfo) {
+        return renderBasicSpecs();
+    }
+
+    return (
+        <>
+            {renderBasicSpecs()}
+            {renderAdditionalInfo()}
+        </>
+    );
 }
+
+// Export additional function to render just the additional info
+export const StreetLightAdditionalInfo = ({ product }: { product: StreetLightProduct }) => {
+    return (
+        <div className="space-y-6">
+            {/* Installation Information */}
+            {product.additionalInfo?.installationInfo && (
+                <div className="space-y-3">
+                    <h4 className="text-xl font-bold text-gray-800">Installation Information</h4>
+                    <p className="text-base text-gray-700 leading-relaxed">{product.additionalInfo.installationInfo}</p>
+                </div>
+            )}
+
+            {/* LED Street Light Information */}
+            {product.additionalInfo?.ledStreetLightInfo && (
+                <div className="space-y-3">
+                    <h4 className="text-xl font-bold text-gray-800">LED Street Light Technology</h4>
+                    <p className="text-base text-gray-700 leading-relaxed">{product.additionalInfo.ledStreetLightInfo}</p>
+                </div>
+            )}
+
+            {/* Best LED Light */}
+            {product.additionalInfo?.bestLedLight && (
+                <div className="space-y-3">
+                    <h4 className="text-xl font-bold text-gray-800">Best LED Street Light</h4>
+                    <p className="text-base text-gray-700 leading-relaxed">{product.additionalInfo.bestLedLight}</p>
+                </div>
+            )}
+
+            {/* Upgrade Information */}
+            {product.additionalInfo?.upgradeInfo && (
+                <div className="space-y-3">
+                    <h4 className="text-xl font-bold text-gray-800">LED Street Light Upgrade</h4>
+                    <p className="text-base text-gray-700 leading-relaxed">{product.additionalInfo.upgradeInfo}</p>
+                </div>
+            )}
+        </div>
+    );
+};

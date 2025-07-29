@@ -1,4 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disablimport { ForkLiftDetails } from '@/components/product-details/ForkLiftDetails';
+import { GeneratorDetails } from '@/components/product-details/GeneratorDetails';
+import HVACDetails, { HVACAdditionalInfo } from '@/components/product-details/HVACDetails';
+import StreetLightDetails, { StreetLightAdditionalInfo } from '@/components/product-details/StreetLightDetails';
+import { SolarDetails } from '@/components/product-details/SolarDetails';pescript-eslint/no-explicit-any */
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -17,7 +22,7 @@ import { GeneratorProduct, HVACProduct, StreetLightProduct, SolarProduct } from 
 import ForkliftDetails from '@/components/product-details/ForkliftDetails';
 import GeneratorDetails from '@/components/product-details/GeneratorDetails';
 import HVACDetails, { HVACAdditionalInfo } from '@/components/product-details/HVACDetails';
-import StreetLightDetails from '@/components/product-details/StreetLightDetails';
+import StreetLightDetails, { StreetLightAdditionalInfo } from '@/components/product-details/StreetLightDetails';
 import SolarDetails from '@/components/product-details/SolarDetails';
 import PassengerLiftDetails from '@/components/product-details/PassengerLiftDetails';
 import CapsuleLiftDetails from '@/components/product-details/CapsuleLiftDetails';
@@ -146,7 +151,7 @@ export default function ProductDetailPage() {
 
         // Handle street light products
         if ('energySaving' in product || 'mainFeatures' in product) {
-            return <StreetLightDetails product={product} />;
+            return <StreetLightDetails product={product} showAdditionalInfo={false} />;
         }
 
         // Handle solar products
@@ -197,6 +202,11 @@ export default function ProductDetailPage() {
         // Handle HVAC products additional info
         if ('coolingCapacity' in product || 'efficiency' in product) {
             return <HVACAdditionalInfo product={product} />;
+        }
+
+        // Handle street light products additional info
+        if ('energySaving' in product || 'mainFeatures' in product) {
+            return <StreetLightAdditionalInfo product={product} />;
         }
 
         return null;

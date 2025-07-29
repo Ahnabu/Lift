@@ -98,7 +98,7 @@ export default function PassengerLiftPage() {
                                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                         />
                                     </div>
-                                    <div className="p-4 text-center">
+                                    <div className="p-4 md:flex text-center items-center justify-between ">
                                         <div className="text-gray-400 text-4xl font-light mb-2">
                                             {String(index + 1).padStart(2, '0')}
                                         </div>
