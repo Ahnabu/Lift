@@ -44,7 +44,7 @@ export const products: Product[] = [
     id: "generator",
     title: "GENERATOR",
     description: "High-quality generators providing reliable backup power for all your lift systems and building needs.",
-    image: "/api/placeholder/300/200",
+    image: "https://propertylifts.com/images/sections/d66f4890260e4a2c8860f4414b155ab8/liftLIFT.jpg",
     href: "/products/generator",
     category: "generator"
   },
@@ -52,7 +52,7 @@ export const products: Product[] = [
     id: "hvac",
     title: "HVAC",
     description: "Complete heating, ventilation, and air conditioning solutions for optimal comfort and air quality.",
-    image: "/api/placeholder/300/200",
+    image: "https://propertylifts.com/images/sections/d66f4890260e4a2c8860f4414b155ab8/liftLIFT.jpg",
     href: "/products/hvac",
     category: "hvac"
   },
@@ -60,7 +60,7 @@ export const products: Product[] = [
     id: "solar",
     title: "SOLAR",
     description: "Sustainable solar energy systems for eco-friendly and cost-effective power solutions.",
-    image: "/api/placeholder/300/200",
+    image: "https://propertylifts.com/images/sections/d66f4890260e4a2c8860f4414b155ab8/liftLIFT.jpg",
     href: "/products/solar",
     category: "solar"
   },
@@ -68,7 +68,7 @@ export const products: Product[] = [
     id: "lift",
     title: "LIFT",
     description: "Premium lifts and elevators designed for safety, reliability, and smooth operation in any building.",
-    image: "/api/placeholder/300/200",
+    image: "https://propertylifts.com/images/sections/d66f4890260e4a2c8860f4414b155ab8/liftLIFT.jpg",
     href: "/products/lift/property-lifts",
     category: "lift"
   },
@@ -76,7 +76,7 @@ export const products: Product[] = [
     id: "forklift",
     title: "FORKLIFT",
     description: "Industrial-grade forklifts for efficient material handling and warehouse operations.",
-    image: "/api/placeholder/300/200",
+    image: "https://propertylifts.com/images/sections/d66f4890260e4a2c8860f4414b155ab8/liftLIFT.jpg",
     href: "/products/forklift",
     category: "forklift"
   }

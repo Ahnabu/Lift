@@ -2,7 +2,6 @@
 
 import * as React from "react"
 import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight } from "lucide-react"
 import { sliderItems } from "@/lib/data"
 import Link from "next/link"
 
@@ -11,10 +10,6 @@ export function HeroSlider() {
 
     const nextSlide = React.useCallback(() => {
         setCurrentSlide((prev) => (prev + 1) % sliderItems.length)
-    }, [])
-
-    const prevSlide = React.useCallback(() => {
-        setCurrentSlide((prev) => (prev - 1 + sliderItems.length) % sliderItems.length)
     }, [])
 
     React.useEffect(() => {
@@ -33,8 +28,13 @@ export function HeroSlider() {
                             }`}
                     >
                         {/* Background */}
-                        <div className="absolute inset-0 hero-gradient">
-                            <div className="absolute inset-0 bg-black/30" />
+                        <div
+                            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                            style={{
+                                backgroundImage: `url('https://propertylifts.com/images/sections/652823d0cc5a4db6a4ae66c79de25c4c/lifting-and-movingForklift-1470X754px-min.jpg')`
+                            }}
+                        >
+                            <div className="absolute inset-0 bg-black/40" />
                         </div>
 
                         {/* Content */}
@@ -50,7 +50,7 @@ export function HeroSlider() {
                                     <p className="text-lg md:text-xl mb-8 opacity-90 max-w-2xl">
                                         {slide.description}
                                     </p>
-                                    <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-white/90">
+                                    <Button asChild size="lg" className="bg-red-600 text-white hover:bg-red-700 px-8 py-3 text-lg font-semibold">
                                         <Link href={slide.href}>
                                             {slide.ctaText}
                                         </Link>
@@ -61,33 +61,22 @@ export function HeroSlider() {
                     </div>
                 ))}
             </div>
-            {/* Navigation Arrows */}
-            <button
-                onClick={prevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-colors"
-                aria-label="Previous slide"
-            >
-                <ChevronLeft className="h-6 w-6" />
-            </button>
-            <button
-                onClick={nextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-colors"
-                aria-label="Next slide"
-            >
-                <ChevronRight className="h-6 w-6" />
-            </button>
+
             {/* Dots Indicator */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-2">
+            {/* <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-3">
                 {sliderItems.map((_, index) => (
                     <button
                         key={index}
                         onClick={() => setCurrentSlide(index)}
-                        className={`w-3 h-3 rounded-full transition-colors ${index === currentSlide ? "bg-white" : "bg-white/50"
-                            }`}
+                        className={`w-4 h-4 rounded-full border-2 border-white transition-all duration-300 ${
+                            index === currentSlide
+                                ? "bg-white scale-110"
+                                : "bg-transparent hover:bg-white/30"
+                        }`}
                         aria-label={`Go to slide ${index + 1}`}
                     />
                 ))}
-            </div>
+            </div> */}
         </section>
     );
 }
