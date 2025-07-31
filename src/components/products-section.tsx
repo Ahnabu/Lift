@@ -1,48 +1,114 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { products } from "@/lib/data"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { products } from "@/lib/data";
 
 export function ProductsSection() {
-    return (
-        <section className="py-16 bg-gray-50">
-            <div className="container mx-auto px-4">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                        Our Products
-                    </h2>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                        Comprehensive solutions for all your building infrastructure needs
-                    </p>
-                </div>
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [itemsPerSlide, setItemsPerSlide] = useState(4);
 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                    {products.map((product) => (
-                        <Link
-                            key={product.id}
-                            href={product.href}
-                            className="group block">
-                            <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-                                <div className="aspect-square bg-gray-100 relative overflow-hidden">
-                                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
-                                        <span className="text-white text-4xl font-bold">
-                                            {product.title.charAt(0)}
-                                        </span>
-                                    </div>
-                                </div>
-                                <div className="p-4 text-center">
-                                    <h3 className="font-bold text-lg text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-                                        {product.title}
-                                    </h3>
-                                    <p className="text-sm text-gray-600 line-clamp-3">
-                                        {product.description}
-                                    </p>
-                                </div>
-                            </div>
-                        </Link>
-                    ))}
+  // Auto-change slider - moves one product at a time
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % products.length);
+    }, 3000); // Change every 3 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Handle responsive items per slide
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) setItemsPerSlide(4);
+      else if (window.innerWidth >= 768) setItemsPerSlide(3);
+      else if (window.innerWidth >= 640) setItemsPerSlide(2);
+      else setItemsPerSlide(1);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % products.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + products.length) % products.length);
+  };
+
+  // Get visible products based on current slide and items per slide
+  const getVisibleProducts = () => {
+    const visibleProducts = [];
+    for (let i = 0; i < itemsPerSlide; i++) {
+      const productIndex = (currentSlide + i) % products.length;
+      visibleProducts.push(products[productIndex]);
+    }
+    return visibleProducts;
+  };
+
+  return (
+    <section className="py-16 bg-white">
+      <div className="container mx-auto px-4">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-wider">
+            OUR PRODUCTS
+          </h2>
+          <div className="flex gap-2">
+            <button
+              onClick={prevSlide}
+              className="p-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors"
+              aria-label="Previous products"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="p-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors"
+              aria-label="Next products"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+
+        {/* Products Slider */}
+        <div className="relative overflow-hidden">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 transition-all duration-500 ease-in-out">
+            {getVisibleProducts().map((product, index) => (
+              <Link
+                key={`${product.id}-${currentSlide}-${index}`}
+                href={product.href}
+                className="group block"
+              >
+                <div className="bg-white rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+                  {/* Product Image */}
+                  <div className="aspect-[4/3] relative overflow-hidden">
+                    <Image
+                      src={product.image}
+                      alt={product.title}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                  </div>
+
+                  {/* Product Title */}
+                  <div className="p-4 text-center">
+                    <h3 className="font-bold text-lg tracking-wider text-gray-900 group-hover:text-black transition-colors">
+                      {product.title}
+                    </h3>
+                  </div>
                 </div>
-            </div>
-        </section>
-    );
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
