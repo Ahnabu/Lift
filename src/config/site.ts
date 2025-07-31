@@ -106,6 +106,10 @@ export const navigation = {
       ]
     },
     {
+      title: "SPARE PARTS",
+      href: "/spare-parts",
+    },
+    {
       title: "PROJECTS",
       href: "#",
       children: [
