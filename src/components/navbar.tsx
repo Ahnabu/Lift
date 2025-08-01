@@ -51,7 +51,7 @@ const NestedMenu: React.FC<NestedMenuProps> = ({ items, level, onItemClick }) =>
                         {item.children ? (
                             <>
                                 <div className={cn(
-                                    "px-5 py-4 cursor-pointer flex items-center justify-between font-bold transition-colors duration-200 ",
+                                    "px-3 py-4 cursor-pointer flex items-center justify-between font-bold transition-colors duration-200 ",
                                     isActive
                                         ? "bg-primary/10 text-primary"
                                         : "hover:bg-primary/10 text-gray-800 hover:text-primary",
@@ -72,7 +72,7 @@ const NestedMenu: React.FC<NestedMenuProps> = ({ items, level, onItemClick }) =>
                             <Link
                                 href={item.href}
                                 className={cn(
-                                    "block px-5 py-4 text-sm uppercase tracking-wide font-bold transition-colors duration-200",
+                                    "block px-3 py-4 text-sm uppercase tracking-wide font-bold transition-colors duration-200",
                                     isActive
                                         ? "bg-primary/10 text-primary"
                                         : "hover:bg-primary/10 text-gray-800 hover:text-primary",
@@ -147,7 +147,7 @@ const NavigationMenuItem: React.FC<NavigationMenuItemProps> = ({ item, onItemCli
             {item.children ? (
                 <>
                     <div className={cn(
-                        "px-2 py-2 cursor-pointer flex items-center space-x-1 text-sm font-bold uppercase tracking-wide transition-colors duration-200",
+                        "px-2 py-2 cursor-pointer flex items-center space-x-1 text-sm font-semibold uppercase tracking-wide transition-colors duration-200",
                         isActiveRoute || isHovered
                             ? "text-primary"
                             : "text-white hover:text-primary"
@@ -254,7 +254,7 @@ export function Navbar() {
                         </Link>
 
                         {/* Desktop Navigation */}
-                        <nav className="hidden lg:flex items-center space-x-4">
+                        <nav className="hidden lg:flex items-center space-x-2">
                             {navigation.main.map((item) => (
                                 <NavigationMenuItem key={item.title} item={item} />
                             ))}
