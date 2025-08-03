@@ -101,15 +101,13 @@ export default function ShanghaiMitsubishiLiftPage() {
                                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                         />
                                     </div>
-                                    <div className="p-6">
-                                        <div className="bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded mb-2 inline-block">
+                                    <div className="p-4 md:flex text-center items-center justify-between ">
+                                        <div className="text-gray-400 text-4xl font-light mb-2">
                                             {String(index + 1).padStart(2, '0')}
                                         </div>
-                                        <h3 className="text-xl font-semibold text-gray-800 mb-2 group-hover:text-orange-400 transition-colors">
-                                            {lift.name}
+                                        <h3 className="text-lg font-semibold text-gray-800">
+                                            {lift.model}
                                         </h3>
-                                        <p className="text-orange-400 font-medium mb-2">{lift.itemCode}</p>
-                                        <p className="text-gray-600 text-sm">{lift.model}</p>
                                     </div>
                                 </div>
                             </Link>
