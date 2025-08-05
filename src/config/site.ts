@@ -1,19 +1,26 @@
 export const siteConfig = {
   name: "Property Lifts",
-  description: "Best Lift Company in Bangladesh - Quality lifts for all properties, from personal family houses to high-rise apartments.",
-  url: process.env.NODE_ENV === 'production' ? "https://propertylifts.com" : "http://localhost:3000",
-  ogImage: process.env.NODE_ENV === 'production' ? "https://propertylifts.com/og.jpg" : "http://localhost:3000/dummy_background.jpg",
+  description:
+    "Best Lift Company in Bangladesh - Quality lifts for all properties, from personal family houses to high-rise apartments.",
+  url:
+    process.env.NODE_ENV === "production"
+      ? "https://propertylifts.com"
+      : "http://localhost:3000",
+  ogImage:
+    process.env.NODE_ENV === "production"
+      ? "https://propertylifts.com/og.jpg"
+      : "http://localhost:3000/dummy_background.jpg",
   links: {
     facebook: "https://www.facebook.com/Propertyliftsbd",
     linkedin: "https://www.linkedin.com/company/property-lifts",
   },
   contact: {
-    phone: "+0800-7777777",
-    email: "mktg980@prangroup.com",
+    phone: "+8801920-883427",
+    email: "wahid2487@gmail.com",
     address: "PRAN Center, 105 Middle Badda, Dhaka-1212",
-    emergency: "09613737777"
-  }
-}
+    emergency: "+8801920-883427",
+  },
+};
 
 export const navigation = {
   main: [
@@ -56,8 +63,8 @@ export const navigation = {
                 {
                   title: "ESCALATOR",
                   href: "/products/lift/property-lifts/escalator",
-                }
-              ]
+                },
+              ],
             },
             {
               title: "IMPORTED LIFTS",
@@ -78,10 +85,10 @@ export const navigation = {
                 {
                   title: "SHANGHAI MITSUBISHI",
                   href: "/products/lift/imported-lifts/shanghai-mitsubishi",
-                }
-              ]
-            }
-          ]
+                },
+              ],
+            },
+          ],
         },
         {
           title: "FORKLIFT",
@@ -102,34 +109,34 @@ export const navigation = {
         {
           title: "SOLAR",
           href: "/products/solar",
-        }
-      ]
+        },
+      ],
     },
-    {
-      title: "SPARE PARTS",
-      href: "/spare-parts",
-    },
+    // {
+    //   title: "SPARE PARTS",
+    //   href: "/spare-parts",
+    // },
     {
       title: "PROJECTS",
-      href: "#",
-      children: [
-        {
-          title: "LIFT",
-          href: "/projects/lift",
-        },
-        {
-          title: "FORKLIFT",
-          href: "/projects/forklift",
-        },
-        {
-          title: "GENERATOR",
-          href: "/projects/generator",
-        },
-        {
-          title: "HVAC",
-          href: "/projects/hvac",
-        }
-      ]
+      href: "/projects",
+      // children: [
+      //   {
+      //     title: "LIFT",
+      //     href: "/projects/lift",
+      //   },
+      //   {
+      //     title: "FORKLIFT",
+      //     href: "/projects/forklift",
+      //   },
+      //   {
+      //     title: "GENERATOR",
+      //     href: "/projects/generator",
+      //   },
+      //   {
+      //     title: "HVAC",
+      //     href: "/projects/hvac",
+      //   },
+      // ],
     },
     {
       title: "MEDIA",
@@ -146,16 +153,16 @@ export const navigation = {
         {
           title: "CATALOGUE",
           href: "/media/catalogue",
-        }
-      ]
+        },
+      ],
     },
-    {
-      title: "CERTIFICATE",
-      href: "/certificate",
-    },
+    // {
+    //   title: "CERTIFICATE",
+    //   href: "/certificate",
+    // },
     {
       title: "CONTACT US",
       href: "/contact-us",
-    }
-  ]
-}
+    },
+  ],
+};
