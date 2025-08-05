@@ -3,18 +3,42 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { products } from "@/lib/data";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Clock,
+  Users,
+  Settings,
+  Wrench,
+  Phone,
+  Building,
+  Package,
+  MoveUp,
+  Zap,
+} from "lucide-react";
+import { homeOfferings } from "@/lib/data";
 
-export function ProductsSection() {
+const iconMap = {
+  Clock,
+  Users,
+  Settings,
+  Wrench,
+  Phone,
+  Building,
+  Package,
+  MoveUp,
+  Zap,
+};
+
+export function ProductsServicesSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [itemsPerSlide, setItemsPerSlide] = useState(4);
 
-  // Auto-change slider - moves one product at a time
+  // Auto-change slider
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % products.length);
-    }, 3000); // Change every 3 seconds
+      setCurrentSlide((prev) => (prev + 1) % homeOfferings.length);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -34,77 +58,124 @@ export function ProductsSection() {
   }, []);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % products.length);
+    setCurrentSlide((prev) => (prev + 1) % homeOfferings.length);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + products.length) % products.length);
+    setCurrentSlide(
+      (prev) => (prev - 1 + homeOfferings.length) % homeOfferings.length
+    );
   };
 
-  // Get visible products based on current slide and items per slide
-  const getVisibleProducts = () => {
-    const visibleProducts = [];
+  const getVisibleOfferings = () => {
+    const visibleOfferings = [];
     for (let i = 0; i < itemsPerSlide; i++) {
-      const productIndex = (currentSlide + i) % products.length;
-      visibleProducts.push(products[productIndex]);
+      const offeringIndex = (currentSlide + i) % homeOfferings.length;
+      visibleOfferings.push(homeOfferings[offeringIndex]);
     }
-    return visibleProducts;
+    return visibleOfferings;
   };
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="flex items-center justify-between mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-wider">
-            Our Products & Services
-          </h2>
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-wider mb-2">
+              Our Products & Services
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Comprehensive solutions for all your vertical transportation and
+              power needs
+            </p>
+          </div>
           <div className="flex gap-2">
             <button
               onClick={prevSlide}
-              className="p-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors"
-              aria-label="Previous products"
+              className="p-2 rounded-full border border-border hover:bg-accent transition-colors"
+              aria-label="Previous offerings"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={nextSlide}
-              className="p-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors"
-              aria-label="Next products"
+              className="p-2 rounded-full border border-border hover:bg-accent transition-colors"
+              aria-label="Next offerings"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>
         </div>
 
-        {/* Products Slider */}
+        {/* Offerings Slider */}
         <div className="relative overflow-hidden">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 transition-all duration-500 ease-in-out">
-            {getVisibleProducts().map((product, index) => (
-              <Link
-                key={`${product.id}-${currentSlide}-${index}`}
-                href={product.href}
+            {getVisibleOfferings().map((offering, index) => (
+              <div
+                key={`${offering.id}-${currentSlide}-${index}`}
                 className="group block"
               >
-                <div className="bg-white rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-                  {/* Product Image */}
+                <div className="bg-card rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 border border-border h-full">
+                  {/* Image/Icon */}
                   <div className="aspect-[4/3] relative overflow-hidden">
-                    <Image
-                      src={product.image}
-                      alt={product.title}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
+                    {offering.type === "product" && offering.image ? (
+                      <Image
+                        src={offering.image}
+                        alt={offering.title}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-110"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-muted flex items-center justify-center">
+                        {/* {offering.icon &&
+                          iconMap[offering.icon as keyof typeof iconMap] &&
+                          (() => {
+                            const IconComponent =
+                              iconMap[offering.icon as keyof typeof iconMap];
+                            return (
+                              <IconComponent className="w-12 h-12 text-primary" />
+                            );
+                          })()} */}
+                      </div>
+                    )}
+                    {/* Type Badge */}
+                    <div className="absolute top-2 right-2">
+                      <span
+                        className={`px-2 py-1 text-xs font-semibold rounded-full ${
+                          offering.type === "product"
+                            ? "bg-primary text-primary-foreground"
+                            : "bg-secondary text-secondary-foreground"
+                        }`}
+                      >
+                        {offering.type === "product" ? "Product" : "Service"}
+                      </span>
+                    </div>
                   </div>
 
-                  {/* Product Title */}
-                  <div className="p-4 text-center">
-                    <h3 className="font-bold text-lg tracking-wider text-gray-900 group-hover:text-black transition-colors">
-                      {product.title}
+                  {/* Content */}
+                  <div className="p-4">
+                    <h3 className="font-bold text-lg tracking-wider text-card-foreground group-hover:text-primary transition-colors mb-2">
+                      {offering.title}
                     </h3>
+                    <p className="text-sm text-muted-foreground line-clamp-2">
+                      {offering.description}
+                    </p>
+
+                    {/* CTA */}
+                    <div className="mt-4">
+                      <Link
+                        href={offering.href}
+                        className="text-primary hover:text-primary/80 text-sm font-semibold"
+                      >
+                        {offering.type === "product"
+                          ? "Learn More →"
+                          : "Get Service →"}
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </div>

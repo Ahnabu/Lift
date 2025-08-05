@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: [
-    "Property Lifts",
+    "Brother's Lift Technology",
     "Lift Company Bangladesh",
     "Elevator Installation",
     "Generator Solutions",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     "Solar Energy",
     "Forklift Services",
     "Best Lift Company",
-    "Dhaka Lifts"
+    "Dhaka Lifts",
   ],
   authors: [
     {

@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
 
     // Email content for you (the business)
     const businessEmailContent = `
-      <h2>New Contact Form Submission - Property Lifts</h2>
+      <h2>New Contact Form Submission - Brother's Lift Technology</h2>
       <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
         <h3 style="color: #f97316;">Contact Details</h3>
         <table style="border-collapse: collapse; width: 100%; max-width: 600px;">
@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
         </table>
         <br>
         <p style="color: #666; font-size: 14px;">
-          This email was sent from the Property Lifts contact form on your website.
+          This email was sent from the Brother's Lift Technology contact form on your website.
         </p>
       </div>
     `;
@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
     const customerEmailContent = `
       <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px;">
         <div style="background-color: #f97316; color: white; padding: 20px; text-align: center;">
-          <h1 style="margin: 0;">Property Lifts</h1>
+          <h1 style="margin: 0;">Brother's Lift Technology</h1>
           <p style="margin: 5px 0 0 0;">Quality Lifts for All Properties</p>
         </div>
         
@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
           
           <p>Dear ${validatedData.name},</p>
           
-          <p>Thank you for reaching out to Property Lifts. We have received your inquiry and our team will review your message carefully.</p>
+          <p>Thank you for reaching out to Brother's Lift Technology. We have received your inquiry and our team will review your message carefully.</p>
           
           <div style="background-color: white; padding: 15px; border-left: 4px solid #f97316; margin: 20px 0;">
             <h3 style="margin: 0 0 10px 0; color: #f97316;">Your Message Summary:</h3>
@@ -92,14 +92,13 @@ export async function POST(request: NextRequest) {
           </div>
           
           <p>Best regards,<br>
-          <strong>Property Lifts Team</strong><br>
-          PRAN Center, 105 Middle Badda, Dhaka-1212<br>
+          <strong>Brother's Lift Technology Team</strong><br>
+          House # 447/C, Road # 08(3rd Floor), D.I.T Road, Malibagh, Dhaka-1217<br>
           Email: mktg980@prangroup.com</p>
         </div>
         
         <div style="background-color: #333; color: white; padding: 15px; text-align: center; font-size: 14px;">
-          <p style="margin: 0;">© 2025 Property Lifts. All rights reserved.</p>
-          <p style="margin: 5px 0 0 0;">Best Lift Company in Bangladesh</p>
+          <p style="margin: 0;">© 2024 Brother's Lift Technology. All rights reserved.</p>
         </div>
       </div>
     `;
@@ -108,7 +107,7 @@ export async function POST(request: NextRequest) {
     await transporter.sendMail({
       from: process.env.GMAIL_USER,
       to: 'horairaabu013025@gmail.com',
-      subject: `New Contact Form Submission from ${validatedData.name} - Property Lifts`,
+      subject: `New Contact Form Submission from ${validatedData.name} - Brother's Lift Technology`,
       html: businessEmailContent,
       replyTo: validatedData.email,
     });
@@ -117,7 +116,7 @@ export async function POST(request: NextRequest) {
     await transporter.sendMail({
       from: process.env.GMAIL_USER,
       to: validatedData.email,
-      subject: 'Thank you for contacting Property Lifts - We\'ll be in touch soon!',
+      subject: "Thank you for contacting Brother's Lift Technology - We'll be in touch soon!",
       html: customerEmailContent,
     });
 

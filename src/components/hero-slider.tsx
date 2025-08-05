@@ -42,7 +42,7 @@ export function HeroSlider() {
             <div className="relative z-20 h-full flex items-center">
               <div className="container mx-auto px-4">
                 <div className="max-w-3xl text-white">
-                  <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4">
+                  <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
                     {slide.title}
                     {slide.subtitle && (
                       <span className="block text-yellow-400">
@@ -50,7 +50,7 @@ export function HeroSlider() {
                       </span>
                     )}
                   </h1>
-                  <p className="text-lg md:text-xl mb-8 opacity-90 max-w-2xl">
+                  <p className=" md:text-lg mb-8 opacity-90 max-w-2xl">
                     {slide.description}
                   </p>
                   <Button

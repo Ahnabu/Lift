@@ -3,20 +3,20 @@ import { Product, Service, Project, Partner, SliderItem } from "@/types"
 export const sliderItems: SliderItem[] = [
   {
     id: "1",
-    title: "DUAL SENSING",
-    subtitle: "CONTROL",
+    title: "Elevating Your World With",
+    subtitle: "Style and Reliability",
     description:
-      "Advanced dual sensing control technology for enhanced safety and precision in lift operations.",
+      "We provide state-of-the-art lifts, escalators, and power solutions designed for safety, elegance, and unmatched performance. From residential buildings to commercial complexes, our solutions are engineered for excellence.",
     image: "/api/placeholder/1200/600",
     href: "/products",
     ctaText: "Explore Our Products",
   },
   {
     id: "2",
-    title: "MOVE UP WITH",
-    subtitle: "STYLE & ELEGANCE",
+    title: "The Future Of",
+    subtitle: "Vertical Transportation",
     description:
-      "Experience luxury and sophistication with our premium lift designs that complement any architectural style.",
+      "We provide state-of-the-art lifts, escalators, and power solutions designed for safety, elegance, and unmatched performance. From residential buildings to commercial complexes, our solutions are engineered for excellence.",
     image: "/api/placeholder/1200/600",
     href: "/products",
     ctaText: "Explore Our Products",
@@ -73,7 +73,7 @@ export const products: Product[] = [
     title: "LIFT",
     description: "Premium lifts and elevators designed for safety, reliability, and smooth operation in any building.",
     image: "https://propertylifts.com/images/sections/d66f4890260e4a2c8860f4414b155ab8/liftLIFT.jpg",
-    href: "/products/lift/property-lifts",
+    href: "/products/lift",
     category: "lift"
   },
   {
@@ -90,40 +90,43 @@ export const services: Service[] = [
   {
     id: "24-7-service",
     title: "24/7 SERVICE",
-    description: "The one-stop call center 09613737777 has a solution for emergency, complaints exploration, installation, pay ladder, use, maintenance and other services.",
+    description:
+      "The one-stop call center +8801920-883427 has a solution for emergency, complaints exploration, installation, pay ladder, use, maintenance and other services.",
     icon: "Clock",
     features: [
       "24/7 Emergency Support",
       "Quick Response Time",
       "Expert Technical Team",
-      "Comprehensive Solutions"
-    ]
+      "Comprehensive Solutions",
+    ],
   },
   {
     id: "technical-support",
     title: "TECHNICAL SUPPORT AND TRAINING",
-    description: "The after sales and installation service includes staff training, explanation of usage & routine check up",
+    description:
+      "The after sales and installation service includes staff training, explanation of usage & routine check up",
     icon: "Users",
     features: [
       "Staff Training Programs",
       "Usage Guidelines",
       "Routine Check-ups",
-      "Technical Documentation"
-    ]
+      "Technical Documentation",
+    ],
   },
   {
     id: "maintenance",
     title: "CONTINUED ROUTINE MAINTENANCE",
-    description: "Every fortnightly preventative routine maintenance (cleaning, lubrication, adjustment) to ensure that your company's elevator to stable operation.",
+    description:
+      "Every fortnightly preventative routine maintenance (cleaning, lubrication, adjustment) to ensure that your company's elevator to stable operation.",
     icon: "Settings",
     features: [
       "Fortnightly Maintenance",
       "Preventative Care",
       "Performance Optimization",
-      "Stable Operations"
-    ]
-  }
-]
+      "Stable Operations",
+    ],
+  },
+];
 
 export const projects: Project[] = [
   {
@@ -257,3 +260,72 @@ export const companyHighlights = [
   "Employees are continually trained on safety",
   "Best service provider"
 ]
+
+export const homeOfferings = [
+  {
+    id: "passenger-lifts",
+    title: "Passenger Lifts",
+    description:
+      "Safe, comfortable, and stylish elevators for residential and commercial buildings.",
+    image:
+      "https://propertylifts.com/images/sections/d66f4890260e4a2c8860f4414b155ab8/liftLIFT.jpg",
+    type: "product",
+    href: "/products/lift/passenger-lift",
+    category: "lift",
+  },
+  {
+    id: "cargo-lifts",
+    title: "Cargo Lifts",
+    description:
+      "Heavy-duty solutions for transporting goods efficiently and securely.",
+    image:
+      "https://propertylifts.com/images/sections/d66f4890260e4a2c8860f4414b155ab8/liftLIFT.jpg",
+    type: "product",
+    href: "/products/lift/cargo-lift",
+    category: "lift",
+  },
+  {
+    id: "hospital-lifts",
+    title: "Hospital Lifts",
+    description:
+      "Specially designed for medical facilities, ensuring smooth and safe patient transport.",
+    image:
+      "https://propertylifts.com/images/sections/d66f4890260e4a2c8860f4414b155ab8/liftLIFT.jpg",
+    type: "product",
+    href: "/products/lift/hospital-lift",
+    category: "lift",
+  },
+  {
+    id: "escalators",
+    title: "Escalators",
+    description:
+      "Modern and reliable escalators for shopping malls, airports, and public spaces.",
+    image:
+      "https://propertylifts.com/images/sections/d66f4890260e4a2c8860f4414b155ab8/liftLIFT.jpg",
+    type: "product",
+    href: "/products/escalator",
+    category: "escalator",
+  },
+  {
+    id: "generators",
+    title: "Generators",
+    description:
+      "Uninterrupted power solutions to keep your operations running 24/7.",
+    image:
+      "https://propertylifts.com/images/sections/d66f4890260e4a2c8860f4414b155ab8/liftLIFT.jpg",
+    type: "product",
+    href: "/products/generator",
+    category: "generator",
+  },
+  {
+    id: "forklift",
+    title: "Forklifts",
+    description:
+      "Industrial-grade forklifts for efficient material handling and warehouse operations.",
+    image:
+      "https://propertylifts.com/images/sections/d66f4890260e4a2c8860f4414b155ab8/liftLIFT.jpg",
+    type: "product",
+    href: "/products/forklift",
+    category: "forklift",
+  },
+];
