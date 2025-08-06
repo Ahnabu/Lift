@@ -1,19 +1,27 @@
 export const siteConfig = {
-  name: "Property Lifts",
-  description: "Best Lift Company in Bangladesh - Quality lifts for all properties, from personal family houses to high-rise apartments.",
-  url: process.env.NODE_ENV === 'production' ? "https://propertylifts.com" : "http://localhost:3000",
-  ogImage: process.env.NODE_ENV === 'production' ? "https://propertylifts.com/og.jpg" : "http://localhost:3000/dummy_background.jpg",
+  name: "Brother's Lift Technology",
+  description:
+    "Best Lift Company in Bangladesh - Quality lifts for all properties, from personal family houses to high-rise apartments.",
+  url:
+    process.env.NODE_ENV === "production"
+      ? "https://propertylifts.com"
+      : "http://localhost:3000",
+  ogImage:
+    process.env.NODE_ENV === "production"
+      ? "https://propertylifts.com/og.jpg"
+      : "http://localhost:3000/dummy_background.jpg",
   links: {
     facebook: "https://www.facebook.com/Propertyliftsbd",
     linkedin: "https://www.linkedin.com/company/property-lifts",
   },
   contact: {
-    phone: "+0800-7777777",
-    email: "mktg980@prangroup.com",
-    address: "PRAN Center, 105 Middle Badda, Dhaka-1212",
-    emergency: "09613737777"
-  }
-}
+    phone: "+8801920-883427",
+    email: "wahid2487@gmail.com",
+    address:
+      "House # 447/C, Road # 08(3rd Floor), D.I.T Road, Malibagh, Dhaka-1217",
+    emergency: "+8801920-883427",
+  },
+};
 
 export const navigation = {
   main: [
@@ -34,54 +42,90 @@ export const navigation = {
           href: "#",
           children: [
             {
-              title: "PROPERTY LIFTS",
-              href: "#",
-              children: [
-                {
-                  title: "PASSENGER LIFT",
-                  href: "/products/lift/property-lifts/passenger-lift",
-                },
-                {
-                  title: "CAPSULE LIFT",
-                  href: "/products/lift/property-lifts/capsule-lift",
-                },
-                {
-                  title: "HOSPITAL LIFT",
-                  href: "/products/lift/property-lifts/hospital-lift",
-                },
-                {
-                  title: "CARGO LIFT",
-                  href: "/products/lift/property-lifts/cargo-lift",
-                },
-                {
-                  title: "ESCALATOR",
-                  href: "/products/lift/property-lifts/escalator",
-                }
-              ]
+              title: "PASSENGER LIFT",
+              href: "/products/lift/property-lifts/passenger-lift",
             },
             {
-              title: "IMPORTED LIFTS",
-              href: "#",
-              children: [
-                {
-                  title: "KONE",
-                  href: "/products/lift/imported-lifts/kone",
-                },
-                {
-                  title: "SRH",
-                  href: "/products/lift/imported-lifts/srh",
-                },
-                {
-                  title: "MP",
-                  href: "/products/lift/imported-lifts/mp",
-                },
-                {
-                  title: "SHANGHAI MITSUBISHI",
-                  href: "/products/lift/imported-lifts/shanghai-mitsubishi",
-                }
-              ]
-            }
-          ]
+              title: "CAPSULE LIFT",
+              href: "/products/lift/property-lifts/capsule-lift",
+            },
+            {
+              title: "HOSPITAL LIFT",
+              href: "/products/lift/property-lifts/hospital-lift",
+            },
+            {
+              title: "CARGO LIFT",
+              href: "/products/lift/property-lifts/cargo-lift",
+            },
+            {
+              title: "ESCALATOR",
+              href: "/products/lift/property-lifts/escalator",
+            },
+            {
+              title: "KONE",
+              href: "/products/lift/imported-lifts/kone",
+            },
+            {
+              title: "SRH",
+              href: "/products/lift/imported-lifts/srh",
+            },
+            {
+              title: "MP",
+              href: "/products/lift/imported-lifts/mp",
+            },
+            {
+              title: "SHANGHAI MITSUBISHI",
+              href: "/products/lift/imported-lifts/shanghai-mitsubishi",
+            },
+            // {
+            //   title: "Brother's Lift Technology",
+            //   href: "#",
+            //   children: [
+            //     {
+            //       title: "PASSENGER LIFT",
+            //       href: "/products/lift/property-lifts/passenger-lift",
+            //     },
+            //     {
+            //       title: "CAPSULE LIFT",
+            //       href: "/products/lift/property-lifts/capsule-lift",
+            //     },
+            //     {
+            //       title: "HOSPITAL LIFT",
+            //       href: "/products/lift/property-lifts/hospital-lift",
+            //     },
+            //     {
+            //       title: "CARGO LIFT",
+            //       href: "/products/lift/property-lifts/cargo-lift",
+            //     },
+            //     {
+            //       title: "ESCALATOR",
+            //       href: "/products/lift/property-lifts/escalator",
+            //     },
+            //   ],
+            // },
+            // {
+            //   title: "IMPORTED LIFTS",
+            //   href: "#",
+            //   children: [
+            //     {
+            //       title: "KONE",
+            //       href: "/products/lift/imported-lifts/kone",
+            //     },
+            //     {
+            //       title: "SRH",
+            //       href: "/products/lift/imported-lifts/srh",
+            //     },
+            //     {
+            //       title: "MP",
+            //       href: "/products/lift/imported-lifts/mp",
+            //     },
+            //     {
+            //       title: "SHANGHAI MITSUBISHI",
+            //       href: "/products/lift/imported-lifts/shanghai-mitsubishi",
+            //     },
+            //   ],
+            // },
+          ],
         },
         {
           title: "FORKLIFT",
@@ -102,34 +146,34 @@ export const navigation = {
         {
           title: "SOLAR",
           href: "/products/solar",
-        }
-      ]
+        },
+      ],
     },
-    {
-      title: "SPARE PARTS",
-      href: "/spare-parts",
-    },
+    // {
+    //   title: "SPARE PARTS",
+    //   href: "/spare-parts",
+    // },
     {
       title: "PROJECTS",
-      href: "#",
-      children: [
-        {
-          title: "LIFT",
-          href: "/projects/lift",
-        },
-        {
-          title: "FORKLIFT",
-          href: "/projects/forklift",
-        },
-        {
-          title: "GENERATOR",
-          href: "/projects/generator",
-        },
-        {
-          title: "HVAC",
-          href: "/projects/hvac",
-        }
-      ]
+      href: "/projects",
+      // children: [
+      //   {
+      //     title: "LIFT",
+      //     href: "/projects/lift",
+      //   },
+      //   {
+      //     title: "FORKLIFT",
+      //     href: "/projects/forklift",
+      //   },
+      //   {
+      //     title: "GENERATOR",
+      //     href: "/projects/generator",
+      //   },
+      //   {
+      //     title: "HVAC",
+      //     href: "/projects/hvac",
+      //   },
+      // ],
     },
     {
       title: "MEDIA",
@@ -146,16 +190,16 @@ export const navigation = {
         {
           title: "CATALOGUE",
           href: "/media/catalogue",
-        }
-      ]
+        },
+      ],
     },
-    {
-      title: "CERTIFICATE",
-      href: "/certificate",
-    },
+    // {
+    //   title: "CERTIFICATE",
+    //   href: "/certificate",
+    // },
     {
       title: "CONTACT US",
       href: "/contact-us",
-    }
-  ]
-}
+    },
+  ],
+};
