@@ -1,12 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { allProducts } from "@/data/allLifts";
+import { useRouter, useSearchParams } from "next/navigation";
 
-export default function LIFT() {
-  const [activeFilter, setActiveFilter] = useState("all");
+// Create a client component that uses the search params
+function LiftContent() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  // Get filter from URL or default to "all"
+  const activeFilter = searchParams.get("filter") || "all";
+
   const liftCategories = [
     { id: "all", name: "All Lifts" },
     { id: "passenger", name: "Passenger Lifts" },
@@ -17,6 +24,18 @@ export default function LIFT() {
     { id: "imported", name: "Imported Lifts" },
   ];
 
+  // Handle filter change
+  const handleFilterChange = (filterId: string) => {
+    const params = new URLSearchParams(searchParams);
+    if (filterId === "all") {
+      params.delete("filter");
+    } else {
+      params.set("filter", filterId);
+    }
+    router.push(`/products/lift?${params.toString()}`);
+  };
+
+  // Filter lifts by type
   const lifts = allProducts.filter((product) =>
     activeFilter === "all"
       ? [
@@ -30,8 +49,10 @@ export default function LIFT() {
       : product.type === activeFilter
   );
 
-    console.log(`Filter: ${activeFilter}, Items found: ${lifts.length}`);
+  // Debug info
+  console.log(`Active filter: ${activeFilter}, Items found: ${lifts.length}`);
 
+  // Group imported lifts by brand
   const importedBrands =
     activeFilter === "imported"
       ? Array.from(
@@ -48,14 +69,13 @@ export default function LIFT() {
           )
           .map((brand) => ({
             name: brand,
-            lifts: lifts.filter((lift) => lift.brand === brand),
+            lifts: lifts.filter(
+              (lift) => lift.brand === brand && lift.type === "imported"
+            ),
           }))
       : [];
 
-  // Debug information for brands
-  console.log("Imported brands:", importedBrands);
-
-  const getBrandColor = (brand : string) => {
+  const getBrandColor = (brand: string) => {
     const brandColors = {
       KONE: "from-blue-600 to-blue-800",
       SRH: "from-orange-400 to-orange-600",
@@ -64,10 +84,12 @@ export default function LIFT() {
       default: "from-gray-600 to-gray-800",
     };
 
-    return brandColors[brand as keyof typeof brandColors] || brandColors["default"];
+    return (
+      brandColors[brand as keyof typeof brandColors] || brandColors["default"]
+    );
   };
 
-  const getLiftTypeColor = (type : string) => {
+  const getLiftTypeColor = (type: string) => {
     const typeColors = {
       passenger: "from-blue-500 to-blue-700",
       cargo: "from-green-500 to-green-700",
@@ -80,6 +102,190 @@ export default function LIFT() {
     return typeColors[type as keyof typeof typeColors] || typeColors["default"];
   };
 
+  return (
+    <>
+      {/* Filter Categories */}
+      <div className="mb-12">
+        <h2 className="text-2xl font-bold mb-6 text-gray-800">
+          Browse By Category
+        </h2>
+        <div className="flex flex-wrap gap-3">
+          {liftCategories.map((category) => (
+            <button
+              key={category.id}
+              onClick={() => handleFilterChange(category.id)}
+              className={`px-4 py-2 rounded-full font-medium transition-colors ${
+                activeFilter === category.id
+                  ? "bg-orange-500 text-white"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+              }`}
+            >
+              {category.name}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {activeFilter === "imported" ? (
+        // Imported Lifts by Brand
+        <div className="space-y-16">
+          {importedBrands.length > 0 ? (
+            importedBrands.map((brand) => (
+              <div key={brand.name}>
+                <h2 className="text-3xl font-bold mb-6 text-gray-800 pb-2 border-b-2 border-orange-500">
+                  {brand.name} Lifts
+                </h2>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {brand.lifts.map((lift) => (
+                    <Link
+                      key={lift.id}
+                      href={`/products/lift/imported-lifts/${lift.brand
+                        .toLowerCase()
+                        .replace(/\s+/g, "-")}/${lift.id}`}
+                      className="group cursor-pointer"
+                    >
+                      <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full">
+                        <div
+                          className={`h-48 bg-gradient-to-r ${getBrandColor(
+                            lift.brand
+                          )} relative overflow-hidden`}
+                        >
+                          <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+                          <div className="relative z-10 p-6 h-full flex items-center justify-center">
+                            <div className="text-center text-white">
+                              <p className="opacity-90">{lift.brand}</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="p-6 flex flex-col h-[calc(100%-12rem)]">
+                          <div className="bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded mb-3 inline-block">
+                            IMPORTED
+                          </div>
+                          <h4 className="text-xl font-semibold text-gray-800 mb-2 group-hover:text-orange-400 transition-colors">
+                            {lift.name}
+                          </h4>
+
+                          <div className="flex items-center text-orange-400 text-sm font-medium mt-auto">
+                            View Details
+                            <svg
+                              className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M9 5l7 7-7 7"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="text-center py-10">
+              <p className="text-gray-500">No imported lifts found</p>
+            </div>
+          )}
+        </div>
+      ) : (
+        // Regular Lifts by Type
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {lifts.length > 0 ? (
+            lifts.map((lift) => (
+              <Link
+                key={lift.id}
+                href={`/products/lift/${lift.type}/${lift.id}`}
+                className="group cursor-pointer"
+              >
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full">
+                  <div
+                    className={`h-48 bg-gradient-to-r ${getLiftTypeColor(
+                      lift.type
+                    )} relative overflow-hidden`}
+                  >
+                    <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+                    <div className="relative z-10 p-6 h-full flex items-center justify-center">
+                      <div className="text-center text-white">
+                        <h3 className="text-2xl font-bold capitalize">
+                          {lift.type} Lift
+                        </h3>
+                        {lift.brand && (
+                          <p className="opacity-90">{lift.brand}</p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-6 flex flex-col h-[calc(100%-12rem)]">
+                    <div
+                      className={`text-white text-xs font-bold px-2 py-1 rounded mb-3 inline-block ${
+                        lift.type === "imported"
+                          ? "bg-purple-500"
+                          : "bg-orange-500"
+                      }`}
+                    >
+                      {lift.type.toUpperCase()}
+                    </div>
+                    <h4 className="text-xl font-semibold text-gray-800 mb-2 group-hover:text-orange-400 transition-colors">
+                      {lift.name}
+                    </h4>
+                    <p className="text-gray-600 text-sm mb-3 flex-grow">
+                      {lift.type === "passenger" && lift.ratedCapacity}
+                      {lift.type === "capsule" && lift.observationPlane}
+                      {lift.type === "hospital" && lift.capacity}
+                      {lift.type === "cargo" && lift.loadCapacity}
+                      {lift.type === "escalator" && lift.stepWidth}
+                      {lift.type === "imported" && lift.specifications}
+                    </p>
+                    <div className="flex items-center text-orange-400 text-sm font-medium mt-auto">
+                      View Details
+                      <svg
+                        className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))
+          ) : (
+            <div className="col-span-3 text-center py-10">
+              <p className="text-gray-500">No lifts found for this category</p>
+            </div>
+          )}
+        </div>
+      )}
+    </>
+  );
+}
+
+// Loading fallback component
+function LiftContentLoading() {
+  return (
+    <div className="flex justify-center items-center py-20">
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
+    </div>
+  );
+}
+
+// Main page component with Suspense
+export default function LIFT() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -125,166 +331,10 @@ export default function LIFT() {
             </ol>
           </nav>
 
-          {/* Filter Categories */}
-          <div className="mb-12">
-            <h2 className="text-2xl font-bold mb-6 text-gray-800">
-              Browse By Category
-            </h2>
-            <div className="flex flex-wrap gap-3">
-              {liftCategories.map((category) => (
-                <button
-                  key={category.id}
-                  onClick={() => setActiveFilter(category.id)}
-                  className={`px-4 py-2 rounded-full font-medium transition-colors ${
-                    activeFilter === category.id
-                      ? "bg-orange-500 text-white"
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                  }`}
-                >
-                  {category.name}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {activeFilter === "imported" ? (
-            // Imported Lifts by Brand
-            <div className="space-y-16">
-              {importedBrands.map((brand) => (
-                <div key={brand.name}>
-                  <h2 className="text-3xl font-bold mb-6 text-gray-800 pb-2 border-b-2 border-orange-500">
-                    {brand.name} Lifts
-                  </h2>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {brand.lifts.map((lift) => (
-                      <Link
-                        key={lift.id}
-                        href={`/products/lift/${lift.brand
-                          .toLowerCase()
-                          .replace(/\s+/g, "-")}/${lift.id}`}
-                        className="group cursor-pointer"
-                      >
-                        <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full">
-                          <div
-                            className={`h-48 bg-gradient-to-r ${getBrandColor(
-                              lift.brand
-                            )} relative overflow-hidden`}
-                          >
-                            <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-                            <div className="relative z-10 p-6 h-full flex items-center justify-center">
-                              <div className="text-center text-white">
-                                {/* <h3 className="text-2xl font-bold">
-                                  {lift.model}
-                                </h3> */}
-                                <p className="opacity-90">{lift.brand}</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="p-6 flex flex-col h-[calc(100%-12rem)]">
-                            <div className="bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded mb-3 inline-block">
-                              IMPORTED
-                            </div>
-                            <h4 className="text-xl font-semibold text-gray-800 mb-2 group-hover:text-orange-400 transition-colors">
-                              {lift.name}
-                            </h4>
-                            {/* <p className="text-gray-600 text-sm mb-3 flex-grow">
-                              {lift.specifications}
-                            </p> */}
-                            <div className="flex items-center text-orange-400 text-sm font-medium mt-auto">
-                              View Details
-                              <svg
-                                className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M9 5l7 7-7 7"
-                                />
-                              </svg>
-                            </div>
-                          </div>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            // Regular Lifts by Type
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {lifts.map((lift) => (
-                <Link
-                  key={lift.id}
-                  href={`/products/lift/${lift.type}/${lift.id}`}
-                  className="group cursor-pointer"
-                >
-                  <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full">
-                    <div
-                      className={`h-48 bg-gradient-to-r ${getLiftTypeColor(
-                        lift.type
-                      )} relative overflow-hidden`}
-                    >
-                      <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-                      <div className="relative z-10 p-6 h-full flex items-center justify-center">
-                        <div className="text-center text-white">
-                          <h3 className="text-2xl font-bold capitalize">
-                            {lift.type} Lift
-                          </h3>
-                          {lift.brand && (
-                            <p className="opacity-90">{lift.brand}</p>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="p-6 flex flex-col h-[calc(100%-12rem)]">
-                      <div
-                        className={`text-white text-xs font-bold px-2 py-1 rounded mb-3 inline-block ${
-                          lift.type === "imported"
-                            ? "bg-purple-500"
-                            : "bg-orange-500"
-                        }`}
-                      >
-                        {lift.type.toUpperCase()}
-                      </div>
-                      <h4 className="text-xl font-semibold text-gray-800 mb-2 group-hover:text-orange-400 transition-colors">
-                        {lift.name}
-                      </h4>
-                      <p className="text-gray-600 text-sm mb-3 flex-grow">
-                        {lift.type === "passenger" && lift.ratedCapacity}
-                        {lift.type === "capsule" && lift.observationPlane}
-                        {lift.type === "hospital" && lift.capacity}
-                        {lift.type === "cargo" && lift.loadCapacity}
-                        {lift.type === "escalator" && lift.stepWidth}
-                        {lift.type === "imported" && lift.specifications}
-                      </p>
-                      <div className="flex items-center text-orange-400 text-sm font-medium mt-auto">
-                        View Details
-                        <svg
-                          className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          )}
+          {/* Suspense boundary for the content that uses useSearchParams */}
+          <Suspense fallback={<LiftContentLoading />}>
+            <LiftContent />
+          </Suspense>
 
           {/* Features Section */}
           <div className="mt-20 bg-white rounded-lg shadow-lg p-8">
@@ -406,7 +456,6 @@ export default function LIFT() {
               >
                 Request a Quote
               </Link>
-            
             </div>
           </div>
         </div>

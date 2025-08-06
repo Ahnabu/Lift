@@ -61,22 +61,6 @@ export const navigation = {
               title: "ESCALATOR",
               href: "/products/lift/escalator",
             },
-            {
-              title: "KONE",
-              href: "/products/lift/kone",
-            },
-            {
-              title: "SRH",
-              href: "/products/lift/srh",
-            },
-            {
-              title: "MP",
-              href: "/products/lift/mp",
-            },
-            {
-              title: "SHANGHAI MITSUBISHI",
-              href: "/products/lift/shanghai-mitsubishi",
-            },
             // {
             //   title: "Brother's Lift Technology",
             //   href: "#",
@@ -103,28 +87,28 @@ export const navigation = {
             //     },
             //   ],
             // },
-            // {
-            //   title: "IMPORTED LIFTS",
-            //   href: "#",
-            //   children: [
-            //     {
-            //       title: "KONE",
-            //       href: "/products/lift/imported-lifts/kone",
-            //     },
-            //     {
-            //       title: "SRH",
-            //       href: "/products/lift/imported-lifts/srh",
-            //     },
-            //     {
-            //       title: "MP",
-            //       href: "/products/lift/imported-lifts/mp",
-            //     },
-            //     {
-            //       title: "SHANGHAI MITSUBISHI",
-            //       href: "/products/lift/imported-lifts/shanghai-mitsubishi",
-            //     },
-            //   ],
-            // },
+            {
+              title: "IMPORTED LIFTS",
+              href: "#",
+              children: [
+                {
+                  title: "KONE",
+                  href: "/products/lift/imported-lifts/kone",
+                },
+                {
+                  title: "SRH",
+                  href: "/products/lift/imported-lifts/srh",
+                },
+                {
+                  title: "MP",
+                  href: "/products/lift/imported-lifts/mp",
+                },
+                {
+                  title: "SHANGHAI MITSUBISHI",
+                  href: "/products/lift/imported-lifts/shanghai-mitsubishi",
+                },
+              ],
+            },
           ],
         },
         {
