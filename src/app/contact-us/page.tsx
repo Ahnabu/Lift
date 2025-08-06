@@ -265,8 +265,8 @@ export default function ContactUsPage() {
               <div className="flex items-start text-gray-600">
                 <MapPin className="w-4 h-4 mr-2 mt-1 text-orange-500" />
                 <div>
-                  <p>PRAN Center, 105 Middle</p>
-                  <p>Badda, Dhaka-1212</p>
+                  <p>House # 447/C, Road # 08(3rd Floor), D.I.T Road,</p>
+                  <p>Malibagh, Dhaka-1217</p>
                 </div>
               </div>
             </div>
@@ -277,7 +277,7 @@ export default function ContactUsPage() {
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-white rounded-lg shadow-lg p-8">
             <h3 className="text-2xl font-bold text-gray-800 mb-6">
-              Why Choose Brother's Lift Technology?
+              Why Choose Brother&apos;s Lift Technology?
             </h3>
             <ul className="space-y-3 text-gray-600">
               <li className="flex items-start">

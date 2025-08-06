@@ -1,7 +1,6 @@
 import { HeroSlider } from "@/components/hero-slider"
 import { ServicesSection } from "@/components/services-section"
 import { ProjectsSection } from "@/components/projects-section"
-import { PartnersSection } from "@/components/partners-section"
 import { ContactForm } from "@/components/contact-form"
 import { WhyChooseUsSection } from "@/components/whyChooseUsSection"
 import { ProductsServicesSection } from "@/components/products-section"

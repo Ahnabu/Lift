@@ -68,9 +68,9 @@ export default function AboutUsPage() {
             </p>
 
             <p>
-              Brother's Lift Technology is the premier lift brand of Bangladesh
+              Brother&apos;s Lift Technology is the premier lift brand of Bangladesh
               since 2000. We are importing 6 world top class lift brands KONE,
-              SRH, MP and Mitsubishi under Brother's Lift Technology. Property
+              SRH, MP and Mitsubishi under Brother&apos;s Lift Technology. Property
               Generators & brands like the premier generators brand of our
               country since 17 March, 2000 with a generator brands CPL, VSG and
               VOLKAN. Since 1981 Property Air Conditioner maintain a huge
