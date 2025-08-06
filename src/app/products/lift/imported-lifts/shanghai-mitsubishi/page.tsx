@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { LiftService } from '@/services/enhancedLiftService';
 import { ImportedLift } from '@/types/products';
 
-export default function MpLiftPage() {
+export default function ShanghaiMitsubishiLiftPage() {
     const [lifts, setLifts] = useState<ImportedLift[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -16,11 +16,11 @@ export default function MpLiftPage() {
             try {
                 setIsLoading(true);
                 const allImportedLifts = await LiftService.getImportedLifts();
-                const mpLifts = allImportedLifts.filter(lift => lift.brand === 'MP') as ImportedLift[];
-                setLifts(mpLifts);
+                const shanghaiMitsubishiLifts = allImportedLifts.filter(lift => lift.brand === 'Shanghai Mitsubishi') as ImportedLift[];
+                setLifts(shanghaiMitsubishiLifts);
             } catch (err) {
-                console.error('Error fetching MP lifts:', err);
-                setError('Failed to load MP lifts');
+                console.error('Error fetching Shanghai Mitsubishi lifts:', err);
+                setError('Failed to load Shanghai Mitsubishi lifts');
             } finally {
                 setIsLoading(false);
             }
@@ -34,7 +34,7 @@ export default function MpLiftPage() {
             <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                 <div className="text-center">
                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-400 mx-auto"></div>
-                    <p className="mt-4 text-gray-600">Loading MP lifts...</p>
+                    <p className="mt-4 text-gray-600">Loading Shanghai Mitsubishi lifts...</p>
                 </div>
             </div>
         );
@@ -44,7 +44,7 @@ export default function MpLiftPage() {
         return (
             <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                 <div className="text-center">
-                    <h1 className="text-2xl font-bold text-gray-800 mb-4">Error Loading MP Lifts</h1>
+                    <h1 className="text-2xl font-bold text-gray-800 mb-4">Error Loading Shanghai Mitsubishi Lifts</h1>
                     <p className="text-gray-600">{error}</p>
                 </div>
             </div>
@@ -61,7 +61,7 @@ export default function MpLiftPage() {
                     }}></div>
                 <div className="relative max-w-[1320px] mx-auto px-4 h-full flex items-center justify-center">
                     <div className="text-center text-white">
-                        <h1 className="text-5xl font-bold mb-4">MP Elevators</h1>
+                        <h1 className="text-5xl font-extrabold mb-4">Shanghai Mitsubishi</h1>
                     </div>
                 </div>
             </div>
@@ -72,18 +72,18 @@ export default function MpLiftPage() {
                     <nav className="mb-8">
                         <ol className="flex items-center space-x-2 text-sm text-gray-600">
                             <li><Link href="/" className="hover:text-orange-400">Home</Link></li>
-                            <li className="text-gray-400">&gt;</li>
+                            <li className="text-gray-400">-&gt;</li>
                             <li><Link href="/products" className="hover:text-orange-400">Products</Link></li>
-                            <li className="text-gray-400">&gt;</li>
+                            <li className="text-gray-400">-&gt;</li>
                             <li><Link href="/products/lift" className="hover:text-orange-400">Lifts</Link></li>
-                            <li className="text-gray-400">&gt;</li>
+                            <li className="text-gray-400">-&gt;</li>
                             <li><Link href="/products/lift/imported-lifts" className="hover:text-orange-400">Imported Lifts</Link></li>
-                            <li className="text-gray-400">&gt;</li>
-                            <li className="text-gray-800 font-medium">MP</li>
+                            <li className="text-gray-400">-&gt;</li>
+                            <li className="text-gray-800 font-medium">Shanghai Mitsubishi</li>
                         </ol>
                     </nav>
 
-                    {/* MP Lifts Grid */}
+                    {/* Shanghai Mitsubishi Lifts Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {lifts.map((lift, index) => (
                             <Link
@@ -117,8 +117,8 @@ export default function MpLiftPage() {
                     {/* If no lifts found, show message */}
                     {lifts.length === 0 && (
                         <div className="text-center py-12">
-                            <h2 className="text-2xl font-semibold text-gray-800 mb-4">No MP Lifts Available</h2>
-                            <p className="text-gray-600">MP lifts will be available soon. Please check back later.</p>
+                            <h2 className="text-2xl font-semibold text-gray-800 mb-4">No Shanghai Mitsubishi Lifts Available</h2>
+                            <p className="text-gray-600">Shanghai Mitsubishi lifts will be available soon. Please check back later.</p>
                         </div>
                     )}
                 </div>
