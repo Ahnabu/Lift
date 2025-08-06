@@ -149,7 +149,7 @@ const NavigationMenuItem: React.FC<NavigationMenuItemProps> = ({
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setIsHovered(false);
-    }, 150); // Small delay to allow moving between elements
+    }, 150); 
   };
 
   React.useEffect(() => {
@@ -246,7 +246,7 @@ export function Navbar() {
                       </div>
                       <div>
                         <div className="font-bold text-white">
-                          Brother's Lift Technology
+                          Brother&apos;s Lift Technology
                         </div>
                         <div className="text-primary text-xs">Since 2000</div>
                       </div>
@@ -271,7 +271,7 @@ export function Navbar() {
                 </div>
                 <div>
                   <div className="font-bold text-sm text-white tracking-wide">
-                    Brother's Lift Technology
+                    Brother&apos;s Lift Technology
                   </div>
                   <div className="text-primary text-xs font-medium">
                     Since 2000
@@ -287,7 +287,7 @@ export function Navbar() {
               </div>
               <div>
                 <div className="font-bold text-xl text-white tracking-wide">
-                  Brother's Lift Technology
+                  Brother&apos;s Lift Technology
                 </div>
                 <div className="text-primary text-sm font-medium">
                   Since 2000
@@ -341,7 +341,7 @@ export function Navbar() {
                         </div>
                         <div>
                           <div className="font-bold text-white">
-                            Brother's Lift Technology
+                            Brother&apos;s Lift Technology
                           </div>
                           <div className="text-primary text-xs">Since 2000</div>
                         </div>

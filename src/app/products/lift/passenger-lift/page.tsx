@@ -91,15 +91,7 @@ export default function PassengerLiftPage() {
                   Lifts
                 </Link>
               </li>
-              <li className="text-gray-400">&gt;</li>
-              <li>
-                <Link
-                  href="/products/lift/property-lifts"
-                  className="hover:text-orange-400"
-                >
-                  Brother's Lift Technology
-                </Link>
-              </li>
+              
               <li className="text-gray-400">&gt;</li>
               <li className="text-gray-800 font-medium">Passenger Lifts</li>
             </ol>

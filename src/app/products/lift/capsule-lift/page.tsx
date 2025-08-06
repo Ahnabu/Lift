@@ -90,16 +90,7 @@ export default function CapsuleLiftPage() {
                 <Link href="/products/lift" className="hover:text-orange-400">
                   Lifts
                 </Link>
-              </li>
-              <li className="text-gray-400">&gt;</li>
-              <li>
-                <Link
-                  href="/products/lift/property-lifts"
-                  className="hover:text-orange-400"
-                >
-                  Brother's Lift Technology
-                </Link>
-              </li>
+              </li>              
               <li className="text-gray-400">&gt;</li>
               <li className="text-gray-800 font-medium">Capsule Lifts</li>
             </ol>

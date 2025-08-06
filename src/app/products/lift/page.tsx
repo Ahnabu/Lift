@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import { allProducts } from "@/data/allLifts";
 
@@ -18,7 +17,6 @@ export default function LIFT() {
     { id: "imported", name: "Imported Lifts" },
   ];
 
-  // Filter lifts by type (passenger, cargo, etc.)
   const lifts = allProducts.filter((product) =>
     activeFilter === "all"
       ? [
@@ -32,10 +30,18 @@ export default function LIFT() {
       : product.type === activeFilter
   );
 
-  // Group imported lifts by brand
+    console.log(`Filter: ${activeFilter}, Items found: ${lifts.length}`);
+
   const importedBrands =
     activeFilter === "imported"
-      ? Array.from(new Set(lifts.map((lift) => lift.brand)))
+      ? Array.from(
+          new Set(
+            lifts
+              .filter((lift) => lift.type === "imported")
+              .map((lift) => lift.brand)
+          )
+        )
+          .filter(Boolean)
           .filter(
             (brand) =>
               brand !== "PropertyLifts" && brand !== "Brother's Lift Technology"
@@ -45,6 +51,9 @@ export default function LIFT() {
             lifts: lifts.filter((lift) => lift.brand === brand),
           }))
       : [];
+
+  // Debug information for brands
+  console.log("Imported brands:", importedBrands);
 
   const getBrandColor = (brand : string) => {
     const brandColors = {
@@ -151,7 +160,7 @@ export default function LIFT() {
                     {brand.lifts.map((lift) => (
                       <Link
                         key={lift.id}
-                        href={`/products/lift/imported-lifts/${lift.brand
+                        href={`/products/lift/${lift.brand
                           .toLowerCase()
                           .replace(/\s+/g, "-")}/${lift.id}`}
                         className="group cursor-pointer"
@@ -397,12 +406,7 @@ export default function LIFT() {
               >
                 Request a Quote
               </Link>
-              <Link
-                href="/products#finder"
-                className="border border-white text-white hover:bg-white hover:text-orange-600 px-8 py-3 rounded-md font-medium transition-colors"
-              >
-                Product Finder
-              </Link>
+            
             </div>
           </div>
         </div>

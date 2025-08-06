@@ -39,43 +39,43 @@ export const navigation = {
       children: [
         {
           title: "LIFT",
-          href: "#",
+          href: "/products/lift",
           children: [
             {
               title: "PASSENGER LIFT",
-              href: "/products/lift/property-lifts/passenger-lift",
+              href: "/products/lift/passenger-lift",
             },
             {
               title: "CAPSULE LIFT",
-              href: "/products/lift/property-lifts/capsule-lift",
+              href: "/products/lift/capsule-lift",
             },
             {
               title: "HOSPITAL LIFT",
-              href: "/products/lift/property-lifts/hospital-lift",
+              href: "/products/lift/hospital-lift",
             },
             {
               title: "CARGO LIFT",
-              href: "/products/lift/property-lifts/cargo-lift",
+              href: "/products/lift/cargo-lift",
             },
             {
               title: "ESCALATOR",
-              href: "/products/lift/property-lifts/escalator",
+              href: "/products/lift/escalator",
             },
             {
               title: "KONE",
-              href: "/products/lift/imported-lifts/kone",
+              href: "/products/lift/kone",
             },
             {
               title: "SRH",
-              href: "/products/lift/imported-lifts/srh",
+              href: "/products/lift/srh",
             },
             {
               title: "MP",
-              href: "/products/lift/imported-lifts/mp",
+              href: "/products/lift/mp",
             },
             {
               title: "SHANGHAI MITSUBISHI",
-              href: "/products/lift/imported-lifts/shanghai-mitsubishi",
+              href: "/products/lift/shanghai-mitsubishi",
             },
             // {
             //   title: "Brother's Lift Technology",
