@@ -90,8 +90,6 @@ export default function SRHPage() {
                             <li className="text-gray-400">&gt;</li>
                             <li><Link href="/products/lift" className="hover:text-orange-400">Lifts</Link></li>
                             <li className="text-gray-400">&gt;</li>
-                            <li><Link href="/products/lift/imported-lifts" className="hover:text-orange-400">Imported Lifts</Link></li>
-                            <li className="text-gray-400">&gt;</li>
                             <li className="text-gray-800 font-medium">SRH</li>
                         </ol>
                     </nav>
