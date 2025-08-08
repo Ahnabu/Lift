@@ -2,6 +2,7 @@
 
 import { projects } from "@/lib/data"
 import { MapPin, CheckCircle } from "lucide-react"
+import Image from "next/image"
 
 export function ProjectsSection() {
     return (
@@ -19,12 +20,13 @@ export function ProjectsSection() {
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {projects.map((project) => (
                         <div key={project.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                            <div className="aspect-video bg-gradient-to-br from-blue-500 to-blue-700 relative">
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <span className="text-white text-2xl font-bold">
-                                        {project.title.split(' ').map(word => word.charAt(0)).join('').slice(0, 3)}
-                                    </span>
-                                </div>
+                            <div className="aspect-video bg-gray-100 relative overflow-hidden">
+                                <Image
+                                    src={project.image && !project.image.includes('/api/placeholder/') ? project.image : '/dummy_rectangular.jfif'}
+                                    alt={project.title}
+                                    fill
+                                    className="object-cover"
+                                />
                                 {project.completed && (
                                     <div className="absolute top-4 right-4 bg-green-500 text-white px-2 py-1 rounded-full text-xs flex items-center">
                                         <CheckCircle className="h-3 w-3 mr-1" />
@@ -35,7 +37,7 @@ export function ProjectsSection() {
 
                             <div className="p-6">
                                 <div className="flex items-center justify-between mb-2">
-                                    <span className="text-xs font-medium text-blue-600 bg-blue-100 px-2 py-1 rounded">
+                                    <span className="text-xs font-medium text-orange-600 bg-orange-100 px-2 py-1 rounded">
                                         {project.category}
                                     </span>
                                 </div>
