@@ -124,3 +124,6 @@ export default function MpLiftPage() {
         </div>
     );
 }
+
+// Ensure TypeScript treats this file as a module in all resolutions
+export { };

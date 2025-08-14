@@ -126,3 +126,6 @@ export default function ShanghaiMitsubishiLiftPage() {
         </div>
     );
 }
+
+// Ensure TypeScript treats this file as a module in all resolutions
+export { };

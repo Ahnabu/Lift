@@ -28,12 +28,10 @@ export class ProductService {
     try {
       return new Promise((resolve) => {
         setTimeout(() => {
-          console.log('Searching for product with itemCode:', itemCode);
           
           // Search in lifts first
           const foundLift = allProducts.find(product => product.itemCode === itemCode);
           if (foundLift) {
-            console.log('Found lift:', foundLift);
             resolve(foundLift);
             return;
           }
@@ -41,12 +39,10 @@ export class ProductService {
           // Search in forklifts
           const foundForklift = forkliftData.find(forklift => forklift.itemCode === itemCode);
           if (foundForklift) {
-            console.log('Found forklift:', foundForklift);
             resolve(foundForklift);
             return;
           }
           
-          console.log('Product not found.');
           resolve(null);
         }, 300);
       });

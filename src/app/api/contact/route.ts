@@ -106,7 +106,7 @@ export async function POST(request: NextRequest) {
     // Send email to business
     await transporter.sendMail({
       from: process.env.GMAIL_USER,
-      to: 'horairaabu013025@gmail.com',
+      to: 'wahid2487@gmail.com',
       subject: `New Contact Form Submission from ${validatedData.name} - Brother's Lift Technology`,
       html: businessEmailContent,
       replyTo: validatedData.email,

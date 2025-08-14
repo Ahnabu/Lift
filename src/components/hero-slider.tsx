@@ -24,15 +24,14 @@ export function HeroSlider() {
         {sliderItems.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
-            }`}
+            className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
+              }`}
           >
             {/* Background */}
             <div
               className="absolute inset-0 bg-cover bg-center bg-no-repeat"
               style={{
-                backgroundImage: `url('https://propertylifts.com/images/sections/652823d0cc5a4db6a4ae66c79de25c4c/lifting-and-movingForklift-1470X754px-min.jpg')`,
+                backgroundImage: `url('${slide.image || '/dummy_background.jpg'}')`,
               }}
             >
               <div className="absolute inset-0 bg-black/40" />

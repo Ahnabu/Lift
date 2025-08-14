@@ -124,3 +124,6 @@ export default function KoneLiftPage() {
         </div>
     );
 }
+
+// Ensure TypeScript treats this file as a module in all resolutions
+export { };
