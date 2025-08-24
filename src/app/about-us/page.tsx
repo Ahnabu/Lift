@@ -50,43 +50,48 @@ export default function AboutUsPage() {
 
           <div className="text-gray-600 leading-relaxed space-y-4 text-justify">
             <p>
-              At 1961 PROPERTY Group started its business as a procurer of
-              fruits and vegetables in Bangladesh. Now PROPERTY Group is the
-              leading agricultural and plastic product company in Bangladesh.
-              During food and plastic products export PRAN (PROduct NAme)
-              Limited (PPL) being a sister concern of PRAN RFL Group since 1981
-              enjoying a massive demand for lifts and generators. PPL wanted to
-              be the most prominent electronic equipment and automobile spare
-              parts importer in Bangladesh. There was to fulfil the demand of
-              PRAN-RFL own company and factory demand. After then when we able
-              to fulfil the demand of our own PPL measures the local market
-              demand for lifts and generator. According to the demand we expand
-              its activities and now we are the largest importer of lifts and
-              generators, Forklift and HVAC in our country. We are not only
-              importing from China but also importing from Korea, Thailand,
-              Japan, India, Germany, Italy and UK.
+              Brothers Lift Technology is a professional elevator and elevator
+              components Supplier and importer. The company has a professional
+              technical, and an after-sales Service team. And major elevator
+              components are imported from some of the largest manufacturers of
+              Europe & Asia (Japan, Spain, Italy, China, Germany, Turkey &
+              Greece) & the other mechanical parts, i.e,. Cabin & Landing Doors
+              are assembled in our own establishment.
             </p>
 
             <p>
-              Brother&apos;s Lift Technology is the premier lift brand of Bangladesh
-              since 2000. We are importing 6 world top class lift brands KONE,
-              SRH, MP and Mitsubishi under Brother&apos;s Lift Technology. Property
-              Generators & brands like the premier generators brand of our
-              country since 17 March, 2000 with a generator brands CPL, VSG and
-              VOLKAN. Since 1981 Property Air Conditioner maintain a huge
-              activity and 2017 it&apos;s started its journey as a largest
-              specialized cooling system of our country. Now we are the
-              authorized distribution of world class brand LG for HVAC Solution.
-              Property Forklift is also a part of the Property Groups, offering
-              high quality and latest technology industrial equipment specially
-              warehouse items by other world class branded product YXLH.
+              The company has been adhering to the business philosophy of
+              service and quality are the foundation. The products have been
+              supplied to more than 20 Districts and regions, and won high
+              praise from customers. The Annual sales day by day is increasing
+              steadily.
             </p>
 
             <p>
-              By these activity, we like Property Lift, Property Generator,
-              Property Forklift and Property Air Conditioner are the most
-              trustworthy business of Bangladesh. We think our customers as our
-              partners. And that&apos;s why we respect the deal.
+              We believe that quality service is the guarantee of excellent
+              performance. In order to meet the needs of different markets, the
+              company has been constantly improving the product structure to
+              make the product cover a wider variety. We are committed to
+              creating a one-stop service platform for customers.
+            </p>
+
+            <p>
+              We believe that with our high starting point, high quality, and
+              excellent service, it will not only bring you reliable products,
+              but a promise of mutual benefit and growth as well. Looking
+              forward to working with you for a beautiful future in the elevator
+              industry.
+            </p>
+
+            <p>
+              Driven by a core philosophy that prioritizes service and quality
+              as its unshakeable bedrock, the company has forged a reputation
+              for excellence. This commitment has led to the successful supply
+              of products to over 20 diverse districts and regions, garnering
+              widespread acclaim and high praise from a continually growing
+              customer base. This positive reception is tangibly reflected in
+              the consistent and steady increase of annual sales, a testament to
+              the company&apos;s robust operational efficacy and market acceptance.
             </p>
           </div>
         </div>
@@ -103,62 +108,25 @@ export default function AboutUsPage() {
             </h2>
           </div>
 
-          {/* Team members cards below */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Chairman and CEO */}
-            <div className="bg-gray-600 p-3 rounded-lg text-center border-r-6 border-b-6 border-gray-500">
+          {/* Single management card centered */}
+          <div className="flex justify-center">
+            {/* Managing Director and CEO */}
+            <div className="bg-gray-600 p-6 rounded-lg text-center border-r-6 border-b-6 border-gray-500 max-w-md">
               <h3 className="text-primary font-bold text-sm mb-4 uppercase tracking-wide">
-                CHAIRMAN AND CEO
+                MANAGING DIRECTOR AND CEO
               </h3>
-              <div className="w-32 h-32 mx-auto mb-4 rounded-lg overflow-hidden bg-white border-2 border-gray-300">
+              <div className="w-40 h-40 mx-auto mb-6 rounded-lg overflow-hidden bg-white border-2 border-gray-300">
                 <Image
                   src="/dummy_user.png"
-                  alt="Chairman and CEO"
-                  width={128}
-                  height={128}
+                  alt="Managing Director and CEO"
+                  width={160}
+                  height={160}
                   className="w-full h-full object-cover"
                 />
               </div>
-              <p className="text-white text-sm leading-relaxed">
-                Ahsan Khan Chowdhury is the Chairman and CEO of PRAN- RFL Group
-              </p>
-            </div>
-
-            {/* Managing Director */}
-            <div className="bg-gray-600 p-3 rounded-lg text-center border-r-6 border-b-6 border-gray-500/50">
-              <h3 className="text-primary font-bold text-sm mb-4 uppercase tracking-wide">
-                MANAGING DIRECTOR
-              </h3>
-              <div className="w-32 h-32 mx-auto mb-4 rounded-lg overflow-hidden bg-white border-2 border-gray-300">
-                <Image
-                  src="/dummy_user.png"
-                  alt="Managing Director"
-                  width={128}
-                  height={128}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <p className="text-white text-sm leading-relaxed">
-                R. N Paul is the Managing Director of RFL Group
-              </p>
-            </div>
-
-            {/* Chief Operating Officer */}
-            <div className="bg-gray-600 p-3 rounded-lg text-center border-r-6 border-b-6 border-gray-500/50">
-              <h3 className="text-primary font-bold text-sm mb-4 uppercase tracking-wide">
-                CHIEF OPERATING OFFICER
-              </h3>
-              <div className="w-32 h-32 mx-auto mb-4 rounded-lg overflow-hidden bg-white border-2 border-gray-300">
-                <Image
-                  src="/dummy_user.png"
-                  alt="Chief Operating Officer"
-                  width={128}
-                  height={128}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <p className="text-white text-sm leading-relaxed">
-                Md. Moynul Islam is the Chief Operating Officer of PDL.
+              <p className="text-white text-lg leading-relaxed">
+                Wahidur Rahman is the Managing Director and CEO at Brothers Lift
+                Technology
               </p>
             </div>
           </div>
@@ -240,67 +208,7 @@ export default function AboutUsPage() {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Factory Information Section */}
-      <section className="py-16 px-4 bg-white">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Factory Image */}
-            <div className="relative">
-              <Image
-                src="/dummy_rectangular.jfif"
-                alt="Factory Overview"
-                width={600}
-                height={400}
-                className="w-full h-auto rounded-lg shadow-lg"
-              />
-            </div>
-
-            {/* Factory Details */}
-            <div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-6">
-                FACTORY INFORMATION:
-              </h2>
-
-              <div className="space-y-3 text-gray-700">
-                <p>
-                  <span className="font-semibold">• Factory Location:</span>{" "}
-                  Rajir Char, Danga, Polash, Narsingdi
-                </p>
-                <p>
-                  <span className="font-semibold">• Factory Size:</span> The
-                  factory size is 100,000 SQF
-                </p>
-                <p>
-                  <span className="font-semibold">• Land size:</span> 10 acres
-                </p>
-                <p>
-                  <span className="font-semibold">• Test tower:</span> The test
-                  tower is 50 meters tall. (Under Construction)
-                </p>
-                <p>
-                  <span className="font-semibold">• Production capacity:</span>{" "}
-                  The factory has a production capacity of 1,200 units per year.
-                </p>
-                <p>
-                  <span className="font-semibold">• Manufacturing Items:</span>{" "}
-                  The factory produces a variety of products, including complete
-                  lift cabin, landing doors, lift pump, complete control system,
-                  motor base, control frame, counter weight, air bracket items.
-                </p>
-                <p>
-                  <span className="font-semibold">
-                    • Research and development:
-                  </span>{" "}
-                  The factory has an R&D center and a center laboratory
-                  dedicated to developing and applying new technologies.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      </section>     
     </div>
   );
 }

@@ -133,10 +133,10 @@ export const navigation = {
         },
       ],
     },
-    // {
-    //   title: "SPARE PARTS",
-    //   href: "/spare-parts",
-    // },
+    {
+      title: "SPARE PARTS",
+      href: "/spare-parts",
+    },
     {
       title: "PROJECTS",
       href: "/projects",
