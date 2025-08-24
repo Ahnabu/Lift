@@ -30,18 +30,13 @@ export class LiftService {
   static async getProductByItemCode(itemCode: string): Promise<Product | null> {
     try {
       return new Promise((resolve) => {
-        setTimeout(() => {
-          console.log('Searching for product with itemCode:', itemCode);
-          console.log('Available products:', allProducts.length);
-          
+  setTimeout(() => {
           // Search in all products
           const foundProduct = allProducts.find(product => product.itemCode === itemCode);
           
           if (foundProduct) {
-            console.log('Found product:', foundProduct);
             resolve(foundProduct);
           } else {
-            console.log('Product not found. Available itemCodes:', allProducts.map(p => p.itemCode));
             resolve(null);
           }
         }, 300);

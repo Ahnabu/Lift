@@ -39,40 +39,39 @@ function LiftContent() {
   const lifts = allProducts.filter((product) =>
     activeFilter === "all"
       ? [
-          "passenger",
-          "cargo",
-          "hospital",
-          "capsule",
-          "escalator",
-          "imported",
-        ].includes(product.type)
+        "passenger",
+        "cargo",
+        "hospital",
+        "capsule",
+        "escalator",
+        "imported",
+      ].includes(product.type)
       : product.type === activeFilter
   );
 
-  // Debug info
-  console.log(`Active filter: ${activeFilter}, Items found: ${lifts.length}`);
+  // Debug removed
 
   // Group imported lifts by brand
   const importedBrands =
     activeFilter === "imported"
       ? Array.from(
-          new Set(
-            lifts
-              .filter((lift) => lift.type === "imported")
-              .map((lift) => lift.brand)
-          )
+        new Set(
+          lifts
+            .filter((lift) => lift.type === "imported")
+            .map((lift) => lift.brand)
         )
-          .filter(Boolean)
-          .filter(
-            (brand) =>
-              brand !== "PropertyLifts" && brand !== "Brother's Lift Technology"
-          )
-          .map((brand) => ({
-            name: brand,
-            lifts: lifts.filter(
-              (lift) => lift.brand === brand && lift.type === "imported"
-            ),
-          }))
+      )
+        .filter(Boolean)
+        .filter(
+          (brand) =>
+            brand !== "PropertyLifts" && brand !== "Brother's Lift Technology"
+        )
+        .map((brand) => ({
+          name: brand,
+          lifts: lifts.filter(
+            (lift) => lift.brand === brand && lift.type === "imported"
+          ),
+        }))
       : [];
 
   const getBrandColor = (brand: string) => {
@@ -114,11 +113,10 @@ function LiftContent() {
             <button
               key={category.id}
               onClick={() => handleFilterChange(category.id)}
-              className={`px-4 py-2 rounded-full font-medium transition-colors ${
-                activeFilter === category.id
+              className={`px-4 py-2 rounded-full font-medium transition-colors ${activeFilter === category.id
                   ? "bg-orange-500 text-white"
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-              }`}
+                }`}
             >
               {category.name}
             </button>
@@ -225,11 +223,10 @@ function LiftContent() {
                   </div>
                   <div className="p-6 flex flex-col h-[calc(100%-12rem)]">
                     <div
-                      className={`text-white text-xs font-bold px-2 py-1 rounded mb-3 inline-block ${
-                        lift.type === "imported"
+                      className={`text-white text-xs font-bold px-2 py-1 rounded mb-3 inline-block ${lift.type === "imported"
                           ? "bg-purple-500"
                           : "bg-orange-500"
-                      }`}
+                        }`}
                     >
                       {lift.type.toUpperCase()}
                     </div>

@@ -51,7 +51,7 @@ export default function CapsuleLiftPage() {
       </div>
     );
   }
-  console.log(capsuleLifts);
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section with Moving Background */}
@@ -90,7 +90,7 @@ export default function CapsuleLiftPage() {
                 <Link href="/products/lift" className="hover:text-orange-400">
                   Lifts
                 </Link>
-              </li>              
+              </li>
               <li className="text-gray-400">&gt;</li>
               <li className="text-gray-800 font-medium">Capsule Lifts</li>
             </ol>

@@ -7,7 +7,7 @@ export const sliderItems: SliderItem[] = [
     subtitle: "Style and Reliability",
     description:
       "We provide state-of-the-art lifts, escalators, and power solutions designed for safety, elegance, and unmatched performance. From residential buildings to commercial complexes, our solutions are engineered for excellence.",
-    image: "/api/placeholder/1200/600",
+  image: "/dummy_background.jpg",
     href: "/products",
     ctaText: "Explore Our Products",
   },
@@ -17,7 +17,7 @@ export const sliderItems: SliderItem[] = [
     subtitle: "Vertical Transportation",
     description:
       "We provide state-of-the-art lifts, escalators, and power solutions designed for safety, elegance, and unmatched performance. From residential buildings to commercial complexes, our solutions are engineered for excellence.",
-    image: "/api/placeholder/1200/600",
+  image: "/dummy_background.jpg",
     href: "/products",
     ctaText: "Explore Our Products",
   },
@@ -27,7 +27,7 @@ export const sliderItems: SliderItem[] = [
     subtitle: "FORWARD",
     description:
       "Innovative lift solutions that propel your building and business towards a brighter future.",
-    image: "/api/placeholder/1200/600",
+  image: "/dummy_background.jpg",
     href: "/products",
     ctaText: "Explore Our Products",
   },
@@ -37,7 +37,7 @@ export const sliderItems: SliderItem[] = [
     subtitle: "POWER SUPPLY",
     description:
       "Reliable backup power systems ensuring your lifts operate smoothly during power outages.",
-    image: "/api/placeholder/1200/600",
+  image: "/dummy_background.jpg",
     href: "/products",
     ctaText: "Explore Our Products",
   },
@@ -134,7 +134,7 @@ export const projects: Project[] = [
     title: "AZIMPUR GOVT. COLONY",
     description:
       "Government residential complex lift installation and maintenance project with modern safety features.",
-    image: "/api/placeholder/400/300",
+  image: "/dummy_rectangular.jfif",
     category: "Lift",
     completed: true,
     location: "Azimpur, Dhaka",
@@ -144,7 +144,7 @@ export const projects: Project[] = [
     title: "BANGLADESH SECRETARIAT",
     description:
       "Premium lift systems for the main government administrative building with high-capacity requirements.",
-    image: "/api/placeholder/400/300",
+  image: "/dummy_rectangular.jfif",
     category: "Lift",
     completed: true,
     location: "Dhaka",
@@ -154,7 +154,7 @@ export const projects: Project[] = [
     title: "BANGABANDHU SHEIKH MUJIB MEDICAL UNIVERSITY",
     description:
       "Hospital-grade lift systems with advanced safety features for medical facility operations.",
-    image: "/api/placeholder/400/300",
+  image: "/dummy_rectangular.jfif",
     category: "Lift",
     completed: true,
     location: "Dhaka",
@@ -164,7 +164,7 @@ export const projects: Project[] = [
     title: "DHAKA INDUSTRIAL WAREHOUSE",
     description:
       "Heavy-duty forklift fleet implementation for large-scale warehouse operations.",
-    image: "/api/placeholder/400/300",
+  image: "/dummy_rectangular.jfif",
     category: "Forklift",
     completed: true,
     location: "Savar, Dhaka",
@@ -174,7 +174,7 @@ export const projects: Project[] = [
     title: "COMMERCIAL COMPLEX POWER BACKUP",
     description:
       "Industrial generator installation for uninterrupted power supply in commercial buildings.",
-    image: "/api/placeholder/400/300",
+  image: "/dummy_rectangular.jfif",
     category: "Generator",
     completed: true,
     location: "Gulshan, Dhaka",
@@ -184,7 +184,7 @@ export const projects: Project[] = [
     title: "CORPORATE OFFICE HVAC SYSTEM",
     description:
       "Complete HVAC solution installation for multi-story corporate office building.",
-    image: "/api/placeholder/400/300",
+  image: "/dummy_rectangular.jfif",
     category: "HVAC",
     completed: true,
     location: "Banani, Dhaka",
@@ -195,61 +195,61 @@ export const partners: Partner[] = [
   {
     id: "cps",
     name: "CPS",
-    logo: "/api/placeholder/150/80",
+  logo: "/next.svg",
     category: "generator"
   },
   {
     id: "visa",
     name: "VISA",
-    logo: "/api/placeholder/150/80",
+  logo: "/vercel.svg",
     category: "generator"
   },
   {
     id: "volcano",
     name: "Volcano",
-    logo: "/api/placeholder/150/80",
+  logo: "/globe.svg",
     category: "generator"
   },
   {
     id: "lg",
     name: "LG",
-    logo: "/api/placeholder/150/80",
+  logo: "/file.svg",
     category: "hvac"
   },
   {
     id: "aermec",
     name: "Aermec",
-    logo: "/api/placeholder/150/80",
+  logo: "/window.svg",
     category: "hvac"
   },
   {
     id: "zgsm",
     name: "ZGSM",
-    logo: "/api/placeholder/150/80",
+  logo: "/next.svg",
     category: "street-light"
   },
   {
     id: "kone",
     name: "Kone",
-    logo: "/api/placeholder/150/80",
+  logo: "/vercel.svg",
     category: "lift"
   },
   {
     id: "mp",
     name: "MP",
-    logo: "/api/placeholder/150/80",
+  logo: "/globe.svg",
     category: "lift"
   },
   {
     id: "srh",
     name: "SRH",
-    logo: "/api/placeholder/150/80",
+  logo: "/file.svg",
     category: "lift"
   },
   {
     id: "yale",
     name: "Yale",
-    logo: "/api/placeholder/150/80",
+  logo: "/window.svg",
     category: "forklift"
   }
 ]

@@ -59,7 +59,7 @@ function CustomLightbox({ isOpen, images, currentIndex, onClose, onNext, onPrev 
                     url: window.location.href
                 });
             } catch (err) {
-                console.log('Error sharing:', err);
+                console.error('Share failed');
             }
         } else {
             // Fallback: copy to clipboard
