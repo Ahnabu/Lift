@@ -124,6 +124,7 @@ export function ProductsServicesSection() {
                         src={offering.image}
                         alt={offering.title}
                         fill
+      
                         className="object-cover transition-transform duration-300 group-hover:scale-110"
                       />
                     ) : (

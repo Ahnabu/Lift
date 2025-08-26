@@ -7,7 +7,7 @@ export const sliderItems: SliderItem[] = [
     subtitle: "Style and Reliability",
     description:
       "We provide state-of-the-art lifts, escalators, and power solutions designed for safety, elegance, and unmatched performance. From residential buildings to commercial complexes, our solutions are engineered for excellence.",
-  image: "/dummy_background.jpg",
+  image: "https://propertylifts.com/images/sections/652823d0cc5a4db6a4ae66c79de25c4c/lifting-and-movingForklift-1470X754px-min.jpg",
     href: "/products",
     ctaText: "Explore Our Products",
   },
@@ -17,7 +17,7 @@ export const sliderItems: SliderItem[] = [
     subtitle: "Vertical Transportation",
     description:
       "We provide state-of-the-art lifts, escalators, and power solutions designed for safety, elegance, and unmatched performance. From residential buildings to commercial complexes, our solutions are engineered for excellence.",
-  image: "/dummy_background.jpg",
+  image: "https://propertylifts.com/images/sections/652823d0cc5a4db6a4ae66c79de25c4c/lifting-and-movingForklift-1470X754px-min.jpg",
     href: "/products",
     ctaText: "Explore Our Products",
   },
@@ -27,7 +27,7 @@ export const sliderItems: SliderItem[] = [
     subtitle: "FORWARD",
     description:
       "Innovative lift solutions that propel your building and business towards a brighter future.",
-  image: "/dummy_background.jpg",
+  image: "https://propertylifts.com/images/sections/652823d0cc5a4db6a4ae66c79de25c4c/lifting-and-movingForklift-1470X754px-min.jpg",
     href: "/products",
     ctaText: "Explore Our Products",
   },
@@ -37,7 +37,7 @@ export const sliderItems: SliderItem[] = [
     subtitle: "POWER SUPPLY",
     description:
       "Reliable backup power systems ensuring your lifts operate smoothly during power outages.",
-  image: "/dummy_background.jpg",
+  image: "https://propertylifts.com/images/sections/652823d0cc5a4db6a4ae66c79de25c4c/lifting-and-movingForklift-1470X754px-min.jpg",
     href: "/products",
     ctaText: "Explore Our Products",
   },
@@ -268,7 +268,7 @@ export const homeOfferings = [
     description:
       "Safe, comfortable, and stylish elevators for residential and commercial buildings.",
     image:
-      "/dummy_rectangular.jfif",
+      "https://propertylifts.com/images/sections/c78bfd6e90e848c09203843d43199b5e/generatorGENERATOR.jpg",
     type: "product",
     href: "/products/lift/passenger-lift",
     category: "lift",
@@ -279,7 +279,7 @@ export const homeOfferings = [
     description:
       "Heavy-duty solutions for transporting goods efficiently and securely.",
     image:
-      "/dummy_rectangular.jfif",
+      "https://propertylifts.com/images/sections/c78bfd6e90e848c09203843d43199b5e/generatorGENERATOR.jpg",
     type: "product",
     href: "/products/lift/cargo-lift",
     category: "lift",
@@ -290,7 +290,7 @@ export const homeOfferings = [
     description:
       "Specially designed for medical facilities, ensuring smooth and safe patient transport.",
     image:
-      "/dummy_rectangular.jfif",
+      "https://propertylifts.com/images/sections/c78bfd6e90e848c09203843d43199b5e/generatorGENERATOR.jpg",
     type: "product",
     href: "/products/lift/hospital-lift",
     category: "lift",
@@ -301,7 +301,7 @@ export const homeOfferings = [
     description:
       "Modern and reliable escalators for shopping malls, airports, and public spaces.",
     image:
-      "/dummy_rectangular.jfif",
+      "https://propertylifts.com/images/sections/c78bfd6e90e848c09203843d43199b5e/generatorGENERATOR.jpg",
     type: "product",
     href: "/products/escalator",
     category: "escalator",
@@ -312,7 +312,7 @@ export const homeOfferings = [
     description:
       "Uninterrupted power solutions to keep your operations running 24/7.",
     image:
-      "/dummy_rectangular.jfif",
+      "https://propertylifts.com/images/sections/c78bfd6e90e848c09203843d43199b5e/generatorGENERATOR.jpg",
     type: "product",
     href: "/products/generator",
     category: "generator",
@@ -323,7 +323,7 @@ export const homeOfferings = [
     description:
       "Industrial-grade forklifts for efficient material handling and warehouse operations.",
     image:
-      "/dummy_rectangular.jfif",
+      "https://propertylifts.com/images/sections/c78bfd6e90e848c09203843d43199b5e/generatorGENERATOR.jpg",
     type: "product",
     href: "/products/forklift",
     category: "forklift",
