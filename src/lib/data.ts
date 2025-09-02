@@ -130,64 +130,37 @@ export const services: Service[] = [
 
 export const projects: Project[] = [
   {
-    id: "azimpur-govt-colony",
-    title: "AZIMPUR GOVT. COLONY",
+    id: "lr-bhaban",
+    title: "LR BHABAN",
     description:
-      "Government residential complex lift installation and maintenance project with modern safety features.",
-  image: "/dummy_rectangular.jfif",
+      "Modern lift installation and maintenance services for commercial building with advanced safety features and smooth operation.",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1756820178/LR_Bhaban.jpg",
     category: "Lift",
     completed: true,
-    location: "Azimpur, Dhaka",
+    location: "1/2 Outer Circular, Malibagh Mor, Dhaka-1217",
   },
   {
-    id: "bangladesh-secretariat",
-    title: "BANGLADESH SECRETARIAT",
+    id: "safe-shelter",
+    title: "SAFE SHELTER",
     description:
-      "Premium lift systems for the main government administrative building with high-capacity requirements.",
-  image: "/dummy_rectangular.jfif",
+      "Residential building lift system installation providing safe and reliable vertical transportation for residents.",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1756820177/SafeShelter.jpg",
     category: "Lift",
     completed: true,
-    location: "Dhaka",
+    location: "182/C Mogbazar, Dhaka",
   },
   {
-    id: "bsmmu",
-    title: "BANGABANDHU SHEIKH MUJIB MEDICAL UNIVERSITY",
+    id: "krishnachura-nibas",
+    title: "KRISHNACHURA NIBAS",
     description:
-      "Hospital-grade lift systems with advanced safety features for medical facility operations.",
-  image: "/dummy_rectangular.jfif",
+      "Premium residential complex lift solutions ensuring comfort and safety for all residents with modern elevator technology.",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1756820179/KrisnochuraNibas.jpg",
     category: "Lift",
     completed: true,
-    location: "Dhaka",
-  },
-  {
-    id: "dhaka-warehouse",
-    title: "DHAKA INDUSTRIAL WAREHOUSE",
-    description:
-      "Heavy-duty forklift fleet implementation for large-scale warehouse operations.",
-  image: "/dummy_rectangular.jfif",
-    category: "Forklift",
-    completed: true,
-    location: "Savar, Dhaka",
-  },
-  {
-    id: "power-backup-system",
-    title: "COMMERCIAL COMPLEX POWER BACKUP",
-    description:
-      "Industrial generator installation for uninterrupted power supply in commercial buildings.",
-  image: "/dummy_rectangular.jfif",
-    category: "Generator",
-    completed: true,
-    location: "Gulshan, Dhaka",
-  },
-  {
-    id: "office-hvac-system",
-    title: "CORPORATE OFFICE HVAC SYSTEM",
-    description:
-      "Complete HVAC solution installation for multi-story corporate office building.",
-  image: "/dummy_rectangular.jfif",
-    category: "HVAC",
-    completed: true,
-    location: "Banani, Dhaka",
+    location: "423/1, Nayatala, Mogbazar, Dhaka-1217",
   },
 ];
 

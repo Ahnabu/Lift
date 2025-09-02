@@ -91,7 +91,8 @@ export default function AboutUsPage() {
               widespread acclaim and high praise from a continually growing
               customer base. This positive reception is tangibly reflected in
               the consistent and steady increase of annual sales, a testament to
-              the company&apos;s robust operational efficacy and market acceptance.
+              the company&apos;s robust operational efficacy and market
+              acceptance.
             </p>
           </div>
         </div>
@@ -117,7 +118,7 @@ export default function AboutUsPage() {
               </h3>
               <div className="w-40 h-40 mx-auto mb-6 rounded-lg overflow-hidden bg-white border-2 border-gray-300">
                 <Image
-                  src="/dummy_user.png"
+                  src="https://res.cloudinary.com/brotherslift/image/upload/v1756406745/Wahid.png"
                   alt="Managing Director and CEO"
                   width={160}
                   height={160}
@@ -208,7 +209,7 @@ export default function AboutUsPage() {
             </div>
           </div>
         </div>
-      </section>     
+      </section>
     </div>
   );
 }
