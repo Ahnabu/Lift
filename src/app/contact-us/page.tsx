@@ -51,7 +51,14 @@ export default function ContactUsPage() {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section with Moving Background */}
       <div className="relative h-96 flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/dummy_background.jpg')] bg-cover bg-center moving-bg opacity-40"></div>
+        <div
+          className="absolute inset-0 bg-cover bg-center moving-bg "
+          style={{
+            backgroundImage:
+              "url('https://res.cloudinary.com/brotherslift/image/upload/v1758993190/IMG-20250927-WA0008_ldjlim.jpg')",
+          }}
+        />
+        <div className="absolute inset-0 bg-black/20"></div>{" "}
         <div className="relative max-w-[1320px] mx-auto px-4 h-full flex items-center justify-center">
           <div className="text-center text-white">
             <h1 className="text-5xl font-bold mb-4">CONTACT US</h1>

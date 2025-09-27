@@ -7,7 +7,8 @@ export const sliderItems: SliderItem[] = [
     subtitle: "Style and Reliability",
     description:
       "We provide state-of-the-art lifts, escalators, and power solutions designed for safety, elegance, and unmatched performance. From residential buildings to commercial complexes, our solutions are engineered for excellence.",
-  image: "https://propertylifts.com/images/sections/652823d0cc5a4db6a4ae66c79de25c4c/lifting-and-movingForklift-1470X754px-min.jpg",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1758993190/IMG-20250927-WA0008_ldjlim.jpg",
     href: "/products",
     ctaText: "Explore Our Products",
   },
@@ -17,7 +18,8 @@ export const sliderItems: SliderItem[] = [
     subtitle: "Vertical Transportation",
     description:
       "We provide state-of-the-art lifts, escalators, and power solutions designed for safety, elegance, and unmatched performance. From residential buildings to commercial complexes, our solutions are engineered for excellence.",
-  image: "https://propertylifts.com/images/sections/652823d0cc5a4db6a4ae66c79de25c4c/lifting-and-movingForklift-1470X754px-min.jpg",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1758992975/WhatsApp_Image_2025-09-24_at_13.11.52_76fb1db5_jefhvg.jpg",
     href: "/products",
     ctaText: "Explore Our Products",
   },
@@ -27,7 +29,8 @@ export const sliderItems: SliderItem[] = [
     subtitle: "FORWARD",
     description:
       "Innovative lift solutions that propel your building and business towards a brighter future.",
-  image: "https://propertylifts.com/images/sections/652823d0cc5a4db6a4ae66c79de25c4c/lifting-and-movingForklift-1470X754px-min.jpg",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1758993188/IMG-20250927-WA0010_zjt9un.jpg",
     href: "/products",
     ctaText: "Explore Our Products",
   },
@@ -37,7 +40,8 @@ export const sliderItems: SliderItem[] = [
     subtitle: "POWER SUPPLY",
     description:
       "Reliable backup power systems ensuring your lifts operate smoothly during power outages.",
-  image: "https://propertylifts.com/images/sections/652823d0cc5a4db6a4ae66c79de25c4c/lifting-and-movingForklift-1470X754px-min.jpg",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1758993189/IMG-20250927-WA0007_qub413.jpg",
     href: "/products",
     ctaText: "Explore Our Products",
   },
@@ -47,44 +51,51 @@ export const products: Product[] = [
   {
     id: "generator",
     title: "GENERATOR",
-    description: "High-quality generators providing reliable backup power for all your lift systems and building needs.",
-    image: '/dummy_rectangular.jfif',
+    description:
+      "High-quality generators providing reliable backup power for all your lift systems and building needs.",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1758993190/IMG-20250927-WA0008_ldjlim.jpg",
     href: "/products/generator",
-    category: "generator"
+    category: "generator",
   },
   {
     id: "hvac",
     title: "HVAC",
-    description: "Complete heating, ventilation, and air conditioning solutions for optimal comfort and air quality.",
-    image: "/dummy_rectangular.jfif",
+    description:
+      "Complete heating, ventilation, and air conditioning solutions for optimal comfort and air quality.",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1758992975/WhatsApp_Image_2025-09-24_at_13.11.52_76fb1db5_jefhvg.jpg",
     href: "/products/hvac",
-    category: "hvac"
+    category: "hvac",
   },
   {
     id: "solar",
     title: "SOLAR",
-    description: "Sustainable solar energy systems for eco-friendly and cost-effective power solutions.",
+    description:
+      "Sustainable solar energy systems for eco-friendly and cost-effective power solutions.",
     image: "/dummy_rectangular.jfif",
     href: "/products/solar",
-    category: "solar"
+    category: "solar",
   },
   {
     id: "lift",
     title: "LIFT",
-    description: "Premium lifts and elevators designed for safety, reliability, and smooth operation in any building.",
+    description:
+      "Premium lifts and elevators designed for safety, reliability, and smooth operation in any building.",
     image: "/dummy_rectangular.jfif",
     href: "/products/lift",
-    category: "lift"
+    category: "lift",
   },
   {
     id: "forklift",
     title: "FORKLIFT",
-    description: "Industrial-grade forklifts for efficient material handling and warehouse operations.",
+    description:
+      "Industrial-grade forklifts for efficient material handling and warehouse operations.",
     image: "/dummy_rectangular.jfif",
     href: "/products/forklift",
-    category: "forklift"
-  }
-]
+    category: "forklift",
+  },
+];
 
 export const services: Service[] = [
   {
@@ -161,6 +172,17 @@ export const projects: Project[] = [
     category: "Lift",
     completed: true,
     location: "423/1, Nayatala, Mogbazar, Dhaka-1217",
+  },
+  {
+    id: "keya-plaza",
+    title: "Keya Plaza",
+    description:
+      "Premium residential complex lift solutions ensuring comfort and safety for all residents with modern elevator technology.",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1758830915/DSC03873-min_z0halg.jpg",
+    category: "Lift",
+    completed: true,
+    location: "Pachtala bazar mor, Post office road, Badda, Dhaka-1212",
   },
 ];
 

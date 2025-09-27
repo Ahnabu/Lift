@@ -14,6 +14,7 @@ import {
 import { Menu, ChevronDown, MoreVertical } from "lucide-react";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { siteConfig, navigation } from "@/config/site";
+import Image from "next/image";
 
 interface NavigationItem {
   title: string;
@@ -149,7 +150,7 @@ const NavigationMenuItem: React.FC<NavigationMenuItemProps> = ({
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setIsHovered(false);
-    }, 150); 
+    }, 150);
   };
 
   React.useEffect(() => {
@@ -241,8 +242,13 @@ export function Navbar() {
                       className="flex items-center space-x-3 mb-6"
                       onClick={() => setIsNavOpen(false)}
                     >
-                      <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                        <span className="text-white font-bold">PL</span>
+                      <div className="w-10 h-10 flex items-center justify-center">
+                        <Image
+                          alt="Logo"
+                          src="https://res.cloudinary.com/brotherslift/image/upload/v1758992943/Gemini_Generated_Image_ixuoc9ixuoc9ixuo_juklsb.png"
+                          width={40}
+                          height={40}
+                        />
                       </div>
                       <div>
                         <div className="font-bold text-white">
@@ -266,8 +272,13 @@ export function Navbar() {
 
               {/* Logo for Mobile */}
               <Link href="/" className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center shadow-lg">
-                  <span className="text-white font-bold text-sm">PL</span>
+                <div className="w-10 h-10 flex items-center justify-center">
+                  <Image
+                    alt="Logo"
+                    src="https://res.cloudinary.com/brotherslift/image/upload/v1758992943/Gemini_Generated_Image_ixuoc9ixuoc9ixuo_juklsb.png"
+                    width={40}
+                    height={40}
+                  />
                 </div>
                 <div>
                   <div className="font-bold text-sm text-white tracking-wide">
@@ -282,8 +293,13 @@ export function Navbar() {
 
             {/* Desktop Logo (Center/Left) */}
             <Link href="/" className="hidden lg:flex items-center space-x-3">
-              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-lg">PL</span>
+              <div className="w-10 h-10 flex items-center justify-center">
+                <Image
+                  alt="Logo"
+                  src="https://res.cloudinary.com/brotherslift/image/upload/v1758992943/Gemini_Generated_Image_ixuoc9ixuoc9ixuo_juklsb.png"
+                  width={40}
+                  height={40}
+                />
               </div>
               <div>
                 <div className="font-bold text-xl text-white tracking-wide">
@@ -336,8 +352,13 @@ export function Navbar() {
                     {/* Mobile Contact Header */}
                     <div className="flex flex-col space-y-6 mt-6 px-4">
                       <div className="flex items-center space-x-3 mb-6">
-                        <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                          <span className="text-white font-bold">PL</span>
+                        <div className="w-10 h-10 flex items-center justify-center">
+                          <Image
+                            alt="Logo"
+                            src="https://res.cloudinary.com/brotherslift/image/upload/v1758992943/Gemini_Generated_Image_ixuoc9ixuoc9ixuo_juklsb.png"
+                            width={40}
+                            height={40}
+                          />
                         </div>
                         <div>
                           <div className="font-bold text-white">

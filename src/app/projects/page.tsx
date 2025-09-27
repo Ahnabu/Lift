@@ -284,13 +284,15 @@ export default function Projects() {
       <section className="relative h-96 flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
         {/* Background Image */}
         <div
-          className="absolute inset-0 bg-cover bg-center moving-bg opacity-40"
+          className="absolute inset-0 bg-cover bg-center moving-bg "
           style={{
-            backgroundImage: "url('/dummy_background.jpg')",
+            backgroundImage:
+              "url('https://res.cloudinary.com/brotherslift/image/upload/v1758993190/IMG-20250927-WA0008_ldjlim.jpg')",
           }}
         />
+        <div className="absolute inset-0 bg-black/20"></div>
         <div className="text-center text-white">
-          <h1 className="text-5xl font-bold mb-4">OUR PROJECTS</h1>
+          <h1 className="text-5xl font-bold mb-4 opacity-95">OUR PROJECTS</h1>
           <p className="text-xl opacity-90">
             Our successful project installations
           </p>
