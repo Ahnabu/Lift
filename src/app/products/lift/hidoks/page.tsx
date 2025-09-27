@@ -5,11 +5,37 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { allProducts } from "@/data/allLifts";
+import { LiftImageGallery } from "@/components/LiftImageGallery";
+import { ContactInfoSection } from "@/components/ContactInfoSection";
 import { siteConfig } from "@/config/site";
 
 export default function HidoksLiftPage() {
   const [lifts, setLifts] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  // Hidoks lift images
+  const hidoksLiftImages = [
+    {
+      id: "hidoks-1",
+      url: "https://res.cloudinary.com/brotherslift/image/upload/v1759002409/Hidoks.jpg",
+      title: "Hidoks Passenger Lift Premium",
+      description:
+        "Premium Turkish engineering with microprocessor VVVF control",
+    },
+    {
+      id: "hidoks-2",
+      url: "https://cdn.bdstall.com/product-image/giant_266202.jpg",
+      title: "Hidoks Hospital Lift Medical",
+      description:
+        "EN 81-70 compliant medical lifts with antibacterial surfaces",
+    },
+    {
+      id: "hidoks-3",
+      url: "https://cdn.bdstall.com/product-image/giant_266203.jpg",
+      title: "Hidoks Turkish Engineering",
+      description: "Advanced gearless permanent magnet motor technology",
+    },
+  ];
 
   useEffect(() => {
     // Filter Hidoks lifts
@@ -70,12 +96,7 @@ export default function HidoksLiftPage() {
                 </Link>
               </li>
               <li className="text-gray-400">&gt;</li>
-              <li>
-                <Link href="/products/lift" className="hover:text-orange-400">
-                  Lifts
-                </Link>
-              </li>
-              <li className="text-gray-400">&gt;</li>
+
               <li className="text-gray-800 font-medium">Hidoks - Turkey</li>
             </ol>
           </nav>
@@ -122,13 +143,8 @@ export default function HidoksLiftPage() {
                   </div>
                 </div>
               </div>
-              <div className="relative h-80 bg-gradient-to-br from-red-100 to-red-200 rounded-lg overflow-hidden">
-                <Image
-                  src="/dummy_rectangular.jfif"
-                  alt="Hidoks Turkish Lifts"
-                  fill
-                  className="object-cover"
-                />
+              <div>
+                <LiftImageGallery images={hidoksLiftImages} brand="Hidoks" />
               </div>
             </div>
           </div>
@@ -303,6 +319,9 @@ export default function HidoksLiftPage() {
               </div>
             </div>
           </div>
+
+          {/* Contact Section */}
+          <ContactInfoSection brand="Hidoks" brandColor="red" />
         </div>
       </div>
     </div>

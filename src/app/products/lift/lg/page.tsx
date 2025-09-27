@@ -5,11 +5,38 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { allProducts } from "@/data/allLifts";
+import { LiftImageGallery } from "@/components/LiftImageGallery";
+import { ContactInfoSection } from "@/components/ContactInfoSection";
 import { siteConfig } from "@/config/site";
 
 export default function LGLiftPage() {
   const [lifts, setLifts] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  // LG lift images
+  const lgLiftImages = [
+    {
+      id: "lg-1",
+      url: "https://images.unsplash.com/photo-1587373381713-3e9183c9e406?w=800&h=600&fit=crop",
+      title: "LG SIGMA Series Elevator",
+      description:
+        "Korean innovation with regenerative drives and premium build quality",
+    },
+    {
+      id: "lg-2",
+      url: "https://cdn.bdstall.com/product-image/giant_266200.jpg",
+      title: "LG Advanced Control System",
+      description:
+        "State-of-the-art elevator technology with energy efficiency",
+    },
+    {
+      id: "lg-3",
+      url: "https://cdn.bdstall.com/product-image/giant_266201.jpg",
+      title: "LG Korean Standards",
+      description:
+        "KS standards certified with international safety compliance",
+    },
+  ];
 
   useEffect(() => {
     // Filter LG lifts
@@ -70,12 +97,7 @@ export default function LGLiftPage() {
                 </Link>
               </li>
               <li className="text-gray-400">&gt;</li>
-              <li>
-                <Link href="/products/lift" className="hover:text-orange-400">
-                  Lifts
-                </Link>
-              </li>
-              <li className="text-gray-400">&gt;</li>
+
               <li className="text-gray-800 font-medium">LG - Sino Korea</li>
             </ol>
           </nav>
@@ -122,13 +144,8 @@ export default function LGLiftPage() {
                   </div>
                 </div>
               </div>
-              <div className="relative h-80 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-lg overflow-hidden">
-                <Image
-                  src="/dummy_rectangular.jfif"
-                  alt="LG Korean Elevators"
-                  fill
-                  className="object-cover"
-                />
+              <div>
+                <LiftImageGallery images={lgLiftImages} brand="LG" />
               </div>
             </div>
           </div>
@@ -303,6 +320,9 @@ export default function LGLiftPage() {
               </div>
             </div>
           </div>
+
+          {/* Contact Section */}
+          <ContactInfoSection brand="LG" brandColor="emerald" />
         </div>
       </div>
     </div>

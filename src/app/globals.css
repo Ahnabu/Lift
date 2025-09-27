@@ -2,7 +2,7 @@
 
 :root {
   --radius: 0.625rem;
-  
+
   /* PropertyLifts Color Scheme */
   --background: 255 255 255;
   --foreground: 15 23 42;
@@ -22,7 +22,7 @@
   --border: 226 232 240;
   --input: 226 232 240;
   --ring: 59 130 246;
-  
+
   /* PropertyLifts Brand Colors */
   --brand-orange: 251 146 60; /* orange-400 */
   --brand-orange-light: 254 215 170; /* orange-200 */
@@ -33,13 +33,13 @@
 
 /* Moving background animation for hero sections */
 @keyframes moveBackground {
-  0% { 
+  0% {
     background-position: 0% 0%;
   }
-  50% { 
+  50% {
     background-position: 100% 100%;
   }
-  100% { 
+  100% {
     background-position: 0% 0%;
   }
 }
@@ -54,13 +54,18 @@
 }
 
 .moving-background::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(45deg, rgba(0,0,0,0.8), rgba(0,0,0,0.4), rgba(0,0,0,0.8));
+  background: linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.8)
+  );
   background-size: 300% 300%;
   animation: moveBackground 15s ease-in-out infinite;
   z-index: 1;
@@ -71,16 +76,21 @@
 }
 
 .glass-line::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
   width: 100px;
   height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
   backdrop-filter: blur(2px);
-  box-shadow: 0 0 10px rgba(255,255,255,0.3);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .dark {
@@ -132,11 +142,19 @@ body {
 }
 
 .hero-gradient {
-  background: linear-gradient(135deg, rgb(var(--brand-blue)) 0%, rgb(var(--brand-dark-blue)) 100%);
+  background: linear-gradient(
+    135deg,
+    rgb(var(--brand-blue)) 0%,
+    rgb(var(--brand-dark-blue)) 100%
+  );
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, rgb(var(--brand-blue)), rgb(var(--brand-dark-blue)));
+  background: linear-gradient(
+    135deg,
+    rgb(var(--brand-blue)),
+    rgb(var(--brand-dark-blue))
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -171,6 +189,7 @@ html {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
+  line-clamp: 1;
 }
 
 .line-clamp-2 {
@@ -178,6 +197,7 @@ html {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
 }
 
 .line-clamp-3 {
@@ -185,4 +205,18 @@ html {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
+/* Products page hero background */
+.products-hero-bg {
+  background-image: url("https://res.cloudinary.com/brotherslift/image/upload/v1758993190/IMG-20250927-WA0008_ldjlim.jpg");
+  background-size: 120% 120%;
+  background-position: center;
+  animation: moveBackground 20s ease-in-out infinite;
+}
+
+/* Fuji hero background */
+.fuji-hero-image {
+  background-image: url("https://res.cloudinary.com/brotherslift/image/upload/v1758993190/IMG-20250927-WA0008_ldjlim.jpg");
 }

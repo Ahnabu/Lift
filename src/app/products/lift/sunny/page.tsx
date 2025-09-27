@@ -5,11 +5,38 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { allProducts } from "@/data/allLifts";
+import { LiftImageGallery } from "@/components/LiftImageGallery";
+import { ContactInfoSection } from "@/components/ContactInfoSection";
 import { siteConfig } from "@/config/site";
 
 export default function SunnyLiftPage() {
   const [lifts, setLifts] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  // Sunny lift images
+  const sunnyLiftImages = [
+    {
+      id: "sunny-1",
+      url: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&h=600&fit=crop",
+      title: "Sunny Economic Elevator",
+      description:
+        "Affordable reliability with practical functionality and essential features",
+    },
+    {
+      id: "sunny-2",
+      url: "https://cdn.bdstall.com/product-image/giant_266200.jpg",
+      title: "Sunny Cost-Effective Solution",
+      description:
+        "Budget-friendly lifts without compromising on safety standards",
+    },
+    {
+      id: "sunny-3",
+      url: "https://cdn.bdstall.com/product-image/giant_266201.jpg",
+      title: "Sunny Versatile Applications",
+      description:
+        "Suitable for residential, light commercial, and small industrial buildings",
+    },
+  ];
 
   useEffect(() => {
     // Filter Sunny lifts
@@ -70,12 +97,7 @@ export default function SunnyLiftPage() {
                 </Link>
               </li>
               <li className="text-gray-400">&gt;</li>
-              <li>
-                <Link href="/products/lift" className="hover:text-orange-400">
-                  Lifts
-                </Link>
-              </li>
-              <li className="text-gray-400">&gt;</li>
+
               <li className="text-gray-800 font-medium">Sunny</li>
             </ol>
           </nav>
@@ -122,13 +144,8 @@ export default function SunnyLiftPage() {
                   </div>
                 </div>
               </div>
-              <div className="relative h-80 bg-gradient-to-br from-yellow-100 to-orange-200 rounded-lg overflow-hidden">
-                <Image
-                  src="/dummy_rectangular.jfif"
-                  alt="Sunny Economic Elevators"
-                  fill
-                  className="object-cover"
-                />
+              <div>
+                <LiftImageGallery images={sunnyLiftImages} brand="Sunny" />
               </div>
             </div>
           </div>
@@ -303,6 +320,9 @@ export default function SunnyLiftPage() {
               </div>
             </div>
           </div>
+
+          {/* Contact Section */}
+          <ContactInfoSection brand="Sunny" brandColor="yellow" />
         </div>
       </div>
     </div>

@@ -37,13 +37,7 @@ export function Footer() {
                 >
                   <Facebook className="h-5 w-5" />
                 </Link>
-                <Link
-                  href={siteConfig.links.linkedin}
-                  className="text-gray-400 hover:text-white transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="h-5 w-5" />
-                </Link>
+                
               </div>
             </div>
 

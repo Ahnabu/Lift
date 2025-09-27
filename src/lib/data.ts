@@ -1,4 +1,4 @@
-import { Product, Service, Project, Partner, SliderItem } from "@/types"
+import { Product, Service, Project, Partner, SliderItem } from "@/types";
 
 export const sliderItems: SliderItem[] = [
   {
@@ -49,51 +49,24 @@ export const sliderItems: SliderItem[] = [
 
 export const products: Product[] = [
   {
+    id: "lift",
+    title: "LIFT",
+    description:
+      "Premium lifts and elevators designed for safety, reliability, and smooth operation in any building.",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1758993190/IMG-20250927-WA0008_ldjlim.jpg",
+    href: "/products/lift",
+    category: "lift",
+  },
+  {
     id: "generator",
     title: "GENERATOR",
     description:
       "High-quality generators providing reliable backup power for all your lift systems and building needs.",
     image:
-      "https://res.cloudinary.com/brotherslift/image/upload/v1758993190/IMG-20250927-WA0008_ldjlim.jpg",
+      "https://res.cloudinary.com/brotherslift/image/upload/v1758993189/IMG-20250927-WA0007_qub413.jpg",
     href: "/products/generator",
     category: "generator",
-  },
-  {
-    id: "hvac",
-    title: "HVAC",
-    description:
-      "Complete heating, ventilation, and air conditioning solutions for optimal comfort and air quality.",
-    image:
-      "https://res.cloudinary.com/brotherslift/image/upload/v1758992975/WhatsApp_Image_2025-09-24_at_13.11.52_76fb1db5_jefhvg.jpg",
-    href: "/products/hvac",
-    category: "hvac",
-  },
-  {
-    id: "solar",
-    title: "SOLAR",
-    description:
-      "Sustainable solar energy systems for eco-friendly and cost-effective power solutions.",
-    image: "/dummy_rectangular.jfif",
-    href: "/products/solar",
-    category: "solar",
-  },
-  {
-    id: "lift",
-    title: "LIFT",
-    description:
-      "Premium lifts and elevators designed for safety, reliability, and smooth operation in any building.",
-    image: "/dummy_rectangular.jfif",
-    href: "/products/lift",
-    category: "lift",
-  },
-  {
-    id: "forklift",
-    title: "FORKLIFT",
-    description:
-      "Industrial-grade forklifts for efficient material handling and warehouse operations.",
-    image: "/dummy_rectangular.jfif",
-    href: "/products/forklift",
-    category: "forklift",
   },
 ];
 
@@ -113,12 +86,11 @@ export const services: Service[] = [
   },
   {
     id: "technical-support",
-    title: "TECHNICAL SUPPORT AND TRAINING",
+    title: "TECHNICAL SUPPORT",
     description:
       "The after sales and installation service includes staff training, explanation of usage & routine check up",
     icon: "Users",
     features: [
-      "Staff Training Programs",
       "Usage Guidelines",
       "Routine Check-ups",
       "Technical Documentation",
@@ -190,137 +162,123 @@ export const partners: Partner[] = [
   {
     id: "cps",
     name: "CPS",
-  logo: "/next.svg",
-    category: "generator"
+    logo: "/next.svg",
+    category: "generator",
   },
   {
     id: "visa",
     name: "VISA",
-  logo: "/vercel.svg",
-    category: "generator"
+    logo: "/vercel.svg",
+    category: "generator",
   },
   {
     id: "volcano",
     name: "Volcano",
-  logo: "/globe.svg",
-    category: "generator"
+    logo: "/globe.svg",
+    category: "generator",
   },
   {
     id: "lg",
     name: "LG",
-  logo: "/file.svg",
-    category: "hvac"
+    logo: "/file.svg",
+    category: "hvac",
   },
   {
     id: "aermec",
     name: "Aermec",
-  logo: "/window.svg",
-    category: "hvac"
+    logo: "/window.svg",
+    category: "hvac",
   },
   {
     id: "zgsm",
     name: "ZGSM",
-  logo: "/next.svg",
-    category: "street-light"
+    logo: "/next.svg",
+    category: "street-light",
   },
   {
     id: "kone",
     name: "Kone",
-  logo: "/vercel.svg",
-    category: "lift"
+    logo: "/vercel.svg",
+    category: "lift",
   },
   {
     id: "mp",
     name: "MP",
-  logo: "/globe.svg",
-    category: "lift"
+    logo: "/globe.svg",
+    category: "lift",
   },
   {
     id: "srh",
     name: "SRH",
-  logo: "/file.svg",
-    category: "lift"
+    logo: "/file.svg",
+    category: "lift",
   },
   {
     id: "yale",
     name: "Yale",
-  logo: "/window.svg",
-    category: "forklift"
-  }
-]
+    logo: "/window.svg",
+    category: "forklift",
+  },
+];
 
 export const companyHighlights = [
   "Extensive Experience",
   "Quality from start to finish",
   "Employees are continually trained on safety",
-  "Best service provider"
-]
+  "Best service provider",
+];
 
 export const homeOfferings = [
   {
-    id: "passenger-lifts",
-    title: "Passenger Lifts",
+    id: "lift",
+    title: "LIFT",
     description:
-      "Safe, comfortable, and stylish elevators for residential and commercial buildings.",
+      "Premium lifts and elevators designed for safety, reliability, and smooth operation in any building.",
     image:
-      "https://propertylifts.com/images/sections/c78bfd6e90e848c09203843d43199b5e/generatorGENERATOR.jpg",
+      "https://res.cloudinary.com/brotherslift/image/upload/v1758993190/IMG-20250927-WA0008_ldjlim.jpg",
     type: "product",
-    href: "/products/lift/passenger-lift",
+    href: "/products/lift",
     category: "lift",
   },
   {
-    id: "cargo-lifts",
-    title: "Cargo Lifts",
+    id: "generator",
+    title: "GENERATOR",
     description:
-      "Heavy-duty solutions for transporting goods efficiently and securely.",
+      "High-quality generators providing reliable backup power for all your lift systems and building needs.",
     image:
-      "https://propertylifts.com/images/sections/c78bfd6e90e848c09203843d43199b5e/generatorGENERATOR.jpg",
-    type: "product",
-    href: "/products/lift/cargo-lift",
-    category: "lift",
-  },
-  {
-    id: "hospital-lifts",
-    title: "Hospital Lifts",
-    description:
-      "Specially designed for medical facilities, ensuring smooth and safe patient transport.",
-    image:
-      "https://propertylifts.com/images/sections/c78bfd6e90e848c09203843d43199b5e/generatorGENERATOR.jpg",
-    type: "product",
-    href: "/products/lift/hospital-lift",
-    category: "lift",
-  },
-  {
-    id: "escalators",
-    title: "Escalators",
-    description:
-      "Modern and reliable escalators for shopping malls, airports, and public spaces.",
-    image:
-      "https://propertylifts.com/images/sections/c78bfd6e90e848c09203843d43199b5e/generatorGENERATOR.jpg",
-    type: "product",
-    href: "/products/escalator",
-    category: "escalator",
-  },
-  {
-    id: "generators",
-    title: "Generators",
-    description:
-      "Uninterrupted power solutions to keep your operations running 24/7.",
-    image:
-      "https://propertylifts.com/images/sections/c78bfd6e90e848c09203843d43199b5e/generatorGENERATOR.jpg",
+      "https://res.cloudinary.com/brotherslift/image/upload/v1758993189/IMG-20250927-WA0007_qub413.jpg",
     type: "product",
     href: "/products/generator",
     category: "generator",
   },
   {
-    id: "forklift",
-    title: "Forklifts",
+    id: "blt-lift",
+    title: "BLT Lift",
     description:
-      "Industrial-grade forklifts for efficient material handling and warehouse operations.",
-    image:
-      "https://propertylifts.com/images/sections/c78bfd6e90e848c09203843d43199b5e/generatorGENERATOR.jpg",
+      "Premium quality lifts designed with cutting-edge technology for superior performance and safety.",
+    image: "https://cdn.bdstall.com/product-image/giant_266200.jpg",
     type: "product",
-    href: "/products/forklift",
-    category: "forklift",
+    href: "/products/lift/blt-lift",
+    category: "lift",
+  },
+  {
+    id: "hidoks-turkey",
+    title: "Hidoks - Turkey",
+    description:
+      "Turkish engineering excellence in vertical transportation with European quality standards.",
+    image: "https://cdn.bdstall.com/product-image/giant_266201.jpg",
+    type: "product",
+    href: "/products/lift/hidoks",
+    category: "lift",
+  },
+  {
+    id: "otis-china",
+    title: "Otis - China",
+    description:
+      "Global elevator leader with cutting-edge technology and unmatched performance for all building types.",
+    image: "https://cdn.bdstall.com/product-image/giant_266202.jpg",
+    type: "product",
+    href: "/products/lift/otis",
+    category: "lift",
   },
 ];

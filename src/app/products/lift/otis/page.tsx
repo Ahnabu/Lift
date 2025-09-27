@@ -5,11 +5,36 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { allProducts } from "@/data/allLifts";
+import { LiftImageGallery } from "@/components/LiftImageGallery";
+import { ContactInfoSection } from "@/components/ContactInfoSection";
 import { siteConfig } from "@/config/site";
 
 export default function OtisLiftPage() {
   const [lifts, setLifts] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  // Otis lift images
+  const otisLiftImages = [
+    {
+      id: "otis-1",
+      url: "https://res.cloudinary.com/brotherslift/image/upload/v1759002566/OTis%20-%20China.webp",
+      title: "Otis GeN2 Premier",
+      description:
+        "Global elevator leader with ReGen Drive and flat belt technology",
+    },
+    {
+      id: "otis-2",
+      url: "https://cdn.bdstall.com/product-image/giant_266202.jpg",
+      title: "Otis Freight 2000VF",
+      description: "Heavy duty cargo lift with VVVF vector control system",
+    },
+    {
+      id: "otis-3",
+      url: "https://cdn.bdstall.com/product-image/giant_266203.jpg",
+      title: "Otis Smart Controls",
+      description: "Advanced destination dispatch and traffic optimization",
+    },
+  ];
 
   useEffect(() => {
     // Filter Otis lifts
@@ -70,12 +95,7 @@ export default function OtisLiftPage() {
                 </Link>
               </li>
               <li className="text-gray-400">&gt;</li>
-              <li>
-                <Link href="/products/lift" className="hover:text-orange-400">
-                  Lifts
-                </Link>
-              </li>
-              <li className="text-gray-400">&gt;</li>
+
               <li className="text-gray-800 font-medium">Otis - China</li>
             </ol>
           </nav>
@@ -123,13 +143,8 @@ export default function OtisLiftPage() {
                   </div>
                 </div>
               </div>
-              <div className="relative h-80 bg-gradient-to-br from-indigo-100 to-indigo-200 rounded-lg overflow-hidden">
-                <Image
-                  src="/dummy_rectangular.jfif"
-                  alt="Otis China Elevators"
-                  fill
-                  className="object-cover"
-                />
+              <div>
+                <LiftImageGallery images={otisLiftImages} brand="Otis" />
               </div>
             </div>
           </div>
@@ -304,6 +319,9 @@ export default function OtisLiftPage() {
               </div>
             </div>
           </div>
+
+          {/* Contact Section */}
+          <ContactInfoSection brand="Otis" brandColor="purple" />
         </div>
       </div>
     </div>

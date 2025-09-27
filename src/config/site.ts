@@ -11,8 +11,7 @@ export const siteConfig = {
       ? "https://propertylifts.com/og.jpg"
       : "https://res.cloudinary.com/brotherslift/image/upload/v1758993190/IMG-20250927-WA0008_ldjlim.jpg",
   links: {
-    facebook: "https://www.facebook.com/Propertyliftsbd",
-    linkedin: "https://www.linkedin.com/company/property-lifts",
+    facebook: "https://www.facebook.com/profile.php?id=61578739861772",
   },
   contact: {
     phone: "+8801920-883427",
@@ -35,7 +34,7 @@ export const navigation = {
     },
     {
       title: "PRODUCTS",
-      href: "#",
+      href: "/products",
       children: [
         {
           title: "LIFT",
@@ -80,7 +79,6 @@ export const navigation = {
     {
       title: "PROJECTS",
       href: "/projects",
-      
     },
     {
       title: "MEDIA",

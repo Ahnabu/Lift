@@ -5,11 +5,45 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { allProducts } from "@/data/allLifts";
+import { LiftImageGallery } from "@/components/LiftImageGallery";
+import { ContactInfoSection } from "@/components/ContactInfoSection";
 import { siteConfig } from "@/config/site";
 
 export default function BLTLiftPage() {
   const [lifts, setLifts] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  // BLT lift images
+  const bltLiftImages = [
+    {
+      id: "blt-1",
+      url: "https://res.cloudinary.com/brotherslift/image/upload/v1758993189/IMG-20250927-WA0007_qub413.jpg",
+      title: "BLT Passenger Lift Standard",
+      description:
+        "Premium passenger elevator with VVVF control and gearless traction machine",
+    },
+    {
+      id: "blt-2",
+      url: "https://cdn.bdstall.com/product-image/giant_266200.jpg",
+      title: "BLT Lift Control System",
+      description:
+        "Advanced VVVF frequency control with permanent magnet synchronous motor",
+    },
+    {
+      id: "blt-3",
+      url: "https://cdn.bdstall.com/product-image/giant_266201.jpg",
+      title: "BLT Cargo Lift Heavy Duty",
+      description:
+        "Industrial cargo lift with reinforced platform for warehouse applications",
+    },
+    {
+      id: "blt-4",
+      url: "https://res.cloudinary.com/brotherslift/image/upload/v1758993190/IMG-20250927-WA0008_ldjlim.jpg",
+      title: "BLT Professional Installation",
+      description:
+        "Professional installation services with certified technicians",
+    },
+  ];
 
   useEffect(() => {
     // Filter BLT lifts
@@ -72,12 +106,7 @@ export default function BLTLiftPage() {
                   Products
                 </Link>
               </li>
-              <li className="text-gray-400">&gt;</li>
-              <li>
-                <Link href="/products/lift" className="hover:text-orange-400">
-                  Lifts
-                </Link>
-              </li>
+
               <li className="text-gray-400">&gt;</li>
               <li className="text-gray-800 font-medium">BLT Lift</li>
             </ol>
@@ -124,13 +153,8 @@ export default function BLTLiftPage() {
                   </div>
                 </div>
               </div>
-              <div className="relative h-80 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg overflow-hidden">
-                <Image
-                  src="/dummy_rectangular.jfif"
-                  alt="BLT Lift Technology"
-                  fill
-                  className="object-cover"
-                />
+              <div>
+                <LiftImageGallery images={bltLiftImages} brand="BLT Lift" />
               </div>
             </div>
           </div>
@@ -305,6 +329,9 @@ export default function BLTLiftPage() {
               </div>
             </div>
           </div>
+
+          {/* Contact Section */}
+          <ContactInfoSection brand="BLT Lift" brandColor="blue" />
         </div>
       </div>
     </div>

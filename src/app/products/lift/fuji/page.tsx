@@ -5,11 +5,54 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { allProducts } from "@/data/allLifts";
+import { LiftImageGallery } from "@/components/LiftImageGallery";
+import { ContactInfoSection } from "@/components/ContactInfoSection";
 import { siteConfig } from "@/config/site";
 
 export default function FujiLiftPage() {
   const [lifts, setLifts] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  // Fuji lift images from various sources
+  const fujiLiftImages = [
+    {
+      id: "fuji-1",
+      url: "https://cdn.bdstall.com/product-image/giant_266200.jpg",
+      title: "Fuji 630 Kg 8-Person Passenger Elevator",
+      description:
+        "Premium passenger elevator with stainless steel finish and advanced safety features",
+    },
+    {
+      id: "fuji-2",
+      url: "https://cdn.bdstall.com/product-image/giant_266201.jpg",
+      title: "Fuji Elevator Control Panel",
+      description: "Advanced microprocessor control system with touch buttons",
+    },
+    {
+      id: "fuji-3",
+      url: "https://cdn.bdstall.com/product-image/giant_266202.jpg",
+      title: "Fuji Elevator Interior",
+      description: "Mirror etching stainless steel 304 cabin with LED lighting",
+    },
+    {
+      id: "fuji-4",
+      url: "https://cdn.bdstall.com/product-image/giant_266203.jpg",
+      title: "Fuji Elevator Door System",
+      description: "Automatic center opening doors with safety sensors",
+    },
+    {
+      id: "fuji-5",
+      url: "https://images.unsplash.com/photo-1587373381713-3e9183c9e406?w=800&h=600&fit=crop",
+      title: "Fuji Machine Room Equipment",
+      description: "Gearless traction machine with energy-efficient motor",
+    },
+    {
+      id: "fuji-6",
+      url: "https://res.cloudinary.com/brotherslift/image/upload/v1758993190/IMG-20250927-WA0008_ldjlim.jpg",
+      title: "Fuji Building Installation",
+      description: "Professional installation in modern commercial building",
+    },
+  ];
 
   useEffect(() => {
     // Filter Fuji lifts
@@ -32,16 +75,10 @@ export default function FujiLiftPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="relative h-96 flex items-center justify-center  text-white overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center moving-bg "
-          style={{
-            backgroundImage:
-              "url('https://res.cloudinary.com/brotherslift/image/upload/v1758993190/IMG-20250927-WA0008_ldjlim.jpg')",
-          }}
-        />
+      <div className="relative h-96 flex items-center justify-center text-white overflow-hidden z-10 fuji-hero-bg">
+        <div className="absolute inset-0 bg-cover bg-center moving-bg fuji-hero-image" />
         <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative max-w-[1320px] mx-auto px-4 h-full flex items-center justify-center">
+        <div className="relative max-w-[1320px] mx-auto px-4 h-full flex items-center justify-center z-20">
           <div className="text-center text-white">
             <h1 className="text-5xl font-bold mb-4">Fuji</h1>
             <p className="text-xl max-w-3xl mx-auto">
@@ -69,12 +106,7 @@ export default function FujiLiftPage() {
                   Products
                 </Link>
               </li>
-              <li className="text-gray-400">&gt;</li>
-              <li>
-                <Link href="/products/lift" className="hover:text-orange-400">
-                  Lifts
-                </Link>
-              </li>
+
               <li className="text-gray-400">&gt;</li>
               <li className="text-gray-800 font-medium">Fuji</li>
             </ol>
@@ -96,7 +128,8 @@ export default function FujiLiftPage() {
                   medical lifts, Fuji delivers uncompromising quality and
                   innovation.
                 </p>
-                <div className="grid grid-cols-2 gap-4 text-sm">
+
+                <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
                   <div className="bg-purple-50 p-4 rounded">
                     <h4 className="font-semibold text-purple-800 mb-2">
                       Capacity Range
@@ -124,14 +157,11 @@ export default function FujiLiftPage() {
                     </p>
                   </div>
                 </div>
+
+                <ContactInfoSection brand="Fuji" brandColor="indigo" />
               </div>
-              <div className="relative h-80 bg-gradient-to-br from-purple-100 to-indigo-200 rounded-lg overflow-hidden">
-                <Image
-                  src="/dummy_rectangular.jfif"
-                  alt="Fuji Japanese Precision Elevators"
-                  fill
-                  className="object-cover"
-                />
+              <div>
+                <LiftImageGallery images={fujiLiftImages} brand="Fuji" />
               </div>
             </div>
           </div>

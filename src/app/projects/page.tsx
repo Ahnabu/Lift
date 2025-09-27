@@ -15,7 +15,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 
-const categories = ["All", "Lift", "Forklift", "Generator", "HVAC"];
+const categories = ["All", "Lift", "Generator"];
 
 interface CustomLightboxProps {
   isOpen: boolean;
