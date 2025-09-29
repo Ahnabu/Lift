@@ -242,12 +242,12 @@ export function Navbar() {
                       className="flex items-center space-x-3 mb-6"
                       onClick={() => setIsNavOpen(false)}
                     >
-                      <div className="w-10 h-10 flex items-center justify-center">
+                      <div className="size-14 flex items-center justify-center">
                         <Image
                           alt="Logo"
-                          src="https://res.cloudinary.com/brotherslift/image/upload/v1758992943/Gemini_Generated_Image_ixuoc9ixuoc9ixuo_juklsb.png"
-                          width={40}
-                          height={40}
+                          src="https://res.cloudinary.com/brotherslift/image/upload/v1759174303/favicon-removebg-preview_glnxnv.png"
+                          width={50}
+                          height={50}
                         />
                       </div>
                       <div>
@@ -272,12 +272,12 @@ export function Navbar() {
 
               {/* Logo for Mobile */}
               <Link href="/" className="flex items-center space-x-3">
-                <div className="w-10 h-10 flex items-center justify-center">
+                <div className="size-14 flex items-center justify-center">
                   <Image
                     alt="Logo"
-                    src="https://res.cloudinary.com/brotherslift/image/upload/v1758992943/Gemini_Generated_Image_ixuoc9ixuoc9ixuo_juklsb.png"
-                    width={40}
-                    height={40}
+                    src="https://res.cloudinary.com/brotherslift/image/upload/v1759174303/favicon-removebg-preview_glnxnv.png"
+                    width={50}
+                    height={50}
                   />
                 </div>
                 <div>
@@ -292,13 +292,13 @@ export function Navbar() {
             </div>
 
             {/* Desktop Logo (Center/Left) */}
-            <Link href="/" className="hidden lg:flex items-center space-x-3">
-              <div className="w-10 h-10 flex items-center justify-center">
+            <Link href="/" className="hidden lg:flex items-center space-x-2">
+              <div className="size-16 flex items-center justify-center">
                 <Image
                   alt="Logo"
-                  src="https://res.cloudinary.com/brotherslift/image/upload/v1758992943/Gemini_Generated_Image_ixuoc9ixuoc9ixuo_juklsb.png"
-                  width={40}
-                  height={40}
+                  src="https://res.cloudinary.com/brotherslift/image/upload/v1759174303/favicon-removebg-preview_glnxnv.png"
+                  width={60}
+                  height={60}
                 />
               </div>
               <div>
@@ -352,12 +352,12 @@ export function Navbar() {
                     {/* Mobile Contact Header */}
                     <div className="flex flex-col space-y-6 mt-6 px-4">
                       <div className="flex items-center space-x-3 mb-6">
-                        <div className="w-10 h-10 flex items-center justify-center">
+                        <div className="size-14 flex items-center justify-center">
                           <Image
                             alt="Logo"
-                            src="https://res.cloudinary.com/brotherslift/image/upload/v1758992943/Gemini_Generated_Image_ixuoc9ixuoc9ixuo_juklsb.png"
-                            width={40}
-                            height={40}
+                            src="https://res.cloudinary.com/brotherslift/image/upload/v1759174303/favicon-removebg-preview_glnxnv.png"
+                            width={50}
+                            height={50}
                           />
                         </div>
                         <div>

@@ -79,7 +79,7 @@ export function ModernProjectGallery({ images }: ModernProjectGalleryProps) {
         {/* Thumbnail Grid */}
         {images.length > 1 && (
           <div className="grid grid-cols-3 gap-2">
-            {images.slice(1, 4).map((image, index) => (
+            {images.slice(1, 10).map((image, index) => (
               <div
                 key={image.id}
                 className="relative aspect-square rounded-md overflow-hidden cursor-pointer group shadow-sm border border-gray-200"
@@ -102,11 +102,11 @@ export function ModernProjectGallery({ images }: ModernProjectGalleryProps) {
                   </div>
                 </div>
                 {/* Show "+X more" overlay on last thumbnail if more images exist */}
-                {index === 2 && images.length > 4 && (
+                {index === 8 && images.length > 10 && (
                   <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
                     <div className="text-white text-center">
                       <p className="text-sm font-semibold">
-                        +{images.length - 4}
+                        +{images.length - 10}
                       </p>
                       <p className="text-xs">more</p>
                     </div>
@@ -118,7 +118,7 @@ export function ModernProjectGallery({ images }: ModernProjectGalleryProps) {
         )}
 
         {/* View All Images Button */}
-        {images.length > 4 && (
+        {images.length > 10 && (
           <button
             onClick={() => openLightbox(0)}
             className="w-full py-2 bg-gray-900 text-white rounded-md font-medium hover:bg-gray-800 transition-colors text-sm"
