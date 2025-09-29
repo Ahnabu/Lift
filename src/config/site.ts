@@ -92,10 +92,7 @@ export const navigation = {
           title: "VIDEO GALLERY",
           href: "/media/video-gallery",
         },
-        {
-          title: "CATALOGUE",
-          href: "/media/catalogue",
-        },
+       
       ],
     },
     // {

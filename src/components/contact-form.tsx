@@ -75,7 +75,7 @@ export function ContactForm() {
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-secondary px-8 py-3 text-lg font-semibold"
+              className="border-white text-white hover:bg-white hover:text-black px-8 py-3 text-lg font-semibold"
               onClick={() =>
                 document
                   .getElementById("contact-form")

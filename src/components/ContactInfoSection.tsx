@@ -32,7 +32,7 @@ export function ContactInfoSection({
     colorClasses[brandColor as keyof typeof colorClasses] || colorClasses.blue;
 
   return (
-    <div className="relative">
+    <div className="relative my-3">
       {/* Main Contact Card */}
       <div
         className={`bg-gradient-to-r ${bgGradient} rounded-2xl p-6 md:p-8 text-white relative overflow-hidden shadow-2xl`}

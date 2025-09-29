@@ -5,11 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { LiftService } from "@/services/enhancedLiftService";
-import { ForkliftService } from "@/services/forkliftService";
 import { GeneratorService } from "@/services/generatorService";
-import { HVACService } from "@/services/hvacService";
-import { StreetLightService } from "@/services/streetLightService";
-import { SolarService } from "@/services/solarService";
+
 
 import { Product } from "@/types/products";
 import { ForkliftProduct } from "@/types/forklift";
@@ -79,19 +76,7 @@ export default function ProductDetailClient({
           return;
         }
 
-        // Forklifts
-        const foundForklift = await ForkliftService.getForkliftByItemCode(
-          itemCode
-        );
-        if (foundForklift) {
-          setProduct(foundForklift);
-          const related = await ForkliftService.getRelatedForklifts(
-            itemCode,
-            3
-          );
-          setRelatedProducts(related);
-          return;
-        }
+       
 
         // Generators
         const foundGenerator = await GeneratorService.getGeneratorByItemCode(
@@ -103,38 +88,6 @@ export default function ProductDetailClient({
             itemCode,
             3
           );
-          setRelatedProducts(related);
-          return;
-        }
-
-        // HVAC
-        const foundHVAC = await HVACService.getHVACByItemCode(itemCode);
-        if (foundHVAC) {
-          setProduct(foundHVAC);
-          const related = await HVACService.getRelatedHVAC(itemCode, 3);
-          setRelatedProducts(related);
-          return;
-        }
-
-        // Street Lights
-        const foundLight = await StreetLightService.getStreetLightByItemCode(
-          itemCode
-        );
-        if (foundLight) {
-          setProduct(foundLight);
-          const related = await StreetLightService.getRelatedStreetLights(
-            itemCode,
-            3
-          );
-          setRelatedProducts(related);
-          return;
-        }
-
-        // Solar
-        const foundSolar = await SolarService.getSolarByItemCode(itemCode);
-        if (foundSolar) {
-          setProduct(foundSolar);
-          const related = await SolarService.getRelatedSolar(itemCode, 3);
           setRelatedProducts(related);
           return;
         }

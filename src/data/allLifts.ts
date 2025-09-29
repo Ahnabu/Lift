@@ -3,6 +3,155 @@ import { PassengerLift, HospitalLift, CargoLift } from "../types/products";
 // Union type for all lift types
 type LiftProduct = PassengerLift | HospitalLift | CargoLift;
 
+// Brand Image Gallery Type
+export interface BrandImageGallery {
+  id: string;
+  url: string;
+  title: string;
+  description: string;
+}
+
+// Brand Images Configuration
+export const brandImages: Record<string, BrandImageGallery[]> = {
+  "Brother's Lift Technology": [
+    {
+      id: "blt-1",
+      url: "https://res.cloudinary.com/brotherslift/image/upload/v1758993189/IMG-20250927-WA0007_qub413.jpg",
+      title: "BLT Passenger Lift Standard",
+      description:
+        "Premium passenger elevator with VVVF control and gearless traction machine",
+    },
+    {
+      id: "blt-2",
+      url: "https://cdn.bdstall.com/product-image/giant_266200.jpg",
+      title: "BLT Lift Control System",
+      description:
+        "Advanced VVVF frequency control with permanent magnet synchronous motor",
+    },
+    {
+      id: "blt-3",
+      url: "https://cdn.bdstall.com/product-image/giant_266201.jpg",
+      title: "BLT Cargo Lift Heavy Duty",
+      description:
+        "Industrial cargo lift with reinforced platform for warehouse applications",
+    },
+  ],
+  Hidoks: [
+    {
+      id: "hidoks-1",
+      url: "https://res.cloudinary.com/brotherslift/image/upload/v1759002409/Hidoks.jpg",
+      title: "Hidoks Premium Passenger Lift",
+      description:
+        "Turkish engineering excellence with microprocessor VVVF control",
+    },
+    {
+      id: "hidoks-2",
+      url: "https://cdn.bdstall.com/product-image/giant_266200.jpg",
+      title: "Hidoks Hospital Lift Medical",
+      description:
+        "EN 81-70 compliant medical lifts with antibacterial surfaces",
+    },
+    {
+      id: "hidoks-3",
+      url: "https://cdn.bdstall.com/product-image/giant_266201.jpg",
+      title: "Hidoks Advanced Control System",
+      description:
+        "Gearless permanent magnet motor with machine room-less design",
+    },
+    {
+      id: "hidoks-4",
+      url: "https://res.cloudinary.com/brotherslift/image/upload/v1758993188/IMG-20250927-WA0010_zjt9un.jpg",
+      title: "Hidoks Safety Features",
+      description: "Emergency communication and battery backup systems",
+    },
+  ],
+  Otis: [
+    {
+      id: "otis-1",
+      url: "https://res.cloudinary.com/brotherslift/image/upload/v1759002566/OTis%20-%20China.webp",
+      title: "Otis GeN2 Premier Technology",
+      description: "Revolutionary gearless machine with flat belt technology",
+    },
+    {
+      id: "otis-2",
+      url: "https://cdn.bdstall.com/product-image/giant_266200.jpg",
+      title: "Otis ReGen Drive System",
+      description:
+        "Energy-efficient VVVF drive system with regenerative technology",
+    },
+    {
+      id: "otis-3",
+      url: "https://cdn.bdstall.com/product-image/giant_266201.jpg",
+      title: "Otis ReliaDoor System",
+      description: "Advanced door system with smooth and quiet operation",
+    },
+  ],
+  LG: [
+    {
+      id: "lg-1",
+      url: "https://res.cloudinary.com/brotherslift/image/upload/v1759002750/giant_331619_arpvvq.jpg",
+      title: "LG SIGMA Passenger Lift",
+      description:
+        "Korean technology excellence with permanent magnet gearless motor",
+    },
+    {
+      id: "lg-2",
+      url: "https://cdn.bdstall.com/product-image/giant_266200.jpg",
+      title: "LG Hospital Lift Pro",
+      description:
+        "ISO 14798 compliant hospital lifts with stainless steel interior",
+    },
+    {
+      id: "lg-3",
+      url: "https://cdn.bdstall.com/product-image/giant_266201.jpg",
+      title: "LG Regenerative Drive",
+      description: "Energy-saving VVVF drive with regenerative technology",
+    },
+    {
+      id: "lg-4",
+      url: "https://res.cloudinary.com/brotherslift/image/upload/v1758993188/IMG-20250927-WA0010_zjt9un.jpg",
+      title: "LG Advanced Control",
+      description: "VVVF door motor with center opening system",
+    },
+  ],
+  Sunny: [
+    {
+      id: "sunny-2",
+      url: "https://cdn.bdstall.com/product-image/giant_266200.jpg",
+      title: "Sunny Cost-Effective Solution",
+      description:
+        "Budget-friendly lifts without compromising on safety standards",
+    },
+    {
+      id: "sunny-3",
+      url: "https://cdn.bdstall.com/product-image/giant_266201.jpg",
+      title: "Sunny Versatile Applications",
+      description:
+        "Suitable for residential, light commercial, and small industrial buildings",
+    },
+  ],
+  Fuji: [
+    {
+      id: "fuji-1",
+      url: "https://cdn.bdstall.com/product-image/giant_266200.jpg",
+      title: "Fuji Precision Engineering",
+      description: "Japanese quality and precision in elevator technology",
+    },
+    {
+      id: "fuji-2",
+      url: "https://cdn.bdstall.com/product-image/giant_266200.jpg",
+      title: "Fuji Advanced Control",
+      description: "Sophisticated control systems with smooth operation",
+    },
+    {
+      id: "fuji-3",
+      url: "https://cdn.bdstall.com/product-image/giant_266201.jpg",
+      title: "Fuji Energy Efficient",
+      description: "Energy-saving technology with environmental consciousness",
+    },
+  ],
+};
+
 // BLT (Brother's Lift Technology) Data
 export const bltLifts: LiftProduct[] = [
   {
@@ -12,7 +161,8 @@ export const bltLifts: LiftProduct[] = [
     category: "Passenger Lift",
     type: "passenger",
     brand: "Brother's Lift Technology",
-    image: "https://res.cloudinary.com/brotherslift/image/upload/v1758993189/IMG-20250927-WA0007_qub413.jpg",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1758993189/IMG-20250927-WA0007_qub413.jpg",
     ratedCapacity: "630kg-1600kg (8-21 Persons)",
     floors: "2-20 Floors",
     speed: "0.5-2.5 m/s",
@@ -34,7 +184,8 @@ export const bltLifts: LiftProduct[] = [
     category: "Cargo Lift",
     type: "cargo",
     brand: "Brother's Lift Technology",
-    image: "https://res.cloudinary.com/brotherslift/image/upload/v1758993189/IMG-20250927-WA0007_qub413.jpg",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1758993189/IMG-20250927-WA0007_qub413.jpg",
     loadCapacity: "1000kg-5000kg",
     platformSize: "1500x1500mm to 3000x2500mm",
     liftingHeight: "2-15 Floors",
@@ -55,7 +206,8 @@ export const hidoksLifts: LiftProduct[] = [
     category: "Passenger Lift",
     type: "passenger",
     brand: "Hidoks",
-    image: "https://res.cloudinary.com/brotherslift/image/upload/v1759002409/Hidoks.jpg",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1759002409/Hidoks.jpg",
     ratedCapacity: "400kg-1600kg (5-21 Persons)",
     floors: "2-40 Floors",
     speed: "1.0-3.0 m/s",
@@ -77,7 +229,8 @@ export const hidoksLifts: LiftProduct[] = [
     category: "Hospital Lift",
     type: "hospital",
     brand: "Hidoks",
-    image: "https://res.cloudinary.com/brotherslift/image/upload/v1759002409/Hidoks.jpg",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1759002409/Hidoks.jpg",
     capacity: "1000kg-2000kg (13-26 Persons)",
     hospitalStandards: "EN 81-70 Compliant",
     emergencyFeatures: "Emergency Communication, Battery Backup, Manual Rescue",
@@ -98,7 +251,8 @@ export const otisLifts: LiftProduct[] = [
     category: "Passenger Lift",
     type: "passenger",
     brand: "Otis",
-    image: "https://res.cloudinary.com/brotherslift/image/upload/v1759002566/OTis%20-%20China.webp",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1759002566/OTis%20-%20China.webp",
     ratedCapacity: "630kg-1600kg (8-21 Persons)",
     floors: "2-60 Floors",
     speed: "1.0-10.0 m/s",
@@ -120,7 +274,8 @@ export const otisLifts: LiftProduct[] = [
     category: "Cargo Lift",
     type: "cargo",
     brand: "Otis",
-    image: "https://res.cloudinary.com/brotherslift/image/upload/v1759002566/OTis%20-%20China.webp",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1759002566/OTis%20-%20China.webp",
     loadCapacity: "2000kg-6000kg",
     platformSize: "2000x2500mm to 3500x3000mm",
     liftingHeight: "2-30 Floors",
@@ -141,7 +296,8 @@ export const lgLifts: LiftProduct[] = [
     category: "Passenger Lift",
     type: "passenger",
     brand: "LG",
-    image: "https://res.cloudinary.com/brotherslift/image/upload/v1759002750/giant_331619_arpvvq.jpg",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1759002750/giant_331619_arpvvq.jpg",
     ratedCapacity: "450kg-1600kg (6-21 Persons)",
     floors: "2-50 Floors",
     speed: "1.0-6.0 m/s",
@@ -163,7 +319,8 @@ export const lgLifts: LiftProduct[] = [
     category: "Hospital Lift",
     type: "hospital",
     brand: "LG",
-    image: "https://res.cloudinary.com/brotherslift/image/upload/v1759002750/giant_331619_arpvvq.jpg",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1759002750/giant_331619_arpvvq.jpg",
     capacity: "1000kg-2500kg (13-33 Persons)",
     hospitalStandards: "ISO 14798, EN 81-70 Standards",
     emergencyFeatures: "Emergency Power Operation, Communication System",
@@ -184,7 +341,8 @@ export const sunnyLifts: LiftProduct[] = [
     category: "Passenger Lift",
     type: "passenger",
     brand: "Sunny",
-    image: "https://res.cloudinary.com/brotherslift/image/upload/v1759002841/download_l0xvnw.jpg",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1759002841/download_l0xvnw.jpg",
     ratedCapacity: "400kg-1000kg (5-13 Persons)",
     floors: "2-20 Floors",
     speed: "0.5-2.0 m/s",
@@ -206,7 +364,8 @@ export const sunnyLifts: LiftProduct[] = [
     category: "Cargo Lift",
     type: "cargo",
     brand: "Sunny",
-    image: "https://res.cloudinary.com/brotherslift/image/upload/v1759002841/download_l0xvnw.jpg",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1759002841/download_l0xvnw.jpg",
     loadCapacity: "1000kg-3000kg",
     platformSize: "1500x1800mm to 2500x2200mm",
     liftingHeight: "2-12 Floors",
@@ -227,7 +386,8 @@ export const fujiLifts: LiftProduct[] = [
     category: "Passenger Lift",
     type: "passenger",
     brand: "Fuji",
-    image: "https://res.cloudinary.com/brotherslift/image/upload/v1759002916/download_gyqrwm.jpg",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1759002916/download_gyqrwm.jpg",
     ratedCapacity: "450kg-1600kg (6-21 Persons)",
     floors: "2-60 Floors",
     speed: "1.0-10.0 m/s",
@@ -249,7 +409,8 @@ export const fujiLifts: LiftProduct[] = [
     category: "Hospital Lift",
     type: "hospital",
     brand: "Fuji",
-    image: "https://res.cloudinary.com/brotherslift/image/upload/v1759002916/download_gyqrwm.jpg",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1759002916/download_gyqrwm.jpg",
     capacity: "1000kg-3000kg (13-39 Persons)",
     hospitalStandards: "JIS A 4307, EN 81-70 Certified",
     emergencyFeatures: "Advanced Safety Systems, Emergency Operation",

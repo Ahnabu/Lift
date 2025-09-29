@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { projects } from "@/lib/data";
+import { projectsData } from "@/data/projects";
 import {
   X,
   ZoomIn,
@@ -15,7 +15,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 
-const categories = ["All", "Lift", "Generator"];
+const categories = ["All", "Lift"];
 
 interface CustomLightboxProps {
   isOpen: boolean;
@@ -253,22 +253,18 @@ export default function Projects() {
 
   const filteredProjects =
     activeCategory === "All"
-      ? projects
-      : projects.filter(
+      ? projectsData
+      : projectsData.filter(
           (project) =>
             project.category.toLowerCase() === activeCategory.toLowerCase()
         );
 
   const images = filteredProjects.map((project) => ({
     src: project.image,
-    alt: project.title,
-    title: project.title,
+    alt: project.name,
+    title: project.name,
   }));
 
-  const openLightbox = (index: number) => {
-    setLightboxIndex(index);
-    setLightboxOpen(true);
-  };
 
   const nextImage = () => {
     setLightboxIndex((prev) => (prev + 1) % images.length);
@@ -356,16 +352,16 @@ export default function Projects() {
           {filteredProjects.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
               {filteredProjects.map((project, index) => (
-                <div
+                <Link
                   key={project.id}
-                  className="group cursor-pointer h-full"
-                  onClick={() => openLightbox(index)}
+                  href={`/projects/${project.id}`}
+                  className="group cursor-pointer h-full block"
                 >
                   <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col">
                     <div className="aspect-[4/3] bg-gray-100 overflow-hidden relative flex-shrink-0">
                       <Image
                         src={project.image}
-                        alt={project.title}
+                        alt={project.name}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -377,7 +373,7 @@ export default function Projects() {
                         </span>
                       </div>
                       {/* Status Badge */}
-                      {project.completed && (
+                      {project.completedDate && (
                         <div className="absolute top-4 right-4 z-10">
                           <span className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                             Completed
@@ -398,7 +394,13 @@ export default function Projects() {
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
                                 strokeWidth={2}
-                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                              />
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
                               />
                             </svg>
                           </div>
@@ -408,7 +410,7 @@ export default function Projects() {
                     <div className="p-6 text-center flex-grow flex flex-col justify-between min-h-[140px]">
                       <div className="flex-grow">
                         <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-orange-500 transition-colors line-clamp-2 min-h-[3.5rem]">
-                          {project.title}
+                          {project.name}
                         </h3>
                       </div>
                       <div className="space-y-1">
@@ -420,7 +422,7 @@ export default function Projects() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           ) : (

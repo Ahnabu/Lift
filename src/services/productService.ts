@@ -1,5 +1,4 @@
 import { allProducts } from '@/data/allLifts';
-import { forkliftData } from '@/data/forklifts';
 import { Product, ProductCategory } from '@/types/products';
 import { ForkliftProduct } from '@/types/forklift';
 
@@ -13,7 +12,7 @@ export class ProductService {
     try {
       return new Promise((resolve) => {
         setTimeout(() => {
-          const allItems: AllProducts[] = [...allProducts, ...forkliftData];
+          const allItems: AllProducts[] = [...allProducts];
           resolve(allItems);
         }, 300);
       });
@@ -36,13 +35,6 @@ export class ProductService {
             return;
           }
           
-          // Search in forklifts
-          const foundForklift = forkliftData.find(forklift => forklift.itemCode === itemCode);
-          if (foundForklift) {
-            resolve(foundForklift);
-            return;
-          }
-          
           resolve(null);
         }, 300);
       });
@@ -62,20 +54,6 @@ export class ProductService {
       });
     } catch (error) {
       console.error('Error fetching lifts:', error);
-      throw error;
-    }
-  }
-
-  // Get forklifts only
-  static async getAllForklifts(): Promise<ForkliftProduct[]> {
-    try {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve(forkliftData);
-        }, 300);
-      });
-    } catch (error) {
-      console.error('Error fetching forklifts:', error);
       throw error;
     }
   }

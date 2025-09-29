@@ -1,368 +1,61 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { allProducts } from "@/data/allLifts";
-import { LiftImageGallery } from "@/components/LiftImageGallery";
-import { ContactInfoSection } from "@/components/ContactInfoSection";
-import { siteConfig } from "@/config/site";
+import CommonLiftPage from "@/components/CommonLiftPage";
+
+const fujiBrandConfig = {
+  name: "Fuji",
+  displayName: "Fuji",
+  heroImage:
+    "https://res.cloudinary.com/brotherslift/image/upload/v1758993190/IMG-20250927-WA0008_ldjlim.jpg",
+  description:
+    "Japanese precision engineering meets advanced AI technology. Fuji ZEPHYR series delivers ultra-high performance elevators with machine room-less design and earthquake emergency operation.",
+  brandColor: "purple" as const,
+  features: [
+    {
+      label: "Capacity Range",
+      value: "450kg - 3000kg",
+    },
+    {
+      label: "Speed Range",
+      value: "1.0 - 10.0 m/s",
+    },
+    {
+      label: "Floor Range",
+      value: "2 - 60 Floors",
+    },
+    {
+      label: "Special Features",
+      value: "AI Technology, Earthquake Safety",
+    },
+  ],
+  whyChoose: [
+    {
+      icon: "🤖",
+      title: "AI Technology",
+      description:
+        "Advanced VVVF with AI technology for predictive maintenance and optimization",
+    },
+    {
+      icon: "⚡",
+      title: "Ultra High Speed",
+      description:
+        "ZEPHYR technology enables ultra-high speeds up to 10.0 m/s for tall buildings",
+    },
+    {
+      icon: "🚨",
+      title: "Earthquake Safety",
+      description:
+        "Advanced earthquake emergency operation system with automatic safety protocols",
+    },
+    {
+      icon: "📋",
+      title: "Japanese Standards",
+      description:
+        "Certified to JIS A 4307 and global safety standards with precision engineering",
+    },
+  ],
+};
 
 export default function FujiLiftPage() {
-  const [lifts, setLifts] = useState<any[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  // Fuji lift images from various sources
-  const fujiLiftImages = [
-    {
-      id: "fuji-1",
-      url: "https://cdn.bdstall.com/product-image/giant_266200.jpg",
-      title: "Fuji 630 Kg 8-Person Passenger Elevator",
-      description:
-        "Premium passenger elevator with stainless steel finish and advanced safety features",
-    },
-    {
-      id: "fuji-2",
-      url: "https://cdn.bdstall.com/product-image/giant_266201.jpg",
-      title: "Fuji Elevator Control Panel",
-      description: "Advanced microprocessor control system with touch buttons",
-    },
-    {
-      id: "fuji-3",
-      url: "https://cdn.bdstall.com/product-image/giant_266202.jpg",
-      title: "Fuji Elevator Interior",
-      description: "Mirror etching stainless steel 304 cabin with LED lighting",
-    },
-    {
-      id: "fuji-4",
-      url: "https://cdn.bdstall.com/product-image/giant_266203.jpg",
-      title: "Fuji Elevator Door System",
-      description: "Automatic center opening doors with safety sensors",
-    },
-    {
-      id: "fuji-5",
-      url: "https://images.unsplash.com/photo-1587373381713-3e9183c9e406?w=800&h=600&fit=crop",
-      title: "Fuji Machine Room Equipment",
-      description: "Gearless traction machine with energy-efficient motor",
-    },
-    {
-      id: "fuji-6",
-      url: "https://res.cloudinary.com/brotherslift/image/upload/v1758993190/IMG-20250927-WA0008_ldjlim.jpg",
-      title: "Fuji Building Installation",
-      description: "Professional installation in modern commercial building",
-    },
-  ];
-
-  useEffect(() => {
-    // Filter Fuji lifts
-    const fujiLifts = allProducts.filter((lift) => lift.brand === "Fuji");
-    setLifts(fujiLifts);
-    setIsLoading(false);
-  }, []);
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-400 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading Fuji lifts...</p>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <div className="relative h-96 flex items-center justify-center text-white overflow-hidden z-10 fuji-hero-bg">
-        <div className="absolute inset-0 bg-cover bg-center moving-bg fuji-hero-image" />
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative max-w-[1320px] mx-auto px-4 h-full flex items-center justify-center z-20">
-          <div className="text-center text-white">
-            <h1 className="text-5xl font-bold mb-4">Fuji</h1>
-            <p className="text-xl max-w-3xl mx-auto">
-              Japanese precision engineering meets advanced AI technology. Fuji
-              ZEPHYR series delivers ultra-high performance elevators with
-              machine room-less design and earthquake emergency operation.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div className="max-w-[1320px] mx-auto px-4 py-12">
-        <div className="max-w-7xl mx-auto">
-          {/* Breadcrumb */}
-          <nav className="mb-8">
-            <ol className="flex items-center space-x-2 text-sm text-gray-600">
-              <li>
-                <Link href="/" className="hover:text-orange-400">
-                  Home
-                </Link>
-              </li>
-              <li className="text-gray-400">&gt;</li>
-              <li>
-                <Link href="/products" className="hover:text-orange-400">
-                  Products
-                </Link>
-              </li>
-
-              <li className="text-gray-400">&gt;</li>
-              <li className="text-gray-800 font-medium">Fuji</li>
-            </ol>
-          </nav>
-
-          {/* Brand Overview */}
-          <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <h2 className="text-3xl font-bold text-gray-800 mb-4">
-                  Fuji - Japanese Precision
-                </h2>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Fuji represents the pinnacle of Japanese elevator technology,
-                  combining precision engineering with AI-driven controls. Our
-                  ZEPHYR series features ultra-high-speed capabilities, machine
-                  room-less technology, and specialized earthquake emergency
-                  operation systems. From luxury passenger elevators to advanced
-                  medical lifts, Fuji delivers uncompromising quality and
-                  innovation.
-                </p>
-
-                <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
-                  <div className="bg-purple-50 p-4 rounded">
-                    <h4 className="font-semibold text-purple-800 mb-2">
-                      Capacity Range
-                    </h4>
-                    <p className="text-purple-600">450kg - 3000kg</p>
-                  </div>
-                  <div className="bg-indigo-50 p-4 rounded">
-                    <h4 className="font-semibold text-indigo-800 mb-2">
-                      Speed Range
-                    </h4>
-                    <p className="text-indigo-600">1.0 - 10.0 m/s</p>
-                  </div>
-                  <div className="bg-pink-50 p-4 rounded">
-                    <h4 className="font-semibold text-pink-800 mb-2">
-                      Floor Range
-                    </h4>
-                    <p className="text-pink-600">2 - 60 Floors</p>
-                  </div>
-                  <div className="bg-blue-50 p-4 rounded">
-                    <h4 className="font-semibold text-blue-800 mb-2">
-                      Special Features
-                    </h4>
-                    <p className="text-blue-600">
-                      AI Technology, Earthquake Safety
-                    </p>
-                  </div>
-                </div>
-
-                <ContactInfoSection brand="Fuji" brandColor="indigo" />
-              </div>
-              <div>
-                <LiftImageGallery images={fujiLiftImages} brand="Fuji" />
-              </div>
-            </div>
-          </div>
-
-          {/* Products Grid */}
-          <h2 className="text-3xl font-bold text-gray-800 mb-8">
-            Our Products
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {lifts.map((lift) => (
-              <Link
-                key={lift.id}
-                href={`/product/${lift.itemCode}`}
-                className="group cursor-pointer"
-              >
-                <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full">
-                  <div className="h-48 bg-gradient-to-r from-purple-500 to-indigo-600 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-black bg-opacity-20"></div>
-                    <Image
-                      src={lift.image}
-                      alt={lift.name}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <span className="bg-white text-purple-600 text-xs font-bold px-3 py-1 rounded-full">
-                        {lift.type.toUpperCase()}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="p-6 flex flex-col h-[calc(100%-12rem)]">
-                    <div className="bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded mb-3 inline-block w-fit">
-                      FUJI
-                    </div>
-                    <h4 className="text-xl font-semibold text-gray-800 mb-2 group-hover:text-purple-600 transition-colors">
-                      {lift.name}
-                    </h4>
-                    <p className="text-gray-600 text-sm mb-3 flex-grow">
-                      {lift.type === "passenger" &&
-                        "ratedCapacity" in lift &&
-                        lift.ratedCapacity}
-                      {lift.type === "hospital" &&
-                        "capacity" in lift &&
-                        lift.capacity}
-                      {lift.type === "cargo" &&
-                        "loadCapacity" in lift &&
-                        lift.loadCapacity}
-                    </p>
-                    <div className="flex items-center text-purple-600 text-sm font-medium mt-auto">
-                      View Details
-                      <svg
-                        className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          {/* Features Section */}
-          <div className="mt-16 bg-white rounded-lg shadow-lg p-8">
-            <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-              Why Choose Fuji Lifts?
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-purple-100 rounded-full flex items-center justify-center">
-                  <svg
-                    className="w-8 h-8 text-purple-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                  AI Technology
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  Advanced VVVF with AI technology for predictive maintenance
-                  and optimization
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-indigo-100 rounded-full flex items-center justify-center">
-                  <svg
-                    className="w-8 h-8 text-indigo-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 10V3L4 14h7v7l9-11h-7z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                  Ultra High Speed
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  ZEPHYR technology enables ultra-high speeds up to 10.0 m/s for
-                  tall buildings
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-pink-100 rounded-full flex items-center justify-center">
-                  <svg
-                    className="w-8 h-8 text-pink-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                  Earthquake Safety
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  Advanced earthquake emergency operation system with automatic
-                  safety protocols
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
-                  <svg
-                    className="w-8 h-8 text-blue-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                  Japanese Standards
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  Certified to JIS A 4307 and global safety standards with
-                  precision engineering
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Call to Action */}
-          <div className="mt-16 bg-gradient-to-r from-purple-600 to-indigo-700 rounded-lg shadow-lg p-8 text-center text-white">
-            <h2 className="text-3xl font-bold mb-4">
-              Experience Japanese Excellence
-            </h2>
-            <p className="text-xl mb-6 max-w-3xl mx-auto">
-              Elevate your building with Fuji precision engineering and
-              cutting-edge technology. Contact us today.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact-us"
-                className="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-              >
-                Get Quote
-              </Link>
-              <Link
-                href={`tel:${siteConfig.contact.phone}`}
-                className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition-colors"
-              >
-                Call Now
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  return <CommonLiftPage brandConfig={fujiBrandConfig} />;
 }

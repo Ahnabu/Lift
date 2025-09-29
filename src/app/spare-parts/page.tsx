@@ -3,79 +3,95 @@
 import Link from "next/link";
 import Image from "next/image";
 
-// Spare parts data based on the image provided
+// Spare parts data with high-quality images
 const sparePartsData = [
   {
     id: "avr",
     name: "AVR",
-    image: "/placeholder-lift.jpg",
-    description: "Automatic Voltage Regulator",
+    image:
+      "https://image.made-in-china.com/202f0j00dbqcpKTjyZzA/Elevator-Use-Three-Phase-AVR-10kVA-Servo-Control-Voltage-Regulator-Voltage-Stabilizer.webp",
+    description:
+      "Automatic Voltage Regulator - Stabilizes power supply for smooth elevator operation",
   },
   {
     id: "ard",
     name: "ARD",
-    image: "/placeholder-lift.jpg",
-    description: "Automatic Rescue Device",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp0uJJiXfFBQ4Mv_mHMjRzalOYz4ohOpt6hxAUzO9lFSk3Aj4wy2lw50fXmyOdkKVcSKk&usqp=CAU",
+    description:
+      "Automatic Rescue Device - Emergency power backup system for passenger safety",
   },
   {
     id: "controller",
     name: "Controller",
-    image: "/placeholder-lift.jpg",
-    description: "Lift Control System",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4vKvbAUZfoZzAI0XUAq3_a_lAc5p8D_9Ojg&s",
+    description:
+      "Lift Control System - Advanced microprocessor-based elevator controller",
   },
   {
     id: "door-operator",
     name: "Door Operator",
-    image: "/placeholder-lift.jpg",
-    description: "Automatic Door Opening System",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1758805528/DSC03714-min_blxqhr.jpg",
+    description:
+      "Automatic Door Opening System - Smooth and reliable door operation mechanism",
   },
   {
     id: "door-hanger",
     name: "Door Hanger",
-    image: "/placeholder-lift.jpg",
-    description: "Door Mounting Hardware",
+    image:
+      "https://s.alicdn.com/@sc04/kf/H3799085ecd6944ebbd73c3c9a468e5d7r/Lift-Door-Heavy-Duty-Flap-Hydraulic-Support-Soft-Close-System-Hardware-Swing-Lift-up-Cabinet-Vertical-Mechanism-for-Kitchen.jpg_600x600.jpg",
+    description:
+      "Door Mounting Hardware - Precision engineered door suspension system",
   },
   {
     id: "door-inverter",
     name: "Door Inverter",
-    image: "/placeholder-lift.jpg",
-    description: "Door Motor Control Unit",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1759074708/1705025471681_mxilyk.jpg",
+    description:
+      "Door Motor Control Unit - Variable frequency drive for door motor control",
   },
   {
     id: "gearless-traction-machine",
     name: "Gearless Traction Machine",
-    image: "/placeholder-lift.jpg",
-    description: "Main Lifting Motor",
-  },
-  {
-    id: "traction-machine",
-    name: "Traction Machine",
-    image: "/placeholder-lift.jpg",
-    description: "Mechanical Lifting System",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1758889504/DSC03748-min_uenpmv.jpg",
+    description:
+      "Main Lifting Motor - High-efficiency permanent magnet synchronous motor",
   },
   {
     id: "speed-governor",
     name: "Speed Governor",
-    image: "/placeholder-lift.jpg",
-    description: "Safety Speed Control Device",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1759075015/download_vsyo44.jpg",
+    description:
+      "Safety Speed Control Device - Overspeed protection system for passenger safety",
   },
   {
     id: "cop-lop",
     name: "COP & LOP",
-    image: "/placeholder-lift.jpg",
-    description: "Car & Landing Operating Panels",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1758889502/DSC03768-min_dci2yn.jpg",
+    description:
+      "Car & Landing Operating Panels - User-friendly control interfaces",
   },
   {
     id: "suspension-rod",
     name: "Suspension Rod",
-    image: "/placeholder-lift.jpg",
-    description: "Car Suspension Component",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1759075268/download_dm5b0d.jpg",
+    description:
+      "Car Suspension Component - High-strength steel suspension system",
   },
   {
     id: "steel-rope",
     name: "Steel Rope",
-    image: "/placeholder-lift.jpg",
-    description: "High-Strength Lifting Cable",
+    image:
+      "https://res.cloudinary.com/brotherslift/image/upload/v1759075348/images_ukiqyg.jpg",
+    description:
+      "High-Strength Lifting Cable - Premium grade steel wire ropes for reliable operation",
   },
 ];
 

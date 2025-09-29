@@ -246,7 +246,7 @@ export const homeOfferings = [
     description:
       "High-quality generators providing reliable backup power for all your lift systems and building needs.",
     image:
-      "https://res.cloudinary.com/brotherslift/image/upload/v1758993189/IMG-20250927-WA0007_qub413.jpg",
+      "https://res.cloudinary.com/brotherslift/image/upload/v1759083829/download_mrkqv3.jpg",
     type: "product",
     href: "/products/generator",
     category: "generator",
