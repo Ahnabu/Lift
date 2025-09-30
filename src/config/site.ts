@@ -3,13 +3,9 @@ export const siteConfig = {
   description:
     "Best Lift Company in Bangladesh - Quality lifts for all properties, from personal family houses to high-rise apartments.",
   url:
-    process.env.NODE_ENV === "production"
-      ? "https://propertylifts.com"
-      : "http://localhost:3000",
+      "https://brotherslifttechnology.com",
   ogImage:
-    process.env.NODE_ENV === "production"
-      ? "https://propertylifts.com/og.jpg"
-      : "https://res.cloudinary.com/brotherslift/image/upload/v1758993190/IMG-20250927-WA0008_ldjlim.jpg",
+    "https://res.cloudinary.com/brotherslift/image/upload/v1759174303/favicon-removebg-preview_glnxnv.png",
   links: {
     facebook: "https://www.facebook.com/profile.php?id=61578739861772",
   },

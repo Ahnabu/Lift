@@ -8,7 +8,7 @@
   "theme_color": "#fb9260",
   "icons": [
     {
-      "src": "/src/app/favicon.ico",
+      "src": "https://res.cloudinary.com/brotherslift/image/upload/v1759174303/favicon-removebg-preview_glnxnv.png",
       "sizes": "any",
       "type": "image/x-icon"
     }
