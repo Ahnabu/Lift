@@ -110,7 +110,7 @@ export default function GeneratorPage() {
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                   <div className="aspect-square bg-gray-100 overflow-hidden">
                     <Image
-                      src="/dummy_rectangular.jfif"
+                      src={generator.image}
                       alt={generator.name}
                       width={400}
                       height={400}

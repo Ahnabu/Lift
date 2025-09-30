@@ -108,7 +108,7 @@ export const projectsData: ProjectData[] = [
       },
       {
         id: "lr-bhaban-14",
-        url: "hhttps://res.cloudinary.com/brotherslift/image/upload/v1758805522/DSC03642-min_zsiozj.jpg",
+        url: "https://res.cloudinary.com/brotherslift/image/upload/v1758805522/DSC03642-min_zsiozj.jpg",
         title: "LR Bhaban ",
         description: "",
       },

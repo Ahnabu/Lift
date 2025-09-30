@@ -64,14 +64,14 @@ const productCategories = [
     icon: Zap,
     href: "/products/generator",
     image:
-      "https://res.cloudinary.com/brotherslift/image/upload/v1758993189/IMG-20250927-WA0007_qub413.jpg",
+      "https://res.cloudinary.com/brotherslift/image/upload/v1759215872/eng1-scaled_pntrwx.jpg",
     brands: [
       {
         name: "Industrial Generators",
         description: "High-capacity power backup systems",
         href: "/products/generator",
         image:
-          "https://res.cloudinary.com/brotherslift/image/upload/v1758993189/IMG-20250927-WA0007_qub413.jpg",
+          "https://res.cloudinary.com/brotherslift/image/upload/v1759215872/eng1-scaled_pntrwx.jpg",
       },
     ],
   },
