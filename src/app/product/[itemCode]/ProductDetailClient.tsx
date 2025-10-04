@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useState, useEffect } from "react";
@@ -6,7 +7,7 @@ import Image from "next/image";
 
 import { LiftService } from "@/services/enhancedLiftService";
 import { GeneratorService } from "@/services/generatorService";
-
+import { brandImages } from "@/data/allLifts";
 
 import { Product } from "@/types/products";
 import { ForkliftProduct } from "@/types/forklift";
@@ -50,6 +51,8 @@ export default function ProductDetailClient({
   const [relatedProducts, setRelatedProducts] = useState<AllProductTypes[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [gallery, setGallery] = useState<string[]>([]);
+  const [activeImage, setActiveImage] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -65,6 +68,11 @@ export default function ProductDetailClient({
         );
         if (foundLiftProduct) {
           setProduct(foundLiftProduct);
+          // try load gallery images for the brand
+          const brand = (foundLiftProduct as Product).brand || "";
+          const galleryImages = getImagesForBrand(brand);
+          setGallery(galleryImages);
+          setActiveImage(galleryImages[0] || foundLiftProduct.image || "/dummy_rectangular.jfif");
           const allLiftProducts = await LiftService.getAllProducts();
           const related = allLiftProducts
             .filter(
@@ -84,6 +92,10 @@ export default function ProductDetailClient({
         );
         if (foundGenerator) {
           setProduct(foundGenerator);
+          const brand = (foundGenerator as GeneratorProduct).brand || "";
+          const galleryImages = getImagesForBrand(brand);
+          setGallery(galleryImages);
+          setActiveImage(galleryImages[0] || foundGenerator.image || "/dummy_rectangular.jfif");
           const related = await GeneratorService.getRelatedGenerators(
             itemCode,
             3
@@ -103,6 +115,29 @@ export default function ProductDetailClient({
 
     fetchProduct();
   }, [itemCode]);
+
+  useEffect(() => {
+    // ensure activeImage fallback when product changes
+    if (!product) return;
+    if (!activeImage) {
+      const prod = product as
+        | Product
+        | ForkliftProduct
+        | GeneratorProduct
+        | HVACProduct
+        | StreetLightProduct
+        | SolarProduct;
+      const brand = prod.brand || "";
+      const galleryImages = getImagesForBrand(brand);
+      setGallery(galleryImages);
+      const prodImage = (prod as { image?: string }).image;
+      setActiveImage(
+        galleryImages[0] ||
+          prodImage ||
+          "https://res.cloudinary.com/brotherslift/image/upload/v1759002409/Hidoks.jpg"
+      );
+    }
+  }, [product, activeImage]);
 
   const renderSpecifications = () => {
     if (!product) return null;
@@ -159,6 +194,80 @@ export default function ProductDetailClient({
       default:
         return null;
     }
+  };
+
+  const getImagesForBrand = (brandName?: string) => {
+    if (!brandName) return [];
+    // brandImages keys may be e.g. "Brother's Lift Technology" or simple brand names
+    type BrandImage = { url: string };
+    const imagesMap = brandImages as Record<string, BrandImage[]>;
+    const direct = imagesMap[brandName];
+    if (direct && direct.length > 0) {
+      return direct.map((i) => i.url);
+    }
+    // try normalized match
+    const normalized = brandName.toLowerCase().replace(/[^a-z0-9]/g, "").trim();
+    for (const key of Object.keys(imagesMap)) {
+      const k = key.toLowerCase().replace(/[^a-z0-9]/g, "").trim();
+      if (k === normalized) {
+        const imgs = imagesMap[key];
+        if (imgs && imgs.length > 0) return imgs.map((i) => i.url);
+      }
+    }
+    // fallback set of useful lift images (public CDN)
+    return [
+      "https://res.cloudinary.com/brotherslift/image/upload/v1758993189/IMG-20250927-WA0007_qub413.jpg",
+      "https://res.cloudinary.com/brotherslift/image/upload/v1758993190/IMG-20250927-WA0008_ldjlim.jpg",
+      "https://res.cloudinary.com/brotherslift/image/upload/v1759002409/Hidoks.jpg",
+    ];
+  };
+
+  const renderLiftSpecs = (p: Product) => {
+    const rows: { label: string; value?: Product[keyof Product] | any }[] = [];
+    // allow keys that may not be declared on Product (some lift fields live outside the base Product type)
+    const push = (label: string, key?: keyof Product | string) => {
+      // use an any cast to safely index dynamic keys without TypeScript errors
+      const v = key ? (p as any)[key as any] : undefined;
+      if (v !== undefined) {
+        if (typeof v === "string") {
+          if (v !== "?" && v !== "") rows.push({ label, value: v });
+        } else {
+          rows.push({ label, value: v });
+        }
+      }
+    };
+
+    push("Rated Capacity", "ratedCapacity");
+    push("Rated Speed", "speed");
+    push("Floors", "floors");
+    push("Control", "control");
+    push("Drive System", "driveSystem");
+    push("Traction Machine", "tractionMachine");
+    push("Machine Room", "machineRoomSize");
+    push("Car Entrances", "carEntrances");
+    push("Door Type", "doorOpeningType");
+    push("Main Power", "mainPowerSupply");
+    push("Car Dimensions", "carDimensions");
+    push("Pit Depth", "pitDepth");
+    push("Overhead", "overhead");
+    push("Load Capacity", "loadCapacity");
+    push("Platform Size", "platformSize");
+    push("Lifting Height", "liftingHeight");
+    push("Hospital Capacity", "capacity");
+    push("Certifications", "certifications");
+
+    if (rows.length === 0) return null;
+
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
+        {rows.map((r, idx) => (
+          <div key={idx} className="flex items-start space-x-3">
+            <div className="text-sm text-gray-500 w-36">{r.label}</div>
+            <div className="text-sm text-gray-800 font-medium">{r.value}</div>
+          </div>
+        ))}
+      </div>
+    );
   };
 
   const renderAdditionalInfo = () => {
@@ -275,18 +384,50 @@ export default function ProductDetailClient({
           <div className="bg-white rounded-lg shadow-lg overflow-hidden mb-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
               <div className="space-y-4">
-                <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
+                <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden relative">
                   <Image
-                    src={getProductImage()}
+                    src={activeImage || getProductImage()}
                     alt={getProductName()}
-                    width={500}
-                    height={500}
+                    width={700}
+                    height={700}
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       (e.currentTarget as HTMLImageElement).src =
                         "/dummy_rectangular.jfif";
                     }}
                   />
+                  <div className="absolute top-3 right-3 bg-black/40 text-white text-xs px-2 py-1 rounded">
+                    {product?.brand}
+                  </div>
+                </div>
+
+                {/* Thumbnails / gallery */}
+                <div className="flex items-center gap-3 overflow-x-auto">
+                  {gallery && gallery.length > 0 ? (
+                    gallery.map((g, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setActiveImage(g)}
+                        className={`w-20 h-20 rounded-md overflow-hidden border ${
+                          activeImage === g ? "ring-2 ring-orange-400" : "border-gray-200"
+                        }`}
+                        aria-label={`Show image ${i + 1}`}
+                      >
+                        <Image
+                          src={g}
+                          alt={`${getProductName()} image ${i + 1}`}
+                          width={80}
+                          height={80}
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            (e.currentTarget as HTMLImageElement).src = "/dummy_rectangular.jfif";
+                          }}
+                        />
+                      </button>
+                    ))
+                  ) : (
+                    <div className="text-sm text-gray-500">No images available</div>
+                  )}
                 </div>
               </div>
 
@@ -317,7 +458,23 @@ export default function ProductDetailClient({
                   </div>
                 </div>
 
-                {renderSpecifications() && <div>{renderSpecifications()}</div>}
+                {/* If this is a lift product render a compact spec grid, otherwise use existing detailed spec components */}
+                {product && "type" in product && [
+                  "passenger",
+                  "capsule",
+                  "hospital",
+                  "cargo",
+                  "escalator",
+                  "imported",
+                ].includes((product as Product).type) ? (
+                  <div>
+                    {renderLiftSpecs(product as Product)}
+                    {/* keep the detailed spec components below for deeper info */}
+                    <div className="mt-6">{renderSpecifications()}</div>
+                  </div>
+                ) : (
+                  renderSpecifications() && <div>{renderSpecifications()}</div>
+                )}
               </div>
             </div>
           </div>

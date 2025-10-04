@@ -26,33 +26,36 @@ const productCategories = [
         name: "Hidoks - Turkey",
         description: "Turkish engineering excellence",
         href: "/products/lift/hidoks",
-        image: "https://cdn.bdstall.com/product-image/giant_266201.jpg",
+        image:
+          "https://res.cloudinary.com/brotherslift/image/upload/v1759002409/Hidoks.jpg",
       },
       {
         name: "Otis - China",
         description: "Global elevator leader",
         href: "/products/lift/otis",
-        image: "https://cdn.bdstall.com/product-image/giant_266202.jpg",
+        image:
+          "https://res.cloudinary.com/brotherslift/image/upload/v1759002566/OTis%20-%20China.webp",
       },
       {
         name: "LG - Sino Korea",
         description: "Korean innovation",
         href: "/products/lift/lg",
-        image: "https://cdn.bdstall.com/product-image/giant_266203.jpg",
+        image:
+          "https://res.cloudinary.com/brotherslift/image/upload/v1759002750/giant_331619_arpvvq.jpg",
       },
       {
         name: "Sunny Lifts",
         description: "Economic excellence",
         href: "/products/lift/sunny",
         image:
-          "https://images.unsplash.com/photo-1587373381713-3e9183c9e406?w=400&h=300&fit=crop",
+          "https://res.cloudinary.com/brotherslift/image/upload/v1759002841/download_l0xvnw.jpg",
       },
       {
         name: "Fuji Lifts",
         description: "Japanese precision",
         href: "/products/lift/fuji",
         image:
-          "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&h=300&fit=crop",
+          "https://res.cloudinary.com/brotherslift/image/upload/v1759002916/download_gyqrwm.jpg",
       },
     ],
   },
