@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { siteConfig } from "@/config/site";
-import { Analytics } from "@vercel/analytics/next"
+// import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 
 const geistSans = Geist({
@@ -28,10 +28,37 @@ export const metadata: Metadata = {
     "Elevator Installation",
     "Generator Solutions",
     "HVAC Systems",
-    "Solar Energy",
-    "Forklift Services",
     "Best Lift Company",
     "Dhaka Lifts",
+    "Bangladesh Elevators",
+    "Lift Maintenance",
+    "Commercial Elevators",
+    "Residential Elevators",
+    "Industrial Elevators",
+    "Lift Modernization",
+    "Lift Repair Services",
+    "Energy-Efficient Lifts",
+    "Custom Elevator Solutions",
+    "Lift Safety Systems",  
+    "Lift Parts and Accessories",
+    "Lift Consultancy",
+    "Lift Design Services",
+    "Lift Industry Experts",
+    "Lift Technology Innovations",
+    "Lift System Integration",  
+    "Lift Automation",
+    "Lift Performance Optimization",
+    "Lift Compliance and Standards",
+    "Lift Project Management",
+    "Lift Upgrades",
+    "Lift Troubleshooting",
+    "Lift Emergency Services",
+    "Lift Customer Support",
+    "Lift Installation Experts",
+    "Lift Service Contracts",
+    'Lifts in Bangladesh',
+    'Lift Services Dhaka',
+    
   ],
   authors: [
     {
@@ -86,7 +113,6 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
-        <Analytics />
       </body>
     </html>
   );
