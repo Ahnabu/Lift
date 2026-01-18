@@ -91,7 +91,7 @@ export const services: Service[] = [
     id: "24-7-service",
     title: "24/7 SERVICE",
     description:
-      "The one-stop call center +8801920-883427 has a solution for emergency, complaints exploration, installation, pay ladder, use, maintenance and other services.",
+      "The one-stop call center +8801111-111111 has a solution for emergency, complaints exploration, installation, pay ladder, use, maintenance and other services.",
     icon: "Clock",
     features: [
       "24/7 Emergency Support",

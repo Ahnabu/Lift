@@ -15,11 +15,11 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/company/property-lifts",
   },
   contact: {
-    phone: "+8801920-883427",
-    email: "wahid2487@gmail.com",
+    phone: "+8801111-111111",
+    email: "syedmdabuhoraira@gmail.com",
     address:
       "House # 447/C, Road # 08(3rd Floor), D.I.T Road, Malibagh, Dhaka-1217",
-    emergency: "+8801920-883427",
+    emergency: "+8801111-111111",
   },
 };
 

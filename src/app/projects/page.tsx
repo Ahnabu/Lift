@@ -458,10 +458,10 @@ export default function Projects() {
                 Get Free Consultation
               </Link>
               <Link
-                href="tel:+8801920-883427"
+                href="tel:+8801111-111111"
                 className="bg-gray-100 text-gray-800 px-8 py-3 rounded-lg hover:bg-gray-200 transition-colors font-medium"
               >
-                Call: +8801920-883427
+                Call: +8801111-111111
               </Link>
             </div>
           </div>

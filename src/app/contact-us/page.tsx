@@ -232,17 +232,17 @@ export default function ContactUsPage() {
               <h3 className="text-lg font-bold text-gray-800 mb-4">PHONE</h3>
               <div className="space-y-2">
                 <Link
-                  href="tel:+8801920-883427"
+                  href="tel:+8801111-111111"
                   className="flex items-center text-orange-500 hover:text-orange-600 transition-colors"
                 >
                   <Phone className="w-4 h-4 mr-2" />
-                  +8801920-883427
+                  +8801111-111111
                 </Link>
                 <Link
-                  href="tel:+8801920-883427"
+                  href="tel:+8801111-111111"
                   className="flex items-center text-gray-600 text-sm"
                 >
-                  Emergency: +8801920-883427
+                  Emergency: +8801111-111111
                 </Link>
               </div>
             </div>
@@ -251,11 +251,11 @@ export default function ContactUsPage() {
             <div className="bg-white rounded-lg shadow-lg p-6">
               <h3 className="text-lg font-bold text-gray-800 mb-4">E-MAIL</h3>
               <Link
-                href="mailto:wahid2487@gmail.com"
+                href="mailto:syedmdabuhoraira@gmail.com"
                 className="flex items-center text-orange-500 hover:text-orange-600 transition-colors"
               >
                 <Mail className="w-4 h-4 mr-2" />
-                wahid2487@gmail.com
+                syedmdabuhoraira@gmail.com
               </Link>
             </div>
 

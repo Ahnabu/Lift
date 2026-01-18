@@ -2,6 +2,17 @@ import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { contactFormSchema } from '@/schemas/contact';
 
+// Handle GET requests (prevent 405 errors)
+export async function GET() {
+  return NextResponse.json(
+    { 
+      success: false, 
+      message: 'Method not allowed. Please use POST to submit the contact form.' 
+    },
+    { status: 405 }
+  );
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -106,7 +117,7 @@ export async function POST(request: NextRequest) {
     // Send email to business
     await transporter.sendMail({
       from: process.env.GMAIL_USER,
-      to: 'wahid2487@gmail.com',
+      to: 'syedmdabuhoraira@gmail.com',
       subject: `New Contact Form Submission from ${validatedData.name} - Brother's Lift Technology`,
       html: businessEmailContent,
       replyTo: validatedData.email,

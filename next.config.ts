@@ -10,7 +10,8 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  output: "export",
+  // Removed "export" mode to enable API routes
+  // If you need static export, you'll need to use an external API service for contact form
 };
 
 export default nextConfig;
