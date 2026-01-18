@@ -223,9 +223,9 @@ This project is private and proprietary.
 **Brother's Lift Technology**
 - **Phone**: +8801111-111111
 - **Email**: syedmdabuhoraira@gmail.com
-- **Address**: House # 447/C, Road # 08(3rd Floor), D.I.T Road, Malibagh, Dhaka-1217
-- **Facebook**: [Property Lifts BD](https://www.facebook.com/Propertyliftsbd)
-- **LinkedIn**: [Property Lifts](https://www.linkedin.com/company/property-lifts)
+- **Address**: D.I.T Road, Malibagh, Dhaka-1217
+- **Facebook**: [Property Lifts BD](https://www.facebook.com/horaira.abu.10)
+- **LinkedIn**: [Property Lifts](https://www.linkedin.com/sm-abu-horaira)
 
 ## 🙏 Acknowledgments
 
