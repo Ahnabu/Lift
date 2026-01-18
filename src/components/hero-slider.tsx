@@ -24,18 +24,18 @@ export function HeroSlider() {
         {sliderItems.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
-              }`}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
+            }`}
           >
             {/* Background */}
             <div
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+              className="absolute inset-0 bg-cover bg-center moving-bg "
               style={{
-                backgroundImage: `url('${slide.image || '/dummy_background.jpg'}')`,
+                backgroundImage: `url(${slide.image})`,
               }}
-            >
-              <div className="absolute inset-0 bg-black/40" />
-            </div>
+            />
+            <div className="absolute inset-0 bg-black/40"></div>
 
             {/* Content */}
             <div className="relative z-20 h-full flex items-center">

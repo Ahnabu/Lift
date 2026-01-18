@@ -51,7 +51,14 @@ export default function ContactUsPage() {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section with Moving Background */}
       <div className="relative h-96 flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/dummy_background.jpg')] bg-cover bg-center moving-bg opacity-40"></div>
+        <div
+          className="absolute inset-0 bg-cover bg-center moving-bg "
+          style={{
+            backgroundImage:
+              "url('https://res.cloudinary.com/brotherslift/image/upload/v1758993190/IMG-20250927-WA0008_ldjlim.jpg')",
+          }}
+        />
+        <div className="absolute inset-0 bg-black/20"></div>{" "}
         <div className="relative max-w-[1320px] mx-auto px-4 h-full flex items-center justify-center">
           <div className="text-center text-white">
             <h1 className="text-5xl font-bold mb-4">CONTACT US</h1>
@@ -209,21 +216,14 @@ export default function ContactUsPage() {
               </h3>
               <div className="flex space-x-4">
                 <Link
-                  href="https://www.facebook.com/Propertyliftsbd"
+                  href="https://www.facebook.com/profile.php?id=61578739861772"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors"
                 >
                   <Facebook className="w-5 h-5" />
                 </Link>
-                <Link
-                  href="https://www.linkedin.com/company/property-lifts"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-blue-700 text-white rounded-lg flex items-center justify-center hover:bg-blue-800 transition-colors"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </Link>
+               
               </div>
             </div>
 

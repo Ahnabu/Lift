@@ -3,16 +3,11 @@ export const siteConfig = {
   description:
     "Best Lift Company in Bangladesh - Quality lifts for all properties, from personal family houses to high-rise apartments.",
   url:
-    process.env.NODE_ENV === "production"
-      ? "https://propertylifts.com"
-      : "http://localhost:3000",
+      "https://brotherslifttechnology.com",
   ogImage:
-    process.env.NODE_ENV === "production"
-      ? "https://propertylifts.com/og.jpg"
-      : "http://localhost:3000/dummy_background.jpg",
+    "https://res.cloudinary.com/brotherslift/image/upload/v1759174303/favicon-removebg-preview_glnxnv.png",
   links: {
-    facebook: "https://www.facebook.com/Propertyliftsbd",
-    linkedin: "https://www.linkedin.com/company/property-lifts",
+    facebook: "https://www.facebook.com/profile.php?id=61578739861772",
   },
   contact: {
     phone: "+8801111-111111",
@@ -35,101 +30,41 @@ export const navigation = {
     },
     {
       title: "PRODUCTS",
-      href: "#",
+      href: "/products",
       children: [
         {
           title: "LIFT",
           href: "/products/lift",
           children: [
             {
-              title: "PASSENGER LIFT",
-              href: "/products/lift/passenger-lift",
+              title: "BLT LIFT",
+              href: "/products/lift/blt-lift",
             },
             {
-              title: "CAPSULE LIFT",
-              href: "/products/lift/capsule-lift",
+              title: "HIDOKS - TURKEY",
+              href: "/products/lift/hidoks",
             },
             {
-              title: "HOSPITAL LIFT",
-              href: "/products/lift/hospital-lift",
+              title: "OTIS - CHINA",
+              href: "/products/lift/otis",
             },
             {
-              title: "CARGO LIFT",
-              href: "/products/lift/cargo-lift",
+              title: "LG - SINO KOREA",
+              href: "/products/lift/lg",
             },
             {
-              title: "ESCALATOR",
-              href: "/products/lift/escalator",
+              title: "SUNNY",
+              href: "/products/lift/sunny",
             },
-            // {
-            //   title: "Brother's Lift Technology",
-            //   href: "#",
-            //   children: [
-            //     {
-            //       title: "PASSENGER LIFT",
-            //       href: "/products/lift/property-lifts/passenger-lift",
-            //     },
-            //     {
-            //       title: "CAPSULE LIFT",
-            //       href: "/products/lift/property-lifts/capsule-lift",
-            //     },
-            //     {
-            //       title: "HOSPITAL LIFT",
-            //       href: "/products/lift/property-lifts/hospital-lift",
-            //     },
-            //     {
-            //       title: "CARGO LIFT",
-            //       href: "/products/lift/property-lifts/cargo-lift",
-            //     },
-            //     {
-            //       title: "ESCALATOR",
-            //       href: "/products/lift/property-lifts/escalator",
-            //     },
-            //   ],
-            // },
             {
-              title: "IMPORTED LIFTS",
-              href: "#",
-              children: [
-                {
-                  title: "KONE",
-                  href: "/products/lift/imported-lifts/kone",
-                },
-                {
-                  title: "SRH",
-                  href: "/products/lift/imported-lifts/srh",
-                },
-                {
-                  title: "MP",
-                  href: "/products/lift/imported-lifts/mp",
-                },
-                {
-                  title: "SHANGHAI MITSUBISHI",
-                  href: "/products/lift/imported-lifts/shanghai-mitsubishi",
-                },
-              ],
+              title: "FUJI",
+              href: "/products/lift/fuji",
             },
           ],
         },
         {
-          title: "FORKLIFT",
-          href: "/products/forklift",
-        },
-        {
           title: "GENERATOR",
           href: "/products/generator",
-        },
-        {
-          title: "HVAC",
-          href: "/products/hvac",
-        },
-        {
-          title: "STREET LIGHT",
-          href: "/products/street-light",
-        },
-        {
-          title: "SOLAR",
-          href: "/products/solar",
         },
       ],
     },
@@ -140,24 +75,6 @@ export const navigation = {
     {
       title: "PROJECTS",
       href: "/projects",
-      // children: [
-      //   {
-      //     title: "LIFT",
-      //     href: "/projects/lift",
-      //   },
-      //   {
-      //     title: "FORKLIFT",
-      //     href: "/projects/forklift",
-      //   },
-      //   {
-      //     title: "GENERATOR",
-      //     href: "/projects/generator",
-      //   },
-      //   {
-      //     title: "HVAC",
-      //     href: "/projects/hvac",
-      //   },
-      // ],
     },
     {
       title: "MEDIA",
@@ -171,10 +88,7 @@ export const navigation = {
           title: "VIDEO GALLERY",
           href: "/media/video-gallery",
         },
-        {
-          title: "CATALOGUE",
-          href: "/media/catalogue",
-        },
+       
       ],
     },
     // {

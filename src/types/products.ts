@@ -13,13 +13,13 @@ export interface BaseProduct {
 
 // Passenger Lift
 export interface PassengerLift extends BaseProduct {
-  type: 'passenger';
+  type: "passenger";
   ratedCapacity: string;
   floors: string;
   speed: string;
   control: string;
   driveSystem: string;
-  tractionMachine: string;
+  tractionMachine?: string;
   machineRoomSize: string;
   carEntrances: string;
   doorOpeningType: string;
@@ -58,7 +58,7 @@ export interface HospitalLift extends BaseProduct {
 
 // Cargo Lift
 export interface CargoLift extends BaseProduct {
-  type: 'cargo';
+  type: "cargo";
   loadCapacity: string;
   platformSize: string;
   liftingHeight: string;
@@ -67,6 +67,21 @@ export interface CargoLift extends BaseProduct {
   operationType: string;
   construction: string;
   applications: string;
+  speed?: string;
+  driveSystem?: string;
+  application?: string;
+  control?: string;
+  doorType?: string;
+  ratedCapacity?: string;
+  floors?: string;
+  tractionMachine?: string;
+  machineRoomSize?: string;
+  carEntrances?: string;
+  doorOpeningType?: string;
+  mainPowerSupply?: string;
+  carDimensions?: string;
+  pitDepth?: string;
+  overhead?: string;
 }
 
 // Escalator

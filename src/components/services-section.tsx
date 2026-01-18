@@ -137,13 +137,7 @@ export function ServicesSection() {
                   </ul>
                 </div>
 
-                <Link
-                  href="/services"
-                  className="inline-flex items-center group text-primary hover:text-primary/80 font-semibold"
-                >
-                  Learn more about our services
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                
               </div>
             )}
           </div>
