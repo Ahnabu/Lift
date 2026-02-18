@@ -18,12 +18,8 @@ const nextConfig: NextConfig = {
         source: "/:path*",
         headers: [
           {
-            key: "X-Frame-Options",
-            value: "SAMEORIGIN", // Allows embedding in same-origin iframes. Use "DENY" to block all iframes, or remove this header to allow all
-          },
-          {
             key: "Content-Security-Policy",
-            value: "frame-ancestors 'self'", // Allows embedding from same origin. Use "frame-ancestors 'none'" to block, or "frame-ancestors *" to allow all
+            value: "frame-ancestors *", // Allows embedding from any origin
           },
         ],
       },

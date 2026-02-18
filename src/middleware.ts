@@ -9,7 +9,6 @@ export function middleware(request: NextRequest) {
   
   // Add headers to help with tracking prevention warnings
   response.headers.set('X-Content-Type-Options', 'nosniff')
-  response.headers.set('X-Frame-Options', 'SAMEORIGIN')
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin')
   
   // For API routes, add CORS headers
